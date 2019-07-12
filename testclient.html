@@ -18,7 +18,7 @@
 				scriptEl.src = src.replace(/.*\/?data\//g, 'https://play.pokemonshowdown.com/data/');
 				document.head.appendChild(scriptEl);
 			}
-			var Config = {testclient: true};
+			var Config = {testclient: false};
 			(function() {
 				if (location.search !== '') {
 					var m = /\?~~(([^:\/]*)(:[0-9]*)?)/.exec(location.search);
