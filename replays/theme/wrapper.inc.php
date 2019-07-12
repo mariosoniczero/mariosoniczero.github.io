@@ -91,18 +91,18 @@ function ThemeFooterTemplate() {
 	<script>
 		soundManager.setup({url: '//play.pokemonshowdown.com/swf/'});
 	</script>
-	<script src="//play.pokemonshowdown.com/config/config.js?fb647589"></script>
-	<script src="//play.pokemonshowdown.com/js/battledata.js?0.46293485127939715"></script>
-	<script src="//play.pokemonshowdown.com/data/pokedex-mini.js?0.11996815449651721"></script>
-	<script src="//play.pokemonshowdown.com/data/pokedex-mini-bw.js?0.47634931644528233"></script>
-	<script src="//play.pokemonshowdown.com/data/graphics.js?0.5816540442234033"></script>
-	<script src="//play.pokemonshowdown.com/data/pokedex.js?975ef4c3"></script>
-	<script src="//play.pokemonshowdown.com/data/items.js?9cf8c5d0"></script>
+	<script src="//play.pokemonshowdown.com/config/config.js?49aa86dc"></script>
+	<script src="//play.pokemonshowdown.com/js/battledata.js?45d5d296"></script>
+	<script src="//play.pokemonshowdown.com/data/pokedex-mini.js?0.8101078405029616"></script>
+	<script src="//play.pokemonshowdown.com/data/pokedex-mini-bw.js?0.04953627172234443"></script>
+	<script src="//play.pokemonshowdown.com/data/graphics.js?f6938bfe"></script>
+	<script src="//play.pokemonshowdown.com/data/pokedex.js?51564a71"></script>
+	<script src="//play.pokemonshowdown.com/data/items.js?5dbec682"></script>
 	<script src="//play.pokemonshowdown.com/data/moves.js?3e01fb68"></script>
-	<script src="//play.pokemonshowdown.com/data/abilities.js?e19b94ba"></script>
-	<script src="//play.pokemonshowdown.com/data/teambuilder-tables.js?15641134"></script>
-	<script src="//play.pokemonshowdown.com/js/battle-tooltips.js?0.5524149299614207"></script>
-	<script src="//play.pokemonshowdown.com/js/battle.js?0.21313652997756738"></script>
+	<script src="//play.pokemonshowdown.com/data/abilities.js?b8b9b851"></script>
+	<script src="//play.pokemonshowdown.com/data/teambuilder-tables.js?5de4c07d"></script>
+	<script src="//play.pokemonshowdown.com/js/battle-tooltips.js?e4526495"></script>
+	<script src="//play.pokemonshowdown.com/js/battle.js?cb8619fe"></script>
 	<script src="/js/replay.js?b8f18361"></script>
 
 </body></html>
