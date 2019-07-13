@@ -216,9 +216,7 @@ statNames=['hp','atk','def','spa','spd','spe'];this.
 statNamesExceptHP=['atk','def','spa','spd','spe'];this.
 
 resourcePrefix=function(){
-var prefix='';
-if(!window.document||!document.location||document.location.protocol!=='http:')prefix='https:';
-return prefix+'//mariosoniczero.github.io/';
+return 'https://mariosoniczero.github.io/';
 }();this.
 
 fxPrefix=function(){
