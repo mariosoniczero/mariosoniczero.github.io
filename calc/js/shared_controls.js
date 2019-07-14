@@ -165,7 +165,7 @@ $(".ability").bind("keyup change", function () {
 
 	var ability = $(this).closest(".poke-info").find(".ability").val();
 
-	var TOGGLE_ABILITIES = ['Flash Fire', 'Intimidate', 'Minus', 'Plus', 'Slow Start', 'Unburden', 'Stakeout'];
+	var TOGGLE_ABILITIES = ['Flash Fire', 'Intimidate', 'Terrify', 'Minus', 'Plus', 'Slow Start', 'Unburden', 'Stakeout'];
 
 	if (TOGGLE_ABILITIES.indexOf(ability) >= 0) {
 		$(this).closest(".poke-info").find(".abilityToggle").show();
@@ -193,6 +193,10 @@ function autosetWeather(ability, i) {
 		$("#sun").prop("checked", true);
 		break;
 	case "Drizzle":
+		lastAutoWeather[i] = "Rain";
+		$("#rain").prop("checked", true);
+		break;
+	case "Thunderstorm":
 		lastAutoWeather[i] = "Rain";
 		$("#rain").prop("checked", true);
 		break;
@@ -236,6 +240,10 @@ function autosetTerrain(ability, i) {
 	$("input:checkbox[name='terrain']:checked").prop("checked", false);
 	switch (ability) {
 	case "Electric Surge":
+		lastAutoTerrain[i] = "Electric";
+		$("#electric").prop("checked", true);
+		break;
+	case "Thunderstorm":
 		lastAutoTerrain[i] = "Electric";
 		$("#electric").prop("checked", true);
 		break;

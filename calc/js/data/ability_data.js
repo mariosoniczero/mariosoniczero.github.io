@@ -235,5 +235,8 @@ var ABILITIES_SM = ABILITIES_XY.concat([
 	'Triage',
 	'Water Bubble',
 	'Water Compaction',
-	'Wimp Out'
+	'Wimp Out',
+	'Conflagrate',
+	'Terrify',
+	'Thunderstorm'
 ]);

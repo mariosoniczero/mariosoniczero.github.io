@@ -18,6 +18,8 @@ function CALCULATE_ALL_MOVES_BW(p1, p2, field) {
 	p2.stats[SP] = getFinalSpeed(p2, field, side2);
 	checkIntimidate(p1, p2);
 	checkIntimidate(p2, p1);
+	checkTerrify(p1, p2);
+	checkTerrify(p2, p1);
 	checkDownload(p1, p2);
 	checkDownload(p2, p1);
 	p1.stats[AT] = getModifiedStat(p1.rawStats[AT], p1.boosts[AT]);
@@ -51,6 +53,8 @@ function CALCULATE_MOVES_OF_ATTACKER_BW(attacker, defender, field) {
 	defender.stats[SP] = getFinalSpeed(defender, field, defenderSide);
 	checkIntimidate(attacker, defender);
 	checkIntimidate(defender, attacker);
+	checkTerrify(attacker, defender);
+	checkTerrify(defender, attacker);
 	checkDownload(attacker, defender);
 	attacker.stats[AT] = getModifiedStat(attacker.rawStats[AT], attacker.boosts[AT]);
 	attacker.stats[SA] = getModifiedStat(attacker.rawStats[SA], attacker.boosts[SA]);
@@ -126,6 +130,7 @@ function getDamageResult(attacker, defender, move, field) {
 	var isAerilate = false;
 	var isPixilate = false;
 	var isRefrigerate = false;
+	var isConflagrate = false;
 	var isGalvanize = false;
 	var isLiquidVoice = false;
 	var isNormalize = false;
@@ -135,6 +140,7 @@ function getDamageResult(attacker, defender, move, field) {
 		isAerilate = attacker.ability === "Aerilate" && move.type === "Normal";
 		isPixilate = attacker.ability === "Pixilate" && move.type === "Normal";
 		isRefrigerate = attacker.ability === "Refrigerate" && move.type === "Normal";
+		isConflagrate = attacker.ability === "Conflagrate" && move.type === "Normal";
 		isGalvanize = attacker.ability === "Galvanize" && move.type === "Normal";
 		isLiquidVoice = attacker.ability === "Liquid Voice" && move.isSound;
 		isNormalize = attacker.ability === "Normalize" && move.type;
@@ -148,10 +154,12 @@ function getDamageResult(attacker, defender, move, field) {
 			move.type = "Fairy";
 		} else if (isRefrigerate) {
 			move.type = "Ice";
+		} else if (isConflagrate) {
+			move.type = "Fire";
 		} else if (isNormalize) {
 			move.type = "Normal";
 		}
-		if (isGalvanize || isLiquidVoice || isPixilate || isRefrigerate || isAerilate || isNormalize) {
+		if (isGalvanize || isLiquidVoice || isPixilate || isRefrigerate || isAerilate || isConflagrate || isNormalize) {
 			description.attackerAbility = attacker.ability;
 		}
 	}
@@ -460,7 +468,7 @@ function getDamageResult(attacker, defender, move, field) {
 		description.isBattery = true;
 	}
 
-	if (isAerilate || isPixilate || isRefrigerate || isGalvanize || isNormalize) {
+	if (isAerilate || isPixilate || isRefrigerate || isConflagrate || isGalvanize || isNormalize) {
 		bpMods.push(gen >= 7 ? 0x1333 : 0x14CD);
 		description.attackerAbility = attacker.ability;
 	} else if ((attacker.hasAbility("Mega Launcher") && move.isPulse) ||
@@ -939,6 +947,18 @@ function checkIntimidate(source, target) {
 			target.boosts[AT] = Math.max(-6, target.boosts[AT] - 2);
 		} else {
 			target.boosts[AT] = Math.max(-6, target.boosts[AT] - 1);
+		}
+	}
+}
+
+function checkTerrify(source, target) {
+	if (source.ability === "Terrify" && source.abilityOn && !target.hasAbility("Clear Body", "White Smoke", "Hyper Cutter", "Full Metal Body")) {
+		if (target.hasAbility("Contrary", "Defiant")) {
+			target.boosts[SA] = Math.min(6, target.boosts[SA] + 1);
+		} else if (target.hasAbility("Simple")) {
+			target.boosts[SA] = Math.max(-6, target.boosts[SA] - 2);
+		} else {
+			target.boosts[SA] = Math.max(-6, target.boosts[SA] - 1);
 		}
 	}
 }
