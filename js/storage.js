@@ -1,4 +1,4 @@
-Config.origindomain = 'mariosoniczero.github.io';
+Config.origindomain = 'play.pokemonshowdown.com';
 // `defaultserver` specifies the server to use when the domain name in the
 // address bar is `Config.origindomain`.
 Config.defaultserver = {
