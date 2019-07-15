@@ -3,8 +3,8 @@ Config.origindomain = 'play.pokemonshowdown.com';
 // address bar is `Config.origindomain`.
 Config.defaultserver = {
 	id: 'showdown',
-	host: 'showdown-zero.herokuapp.com',
-	port: 443,
+	host: '107.23.138.153',
+	port: 8000,
 	httpport: 8000,
 	altport: 80,
 	registered: false
