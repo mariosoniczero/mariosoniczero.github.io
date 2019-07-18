@@ -13883,6 +13883,7 @@ var POKEDEX_SM = $.extend(true, {}, POKEDEX_XY, {
   },
   'Meganium-Mega': {
     t1: 'Grass',
+	t2: 'Fairy',
     bs: {
       hp: 80,
       at: 97,
@@ -13941,10 +13942,10 @@ var POKEDEX_SM = $.extend(true, {}, POKEDEX_XY, {
     t2: 'Ground',
     bs: {
       hp: 95,
-      at: 139,
-      df: 145,
-      sa: 85,
-      sd: 105,
+      at: 144,
+      df: 150,
+      sa: 55,
+      sd: 125,
       sp: 56,
     },
     w: 310.0,
