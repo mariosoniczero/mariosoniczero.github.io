@@ -4152,4 +4152,34 @@ var SETDEX_SM = {
 	"Snaelstrom": {
 		"CAP Pivot": {"level": 100, "evs": {"hp": 244, "df": 4, "sp": 252}, "nature": "Relaxed", "ability": "Poison Heal", "item": "Toxic Orb", "moves": ["Scald", "U-turn", "Spiky Shield", "Stealth Rock"]},
 	},
+	"Infernape-Mega": {
+		"Physical Attacker": {"level": 100, "evs": {"at": 252, "sp": 252, "sd": 4}, "nature": "Jolly", "ability": "Infiltrator", "moves": ["Flare Blitz", "Close Combat", "Gunk Shot", "Mach Punch"]},
+		"Special Attacker": {"level": 100, "evs": {"sa": 252, "sp": 252, "sd": 4}, "nature": "Timid", "ability": "Infiltrator", "moves": ["Fire Blast", "Focus Blast", "Grass Knot", "Vacuum Wave"]},
+		"Bulky Pivot": {"level": 100, "evs": {"hp": 248, "sp": 252, "sd": 8}, "nature": "Timid", "ability": "Infiltrator", "moves": ["Flamethrower", "U-turn", "Stealth Rock", "Slack Off"]},
+	},
+	"Empoleon-Mega": {
+		"Agility Sweeper": {"level": 100, "evs": {"sa": 252, "sp": 252, "sd": 4}, "nature": "Modest", "ability": "Thick Fat", "moves": ["Hydro Pump", "Flash Cannon", "Ice Beam", "Grass Knot"]},
+		"Special Wall": {"level": 100, "evs": {"hp": 248, "sd": 252, "df": 8}, "nature": "Calm", "ability": "Thick Fat", "moves": ["Scald", "Ice Beam", "Stealth Rock", "Defog"]},
+		"Physical Wall": {"level": 100, "evs": {"hp": 248, "df": 252, "sd": 8}, "nature": "Bold", "ability": "Thick Fat", "moves": ["Scald", "Ice Beam", "Stealth Rock", "Defog"]},
+	},
+	"Torterra-Mega": {
+		"Double Dance Sweeper": {"level": 100, "evs": {"at": 252, "sp": 252, "sd": 4}, "nature": "Adamant", "ability": "Solid Rock", "moves": ["Wood Hammer", "Earthquake", "Stone Edge", "Superpower"]},
+		"Physical Wall": {"level": 100, "evs": {"hp": 248, "df": 252, "sd": 8}, "nature": "Impish", "ability": "Solid Rock", "moves": ["Earthquake", "Seed Bomb", "Stealth Rock", "Synthesis"]},
+		"Special Wall": {"level": 100, "evs": {"hp": 248, "sd": 252, "df": 8}, "nature": "Careful", "ability": "Solid Rock", "moves": ["Earthquake", "Seed Bomb", "Stealth Rock", "Synthesis"]},		
+	},
+	"Typhlosion-Mega": {
+		"Physical Attacker": {"level": 100, "evs": {"at": 252, "sp": 252, "sd": 4}, "nature": "Jolly", "ability": "Reckless", "moves": ["Flare Blitz", "Wild Charge", "Earthquake", "Low Kick"]},
+		"Special Attacker": {"level": 100, "evs": {"sa": 252, "sp": 252, "sd": 4}, "nature": "Timid", "ability": "Reckless", "moves": ["Eruption", "Fire Blast", "Focus Blast", "Extrasensory"]},			
+	},
+	"Feraligatr-Mega": {
+		"Physical Sweeper": {"level": 100, "evs": {"at": 252, "sp": 252, "sd": 4}, "nature": "Jolly", "ability": "Sheer Force", "moves": ["Liquidation", "Ice Punch", "Earthquake", "Aqua Jet"]},
+	},
+	"Meganium-Mega": {
+		"Offensive Tank": {"level": 100, "evs": {"hp": 248, "sa": 252, "sd": 8}, "nature": "Modest", "ability": "Misty Surge", "moves": ["Giga Drain", "Nature Power", "Hidden Power Fire", "Synthesis"]},
+		"Physical Wall": {"level": 100, "evs": {"hp": 248, "df": 252, "sd": 8}, "nature": "Bold", "ability": "Misty Surge", "moves": ["Giga Drain", "Nature Power", "Leech Seed", "Protect"]},
+		"Special Wall": {"level": 100, "evs": {"hp": 248, "sd": 252, "df": 8}, "nature": "Calm", "ability": "Misty Surge", "moves": ["Giga Drain", "Nature Power", "Leech Seed", "Protect"]},
+	},
+	"Luxray-Mega": {
+		"Physical Attacker": {"level": 100, "evs": {"at": 252, "sp": 252, "sd": 4}, "nature": "Jolly", "ability": "Strong Jaw", "moves": ["Crunch", "Thunder Fang", "Ice Fang", "Fire Fang"]},
+	},
 };
