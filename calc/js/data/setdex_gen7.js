@@ -4159,13 +4159,13 @@ var SETDEX_SM = {
 	},
 	"Empoleon-Mega": {
 		"Agility Sweeper": {"level": 100, "evs": {"sa": 252, "sp": 252, "sd": 4}, "nature": "Modest", "ability": "Thick Fat", "moves": ["Hydro Pump", "Flash Cannon", "Ice Beam", "Grass Knot"]},
-		"Special Wall": {"level": 100, "evs": {"hp": 248, "sd": 252, "df": 8}, "nature": "Calm", "ability": "Thick Fat", "moves": ["Scald", "Ice Beam", "Stealth Rock", "Defog"]},
-		"Physical Wall": {"level": 100, "evs": {"hp": 248, "df": 252, "sd": 8}, "nature": "Bold", "ability": "Thick Fat", "moves": ["Scald", "Ice Beam", "Stealth Rock", "Defog"]},
+		"Specially Defensive": {"level": 100, "evs": {"hp": 248, "sd": 252, "df": 8}, "nature": "Calm", "ability": "Thick Fat", "moves": ["Scald", "Ice Beam", "Stealth Rock", "Defog"]},
+		"Physically Defensive": {"level": 100, "evs": {"hp": 248, "df": 252, "sd": 8}, "nature": "Bold", "ability": "Thick Fat", "moves": ["Scald", "Ice Beam", "Stealth Rock", "Defog"]},
 	},
 	"Torterra-Mega": {
 		"Double Dance Sweeper": {"level": 100, "evs": {"at": 252, "sp": 252, "sd": 4}, "nature": "Adamant", "ability": "Solid Rock", "moves": ["Wood Hammer", "Earthquake", "Stone Edge", "Superpower"]},
-		"Physical Wall": {"level": 100, "evs": {"hp": 248, "df": 252, "sd": 8}, "nature": "Impish", "ability": "Solid Rock", "moves": ["Earthquake", "Seed Bomb", "Stealth Rock", "Synthesis"]},
-		"Special Wall": {"level": 100, "evs": {"hp": 248, "sd": 252, "df": 8}, "nature": "Careful", "ability": "Solid Rock", "moves": ["Earthquake", "Seed Bomb", "Stealth Rock", "Synthesis"]},		
+		"Physically Defensive": {"level": 100, "evs": {"hp": 248, "df": 252, "sd": 8}, "nature": "Impish", "ability": "Solid Rock", "moves": ["Earthquake", "Seed Bomb", "Stealth Rock", "Synthesis"]},
+		"Specially Defensive": {"level": 100, "evs": {"hp": 248, "sd": 252, "df": 8}, "nature": "Careful", "ability": "Solid Rock", "moves": ["Earthquake", "Seed Bomb", "Stealth Rock", "Synthesis"]},		
 	},
 	"Typhlosion-Mega": {
 		"Physical Attacker": {"level": 100, "evs": {"at": 252, "sp": 252, "sd": 4}, "nature": "Jolly", "ability": "Reckless", "moves": ["Flare Blitz", "Wild Charge", "Earthquake", "Low Kick"]},
@@ -4176,10 +4176,23 @@ var SETDEX_SM = {
 	},
 	"Meganium-Mega": {
 		"Offensive Tank": {"level": 100, "evs": {"hp": 248, "sa": 252, "sd": 8}, "nature": "Modest", "ability": "Misty Surge", "moves": ["Giga Drain", "Nature Power", "Hidden Power Fire", "Synthesis"]},
-		"Physical Wall": {"level": 100, "evs": {"hp": 248, "df": 252, "sd": 8}, "nature": "Bold", "ability": "Misty Surge", "moves": ["Giga Drain", "Nature Power", "Leech Seed", "Protect"]},
-		"Special Wall": {"level": 100, "evs": {"hp": 248, "sd": 252, "df": 8}, "nature": "Calm", "ability": "Misty Surge", "moves": ["Giga Drain", "Nature Power", "Leech Seed", "Protect"]},
+		"Physically Defensive": {"level": 100, "evs": {"hp": 248, "df": 252, "sd": 8}, "nature": "Bold", "ability": "Misty Surge", "moves": ["Giga Drain", "Nature Power", "Leech Seed", "Protect"]},
+		"Specially Defensive": {"level": 100, "evs": {"hp": 248, "sd": 252, "df": 8}, "nature": "Calm", "ability": "Misty Surge", "moves": ["Giga Drain", "Nature Power", "Leech Seed", "Protect"]},
 	},
 	"Luxray-Mega": {
 		"Physical Attacker": {"level": 100, "evs": {"at": 252, "sp": 252, "sd": 4}, "nature": "Jolly", "ability": "Strong Jaw", "moves": ["Crunch", "Thunder Fang", "Ice Fang", "Fire Fang"]},
 	},
+	"Froslass-Mega": {
+		"Offensive Veil": {"level": 100, "evs": {"sa": 252, "sp": 252, "sd": 4}, "nature": "Timid", "ability": "Snow Warning", "moves": ["Blizzard", "Shadow Ball", "Hidden Power Fire", "Aurora Veil"]},		
+		"Support Veil": {"level": 100, "evs": {"hp": 248, "sp": 252, "sd": 8}, "nature": "Timid", "ability": "Snow Warning", "moves": ["Blizzard", "Pain Split", "Spikes", "Aurora Veil"]},			
+	}
+	"Arbok-Mega": {
+		"Offensive Coil": {"level": 100, "evs": {"at": 252, "sp": 252, "sd": 4}, "nature": "Jolly", "ability": "Corrosion", "moves": ["Crunch", "Gunk Shot", "Sucker Punch", "Coil"]},		
+		"Corrosion": {"level": 100, "evs": {"hp": 248, "sp": 252, "sd": 8}, "nature": "Jolly", "ability": "Corrosion", "moves": ["Crunch", "Poison Jab", "Toxic", "Substitute"]},				
+	}
+	"Weezing-Mega": {
+		"Physically Defensive": {"level": 100, "evs": {"hp": 248, "df": 252, "sd": 8}, "nature": "Bold", "ability": "Levitate", "moves": ["Sludge Bomb", "Flamethrower", "Pain Split", "Toxic Spikes"]},		
+		"Specially Defensive": {"level": 100, "evs": {"hp": 248, "sd": 252, "df": 8}, "nature": "Calm", "ability": "Levitate", "moves": ["Sludge Bomb", "Flamethrower", "Pain Split", "Toxic Spikes"]},		
+		"Offensive": {"level": 100, "evs": {"hp": 248, "sa": 252, "sd": 8}, "nature": "Modest", "ability": "Levitate", "moves": ["Sludge Wave", "Fire Blast", "Thunderbolt", "Pain Split"]},			
+	}
 };

@@ -720,6 +720,10 @@ function getDamageResult(attacker, defender, move, field) {
 		finalMods.push(0x1800);
 		description.attackerAbility = attacker.ability;
 	}
+	if (attacker.hasAbility("Terraformer") && move.type === "Ground") {
+		finalMods.push(0x1800);
+		description.attackerAbility = attacker.ability;
+	}
 	if (field.isFriendGuard) {
 		finalMods.push(0xC00);
 		description.isFriendGuard = true;
