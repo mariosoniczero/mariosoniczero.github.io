@@ -4185,11 +4185,11 @@ var SETDEX_SM = {
 	"Froslass-Mega": {
 		"Offensive Veil": {"level": 100, "evs": {"sa": 252, "sp": 252, "sd": 4}, "nature": "Timid", "ability": "Snow Warning", "moves": ["Blizzard", "Shadow Ball", "Hidden Power Fire", "Aurora Veil"]},		
 		"Support Veil": {"level": 100, "evs": {"hp": 248, "sp": 252, "sd": 8}, "nature": "Timid", "ability": "Snow Warning", "moves": ["Blizzard", "Pain Split", "Spikes", "Aurora Veil"]},			
-	}
+	},
 	"Arbok-Mega": {
 		"Offensive Coil": {"level": 100, "evs": {"at": 252, "sp": 252, "sd": 4}, "nature": "Jolly", "ability": "Corrosion", "moves": ["Crunch", "Gunk Shot", "Sucker Punch", "Coil"]},		
 		"Corrosion": {"level": 100, "evs": {"hp": 248, "sp": 252, "sd": 8}, "nature": "Jolly", "ability": "Corrosion", "moves": ["Crunch", "Poison Jab", "Toxic", "Substitute"]},				
-	}
+	},
 	"Weezing-Mega": {
 		"Physically Defensive": {"level": 100, "evs": {"hp": 248, "df": 252, "sd": 8}, "nature": "Bold", "ability": "Levitate", "moves": ["Sludge Bomb", "Flamethrower", "Pain Split", "Toxic Spikes"]},		
 		"Specially Defensive": {"level": 100, "evs": {"hp": 248, "sd": 252, "df": 8}, "nature": "Calm", "ability": "Levitate", "moves": ["Sludge Bomb", "Flamethrower", "Pain Split", "Toxic Spikes"]},		
