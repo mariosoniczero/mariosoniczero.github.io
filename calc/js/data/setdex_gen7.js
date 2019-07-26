@@ -4194,5 +4194,5 @@ var SETDEX_SM = {
 		"Physically Defensive": {"level": 100, "evs": {"hp": 248, "df": 252, "sd": 8}, "nature": "Bold", "ability": "Levitate", "moves": ["Sludge Bomb", "Flamethrower", "Pain Split", "Toxic Spikes"]},		
 		"Specially Defensive": {"level": 100, "evs": {"hp": 248, "sd": 252, "df": 8}, "nature": "Calm", "ability": "Levitate", "moves": ["Sludge Bomb", "Flamethrower", "Pain Split", "Toxic Spikes"]},		
 		"Offensive": {"level": 100, "evs": {"hp": 248, "sa": 252, "sd": 8}, "nature": "Modest", "ability": "Levitate", "moves": ["Sludge Wave", "Fire Blast", "Thunderbolt", "Pain Split"]},			
-	}
+	},
 };
