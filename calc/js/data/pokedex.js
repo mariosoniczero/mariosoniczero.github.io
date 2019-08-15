@@ -13784,16 +13784,30 @@ var POKEDEX_SM = $.extend(true, {}, POKEDEX_XY, {
     w: 88.8,
     isAlternateForme: true,
   },
-  'Flygon-Mega': {
+  'Flygon-Mega-X': {
+    t1: 'Ground',
+    t2: 'Dragon',
+    bs: {
+      hp: 80,
+      at: 135,
+      df: 105,
+      sa: 100,
+      sd: 95,
+      sp: 105,
+    },
+    w: 82.0,
+    isAlternateForme: true,
+  },
+  'Flygon-Mega-Y': {
     t1: 'Bug',
     t2: 'Dragon',
     bs: {
       hp: 80,
-      at: 120,
-      df: 90,
-      sa: 120,
-      sd: 95,
-      sp: 115,
+      at: 100,
+      df: 95,
+      sa: 135,
+      sd: 105,
+      sp: 105,
     },
     w: 82.0,
     isAlternateForme: true,
@@ -13965,7 +13979,7 @@ var POKEDEX_SM = $.extend(true, {}, POKEDEX_XY, {
     w: 79.5,
     isAlternateForme: true,
   },
-  'Tyrantrum-Mega': {
+  /*'Tyrantrum-Mega': {
     t1: 'Rock',
     t2: 'Dragon',
     bs: {
@@ -13978,7 +13992,7 @@ var POKEDEX_SM = $.extend(true, {}, POKEDEX_XY, {
     },
     w: 270.0,
     isAlternateForme: true,
-  },
+  },*/
   'Weezing-Mega': {
     t1: 'Poison',
     t2: 'Fire',
@@ -13993,7 +14007,7 @@ var POKEDEX_SM = $.extend(true, {}, POKEDEX_XY, {
     w: 9.5,
     isAlternateForme: true,
   },
-  'Xatu-Mega': {
+  /*'Xatu-Mega': {
     t1: 'Psychic',
     t2: 'Flying',
     bs: {
@@ -14005,6 +14019,47 @@ var POKEDEX_SM = $.extend(true, {}, POKEDEX_XY, {
       sp: 95,
     },
     w: 15.0,
+    isAlternateForme: true,
+  }*/
+  'Druddigon-Mega': {
+    t1: 'Dragon',
+    t2: 'Steel',
+    bs: {
+      hp: 77,
+      at: 160,
+      df: 125,
+      sa: 50,
+      sd: 125,
+      sp: 48,
+    },
+    w: 139.0,
+    isAlternateForme: true,
+  },
+  'Granbull-Mega': {
+    t1: 'Fairy',
+    t2: 'Fighting',
+    bs: {
+      hp: 90,
+      at: 160,
+      df: 100,
+      sa: 55,
+      sd: 85,
+      sp: 60,
+    },
+    w: 48.7,
+    isAlternateForme: true,
+  },
+  'Miltank-Mega': {
+    t1: 'Normal',
+    bs: {
+      hp: 95,
+      at: 110,
+      df: 125,
+      sa: 70,
+      sd: 90,
+      sp: 100,
+    },
+    w: 75.5,
     isAlternateForme: true,
   }
 });
