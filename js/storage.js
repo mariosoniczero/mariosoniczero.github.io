@@ -3,7 +3,7 @@ Config.origindomain = 'play.pokemonshowdown.com';
 // address bar is `Config.origindomain`.
 Config.defaultserver = {
 	id: 'showdown',
-	host: '107.23.138.153',
+	host: '52.91.228.125',
 	port: 8000,
 	httpport: 8000,
 	altport: 80,
