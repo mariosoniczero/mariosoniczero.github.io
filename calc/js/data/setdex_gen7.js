@@ -4195,4 +4195,69 @@ var SETDEX_SM = {
 		"Specially Defensive": {"level": 100, "evs": {"hp": 248, "sd": 252, "df": 8}, "nature": "Calm", "ability": "Levitate", "moves": ["Sludge Bomb", "Flamethrower", "Pain Split", "Toxic Spikes"]},		
 		"Offensive": {"level": 100, "evs": {"hp": 248, "sa": 252, "sd": 8}, "nature": "Modest", "ability": "Levitate", "moves": ["Sludge Wave", "Fire Blast", "Thunderbolt", "Pain Split"]},			
 	},
+	"Avalugg-Mega": {
+		"Physically Defensive": {"level": 100, "evs": {"hp": 248, "df": 252, "sd": 8}, "nature": "Bold", "ability": "Refrigerate", "moves": ["Body Slam", "Earthquake", "Rapid Spin", "Recover"]},		
+		"Specially Defensive": {"level": 100, "evs": {"hp": 248, "sd": 252, "df": 8}, "nature": "Calm", "ability": "Refrigerate", "moves": ["Body Slam", "Earthquake", "Rapid Spin", "Recover"]},		
+		"Trick Room Attacker": {"level": 100, "evs": {"hp": 248, "at": 252, "sd": 8}, "ivs": {"sp": 0}, "nature": "Brave", "ability": "Refrigerate", "moves": ["Return", "Earthquake", "Gyro Ball", "Superpower"]},			
+	},
+	"Bellossom-Mega": {
+		"Offensive Quiver Dance": {"level": 100, "evs": {"sa": 252, "sp": 252, "sd": 4}, "nature": "Timid", "ability": "Conflagrate", "moves": ["Giga Drain", "Nature Power", "Synthesis", "Quiver Dance"]},		
+		"Bulky Quiver Dance": {"level": 100, "evs": {"hp": 252, "sp": 252, "sa": 4}, "nature": "Timid", "ability": "Conflagrate", "moves": ["Giga Drain", "Nature Power", "Synthesis", "Quiver Dance"]},		
+		"Swords Dance": {"level": 100, "evs": {"at": 252, "sp": 252, "sd": 4}, "nature": "Jolly", "ability": "Conflagrate", "moves": ["Leaf Blade", "Return", "Synthesis", "Swords Dance"]},		
+	},
+	"Bronzong-Mega": {
+		"Physically Defensive": {"level": 100, "evs": {"hp": 252, "df": 252, "sd": 4}, "ivs": {"sp": 0}, "nature": "Bold", "ability": "Persistent", "moves": ["Stealth Rock", "Gyro Ball", "Explosion", "Trick Room"]},		
+		"Specially Defensive": {"level": 100, "evs": {"hp": 252, "sd": 252, "df": 4}, "ivs": {"sp": 0}, "nature": "Calm", "ability": "Persistent", "moves": ["Stealth Rock", "Gyro Ball", "Explosion", "Trick Room"]},		
+		"Trick Room Attacker": {"level": 100, "evs": {"hp": 252, "at": 252, "sd": 4}, "ivs": {"sp": 0}, "nature": "Brave", "ability": "Persistent", "moves": ["Gyro Ball", "Earthquake", "Explosion", "Trick Room"]},			
+	},
+	"Delcatty-Mega": {
+		"Physically Defensive": {"level": 100, "evs": {"hp": 248, "df": 252, "sd": 8}, "nature": "Bold", "ability": "Terrify", "moves": ["Hyper Voice", "Shadow Ball", "Wish", "Protect"]},		
+		"Specially Defensive": {"level": 100, "evs": {"hp": 248, "sd": 252, "df": 8}, "nature": "Calm", "ability": "Terrify", "moves": ["Hyper Voice", "Shadow Ball", "Wish", "Protect"]},		
+		"Offensive": {"level": 100, "evs": {"hp": 248, "sa": 252, "sd": 8}, "nature": "Brave", "ability": "Terrify", "moves": ["Hyper Voice", "Shadow Ball", "Thunderbolt", "Ice Beam"]},			
+	},
+	"Druddigon-Mega": {
+		"Offensive": {"level": 100, "evs": {"hp": 252, "at": 252, "sd": 4}, "nature": "Adamant", "ability": "Defiant", "moves": ["Stealth Rock", "Dragon Claw", "Iron Head", "Earthquake"]},			
+		"Physically Defensive": {"level": 100, "evs": {"hp": 252, "df": 252, "sd": 4}, "nature": "Bold", "ability": "Defiant", "moves": ["Stealth Rock", "Dragon Tail", "Iron Head", "Glare"]},		
+		"Specially Defensive": {"level": 100, "evs": {"hp": 252, "sd": 252, "df": 4}, "nature": "Calm", "ability": "Defiant", "moves": ["Stealth Rock", "Dragon Tail", "Iron Head", "Glare"]},		
+	},
+	"Flygon-Mega-X": {
+		"Dragon Dance Sweeper": {"level": 100, "evs": {"at": 252, "sp": 252, "sd": 4}, "nature": "Jolly", "ability": "Levitate", "moves": ["Dragon Claw", "Earthquake", "Fire Punch", "Dragon Dance"]},		
+	},
+	"Flygon-Mega-Y": {
+		"Special Wallbreaker": {"level": 100, "evs": {"sa": 252, "sp": 252, "sd": 4}, "nature": "Timid", "ability": "Infectate", "moves": ["Boomburst", "Draco Meteor", "Fire Blast", "Earth Power"]},		
+	},
+	"Golurk-Mega": {
+		"Rock Polish Sweeper": {"level": 100, "evs": {"at": 252, "sp": 252, "sd": 4}, "nature": "Adamant", "ability": "Spectral Battery", "moves": ["Phantom Force", "Earthquake", "Ice Punch", "Rock Polish"]},		
+	},
+	"Granbull-Mega": {
+		"Bulk Up": {"level": 100, "evs": {"at": 252, "sp": 216, "hp": 40}, "nature": "Adamant", "ability": "Guts", "moves": ["Close Combat", "Play Rough", "Earthquake", "Bulk Up"]},		
+		"Trick Room Attacker": {"level": 100, "evs": {"hp": 248, "at": 252, "sd": 8}, "ivs": {"sp": 0}, "nature": "Brave", "ability": "Guts", "moves": ["Close Combat", "Play Rough", "Earthquake", "Bulk Up"]},			
+	},
+	"Kecleon-Mega": {
+	
+	},
+	"Krookodile-Mega": {
+		"Offensive": {"level": 100, "evs": {"at": 252, "sp": 252, "sd": 4}, "nature": "Jolly", "ability": "Frisk", "moves": ["Stealth Rock", "Earthquake", "Knock Off", "Stone Edge"]},		
+	},
+	"Lanturn-Mega": {
+	
+	},
+	"Luxray-Mega": (
+	
+	),
+	"Miltank-Mega": {
+	
+	},
+	"Rapidash-Mega": {
+	
+	},
+	"Roserade-Mega": {
+	
+	},
+	"Staraptor-Mega": {
+	
+	},
+	"Butterfree-Mega": {
+	
+	}
 };

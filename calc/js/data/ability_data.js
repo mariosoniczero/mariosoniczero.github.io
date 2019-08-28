@@ -238,5 +238,7 @@ var ABILITIES_SM = ABILITIES_XY.concat([
 	'Wimp Out',
 	'Conflagrate',
 	'Terrify',
-	'Thunderstorm'
+	'Thunderstorm',
+	'Infectate',
+	'Spectral Battery'
 ]);

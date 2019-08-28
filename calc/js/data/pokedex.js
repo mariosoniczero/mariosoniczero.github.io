@@ -13728,12 +13728,12 @@ var POKEDEX_SM = $.extend(true, {}, POKEDEX_XY, {
     w: 187.0,
     isAlternateForme: true,
   },
-  'Buttefree-Mega': {
+  'Butterfree-Mega': {
     t1: 'Bug',
     t2: 'Psychic',
     bs: {
-      hp: 80,
-      at: 10,
+      hp: 60,
+      at: 20,
       df: 80,
       sa: 150,
       sd: 40,

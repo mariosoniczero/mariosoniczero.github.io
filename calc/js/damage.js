@@ -131,6 +131,7 @@ function getDamageResult(attacker, defender, move, field) {
 	var isPixilate = false;
 	var isRefrigerate = false;
 	var isConflagrate = false;
+	var isInfectate = false;
 	var isGalvanize = false;
 	var isLiquidVoice = false;
 	var isNormalize = false;
@@ -141,6 +142,7 @@ function getDamageResult(attacker, defender, move, field) {
 		isPixilate = attacker.ability === "Pixilate" && move.type === "Normal";
 		isRefrigerate = attacker.ability === "Refrigerate" && move.type === "Normal";
 		isConflagrate = attacker.ability === "Conflagrate" && move.type === "Normal";
+		isInfectate = attacker.ability === "Infectate" && move.type === "Normal";
 		isGalvanize = attacker.ability === "Galvanize" && move.type === "Normal";
 		isLiquidVoice = attacker.ability === "Liquid Voice" && move.isSound;
 		isNormalize = attacker.ability === "Normalize" && move.type;
@@ -156,10 +158,12 @@ function getDamageResult(attacker, defender, move, field) {
 			move.type = "Ice";
 		} else if (isConflagrate) {
 			move.type = "Fire";
+		} else if (isInfectate) {
+			move.type = "Bug";
 		} else if (isNormalize) {
 			move.type = "Normal";
 		}
-		if (isGalvanize || isLiquidVoice || isPixilate || isRefrigerate || isAerilate || isConflagrate || isNormalize) {
+		if (isGalvanize || isLiquidVoice || isPixilate || isRefrigerate || isAerilate || isConflagrate || isInfectate || isNormalize) {
 			description.attackerAbility = attacker.ability;
 		}
 	}
@@ -468,7 +472,7 @@ function getDamageResult(attacker, defender, move, field) {
 		description.isBattery = true;
 	}
 
-	if (isAerilate || isPixilate || isRefrigerate || isConflagrate || isGalvanize || isNormalize) {
+	if (isAerilate || isPixilate || isRefrigerate || isConflagrate || isInfectate || isGalvanize || isNormalize) {
 		bpMods.push(gen >= 7 ? 0x1333 : 0x14CD);
 		description.attackerAbility = attacker.ability;
 	} else if ((attacker.hasAbility("Mega Launcher") && move.isPulse) ||
