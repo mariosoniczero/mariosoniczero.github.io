@@ -4244,9 +4244,9 @@ var SETDEX_SM = {
 		"Bulky Pivot": {"level": 100, "evs": {"hp": 248, "df": 252, "sd": 8}, "nature": "Bold", "ability": "Thunderstorm", "moves": ["Scald", "Thunder", "Volt Switch", "Heal Bell"]},		
 		"Agility": {"level": 100, "evs": {"sa": 252, "sp": 252, "sd": 4}, "nature": "Modest", "ability": "Thunderstorm", "moves": ["Hydro Pump", "Thunder", "Ice Beam", "Agility"]},			
 	},
-	"Luxray-Mega": (
+	"Luxray-Mega": {
 		"Offensive": {"level": 100, "evs": {"at": 252, "sp": 252, "sd": 4}, "nature": "Jolly", "ability": "Strong Jaw", "moves": ["Crunch", "Thunder Fang", "Ice Fang", "Volt Switch"]},			
-	),
+	},
 	"Miltank-Mega": {
 		"Physically Defensive": {"level": 100, "evs": {"hp": 248, "df": 252, "sd": 8}, "nature": "Bold", "ability": "Unaware", "moves": ["Stealth Rock", "Body Slam", "Earthquake", "Milk Drink"]},		
 		"Specially Defensive": {"level": 100, "evs": {"hp": 248, "sd": 252, "df": 8}, "nature": "Calm", "ability": "Unaware", "moves": ["Stealth Rock", "Body Slam", "Earthquake", "Milk Drink"]},		
