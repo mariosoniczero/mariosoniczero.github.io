@@ -4234,30 +4234,36 @@ var SETDEX_SM = {
 		"Trick Room Attacker": {"level": 100, "evs": {"hp": 248, "at": 252, "sd": 8}, "ivs": {"sp": 0}, "nature": "Brave", "ability": "Guts", "moves": ["Close Combat", "Play Rough", "Earthquake", "Bulk Up"]},			
 	},
 	"Kecleon-Mega": {
-	
+		"Physical Attacker": {"level": 100, "evs": {"hp": 248, "at": 252, "sd": 8}, "nature": "Adamant", "ability": "Protean", "moves": ["Fake Out", "Drain Punch", "Knock Off", "Shadow Sneak"]},			
+		"Stealth Rock Tank": {"level": 100, "evs": {"hp": 248, "df": 84, "sd": 176}, "nature": "Adamant", "ability": "Protean", "moves": ["Stealth Rock", "Knock Off", "Toxic", "Recover"]},			
 	},
 	"Krookodile-Mega": {
 		"Offensive": {"level": 100, "evs": {"at": 252, "sp": 252, "sd": 4}, "nature": "Jolly", "ability": "Frisk", "moves": ["Stealth Rock", "Earthquake", "Knock Off", "Stone Edge"]},		
 	},
 	"Lanturn-Mega": {
-	
+		"Bulky Pivot": {"level": 100, "evs": {"hp": 248, "df": 252, "sd": 8}, "nature": "Bold", "ability": "Thunderstorm", "moves": ["Scald", "Thunder", "Volt Switch", "Heal Bell"]},		
+		"Agility": {"level": 100, "evs": {"sa": 252, "sp": 252, "sd": 4}, "nature": "Modest", "ability": "Thunderstorm", "moves": ["Hydro Pump", "Thunder", "Ice Beam", "Agility"]},			
 	},
 	"Luxray-Mega": (
-	
+		"Offensive": {"level": 100, "evs": {"at": 252, "sp": 252, "sd": 4}, "nature": "Jolly", "ability": "Strong Jaw", "moves": ["Crunch", "Thunder Fang", "Ice Fang", "Volt Switch"]},			
 	),
 	"Miltank-Mega": {
+		"Physically Defensive": {"level": 100, "evs": {"hp": 248, "df": 252, "sd": 8}, "nature": "Bold", "ability": "Unaware", "moves": ["Stealth Rock", "Body Slam", "Earthquake", "Milk Drink"]},		
+		"Specially Defensive": {"level": 100, "evs": {"hp": 248, "sd": 252, "df": 8}, "nature": "Calm", "ability": "Unaware", "moves": ["Stealth Rock", "Body Slam", "Earthquake", "Milk Drink"]},		
 	
 	},
 	"Rapidash-Mega": {
-	
+		"Offensive": {"level": 100, "evs": {"at": 252, "sp": 252, "sd": 4}, "nature": "Jolly", "ability": "Pixilate", "moves": ["Flare Blitz", "Double-Edge", "High Horsepower", "Morning Sun"]},			
 	},
 	"Roserade-Mega": {
-	
+		"Offensive": {"level": 100, "evs": {"sa": 252, "sp": 252, "sd": 4}, "nature": "Timid", "ability": "Merciless", "moves": ["Leaf Storm", "Sludge Bomb", "Hidden Power Fire", "Synthesis"]},			
+		"Dual Hazards": {"level": 100, "evs": {"hp": 248, "sp": 252, "sd": 8}, "nature": "Timid", "ability": "Merciless", "moves": ["Giga Drain", "Spikes", "Toxic Spikes", "Synthesis"]},			
 	},
 	"Staraptor-Mega": {
-	
+		"Offensive": {"level": 100, "evs": {"at": 252, "sp": 252, "sd": 4}, "nature": "Jolly", "ability": "Terrify", "moves": ["Brave Bird", "Close Combat", "U-turn", "Roost"]},			
+		"Defog": {"level": 100, "evs": {"hp": 248, "sp": 252, "sd": 8}, "nature": "Jolly", "ability": "Terrify", "moves": ["Brave Bird", "U-turn", "Defog", "Roost"]},				
 	},
 	"Butterfree-Mega": {
-	
+		"Quiver Dance": {"level": 100, "evs": {"sa": 252, "sp": 252, "sd": 4}, "nature": "Timid", "ability": "Tinted Lens", "moves": ["Bug Buzz", "Psychic", "Sleep Powder", "Quiver Dance"]},			
 	}
 };
