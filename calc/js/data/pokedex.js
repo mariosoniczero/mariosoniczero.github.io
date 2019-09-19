@@ -13872,10 +13872,10 @@ var POKEDEX_SM = $.extend(true, {}, POKEDEX_XY, {
     t2: 'Electric',
     bs: {
       hp: 125,
-      at: 38,
-      df: 108,
+      at: 58,
+      df: 98,
       sa: 96,
-      sd: 126,
+      sd: 116,
       sp: 67,
     },
     w: 22.5,
@@ -13900,7 +13900,7 @@ var POKEDEX_SM = $.extend(true, {}, POKEDEX_XY, {
 	t2: 'Fairy',
     bs: {
       hp: 80,
-      at: 97,
+      at: 87,
       df: 130,
       sa: 118,
       sd: 130,
