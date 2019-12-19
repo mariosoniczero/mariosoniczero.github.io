@@ -1,0 +1,315 @@
+"use strict";
+exports.__esModule = true;
+var calc_1 = require("../calc");
+var pokemon_1 = require("../pokemon");
+var move_1 = require("../move");
+var field_1 = require("../field");
+expect.extend({
+    toBeRange: function (received, floor, ceiling) {
+        var a = received[0];
+        var b = received[received.length - 1];
+        var pass = a === floor && b === ceiling;
+        if (pass) {
+            return {
+                message: function () { return "expected range (" + a + ", " + b + ") not to be within range (" + floor + ", " + ceiling + ")"; },
+                pass: pass
+            };
+        }
+        else {
+            return {
+                message: function () { return "expected range (" + a + ", " + b + ") to be within range (" + floor + ", " + ceiling + ")"; },
+                pass: pass
+            };
+        }
+    }
+});
+var ABOMASNOW = new pokemon_1.Pokemon(7, 'Abomasnow', {
+    item: 'Icy Rock',
+    ability: 'Snow Warning',
+    nature: 'Hasty',
+    evs: { atk: 252, spd: 4, spe: 252 }
+});
+var HOOPA = new pokemon_1.Pokemon(7, 'Hoopa-Unbound', {
+    item: 'Choice Band',
+    ability: 'Magician',
+    nature: 'Jolly',
+    evs: { hp: 32, atk: 224, spe: 252 }
+});
+describe('calc', function () {
+    describe('gen', function () {
+        test('1', function () {
+            var result = calc_1.calculate(1, new pokemon_1.Pokemon(1, 'Gengar'), new pokemon_1.Pokemon(1, 'Chansey'), new move_1.Move(1, 'Thunderbolt'));
+            expect(result.damage).toBeRange(79, 94);
+            expect(result.desc()).toBe('Gengar Thunderbolt vs. Chansey: 79-94 (11.2 - 13.3%) -- possible 8HKO');
+        });
+        test('2', function () {
+            var result = calc_1.calculate(2, new pokemon_1.Pokemon(2, 'Gengar'), new pokemon_1.Pokemon(2, 'Chansey', { item: 'Leftovers' }), new move_1.Move(2, 'Dynamic Punch'));
+            expect(result.damage).toBeRange(304, 358);
+            expect(result.desc()).toBe('Gengar Dynamic Punch vs. Chansey: 304-358 (43.2 - 50.9%) -- guaranteed 3HKO after Leftovers recovery');
+        });
+        test('3', function () {
+            var result = calc_1.calculate(3, new pokemon_1.Pokemon(3, 'Gengar', {
+                nature: 'Mild',
+                evs: { atk: 100 }
+            }), new pokemon_1.Pokemon(3, 'Chansey', {
+                item: 'Leftovers',
+                nature: 'Bold',
+                evs: { hp: 252, def: 252 }
+            }), new move_1.Move(3, 'Focus Punch'));
+            expect(result.damage).toBeRange(346, 408);
+            expect(result.desc()).toBe('100 Atk Gengar Focus Punch vs. 252 HP / 252+ Def Chansey: 346-408 (49.1 - 57.9%) -- 59% chance to 2HKO after Leftovers recovery');
+        });
+        test('4', function () {
+            var result = calc_1.calculate(4, new pokemon_1.Pokemon(4, 'Gengar', {
+                item: 'Choice Specs',
+                nature: 'Timid',
+                evs: { spa: 252 },
+                boosts: { spa: 1 }
+            }), new pokemon_1.Pokemon(4, 'Chansey', {
+                item: 'Leftovers',
+                nature: 'Calm',
+                evs: { hp: 252, spd: 252 }
+            }), new move_1.Move(4, 'Focus Blast'));
+            expect(result.damage).toBeRange(408, 482);
+            expect(result.desc()).toBe('+1 252 SpA Choice Specs Gengar Focus Blast vs. 252 HP / 252+ SpD Chansey: 408-482 (57.9 - 68.4%) -- guaranteed 2HKO after Leftovers recovery');
+        });
+        test('5', function () {
+            var result = calc_1.calculate(5, new pokemon_1.Pokemon(5, 'Gengar', {
+                item: 'Choice Specs',
+                nature: 'Timid',
+                evs: { spa: 252 },
+                boosts: { spa: 1 }
+            }), new pokemon_1.Pokemon(5, 'Chansey', {
+                item: 'Eviolite',
+                nature: 'Calm',
+                evs: { hp: 252, spd: 252 }
+            }), new move_1.Move(5, 'Focus Blast'));
+            expect(result.damage).toBeRange(274, 324);
+            expect(result.fullDesc('px')).toBe('+1 252 SpA Choice Specs Gengar Focus Blast vs. 252 HP / 252+ SpD Eviolite Chansey: 274-324 (18 - 22px) -- guaranteed 3HKO');
+        });
+        test('6', function () {
+            var result = calc_1.calculate(6, new pokemon_1.Pokemon(6, 'Gengar', {
+                item: 'Life Orb',
+                nature: 'Modest',
+                evs: { spa: 252 }
+            }), new pokemon_1.Pokemon(6, 'Chansey', {
+                item: 'Eviolite',
+                nature: 'Bold',
+                evs: { hp: 252, def: 252 }
+            }), new move_1.Move(6, 'Sludge Bomb'));
+            expect(result.damage).toBeRange(134, 160);
+            expect(result.desc()).toBe('252+ SpA Life Orb Gengar Sludge Bomb vs. 252 HP / 0 SpD Eviolite Chansey: 134-160 (19 - 22.7%) -- possible 5HKO');
+        });
+        test('7', function () {
+            var result = calc_1.calculate(7, new pokemon_1.Pokemon(7, 'Gengar', {
+                item: 'Life Orb',
+                nature: 'Modest',
+                evs: { spa: 252 },
+                boosts: { spa: 3 }
+            }), new pokemon_1.Pokemon(7, 'Chansey', {
+                item: 'Eviolite',
+                nature: 'Bold',
+                evs: { hp: 100, spd: 100 },
+                boosts: { spd: 1 }
+            }), new move_1.Move(7, 'Sludge Bomb'));
+            expect(result.damage).toBeRange(204, 242);
+            expect(result.desc()).toBe('+3 252+ SpA Life Orb Gengar Sludge Bomb vs. +1 100 HP / 100 SpD Eviolite Chansey: 204-242 (30.6 - 36.3%) -- 52.9% chance to 3HKO');
+        });
+        test('8', function () {
+            var result = calc_1.calculate(8, new pokemon_1.Pokemon(8, 'Gengar', {
+                item: 'Life Orb',
+                nature: 'Modest',
+                evs: { spa: 252 },
+                boosts: { spa: 3 }
+            }), new pokemon_1.Pokemon(8, 'Chansey', {
+                item: 'Eviolite',
+                nature: 'Bold',
+                evs: { hp: 100, spd: 100 },
+                boosts: { spd: 1 }
+            }), new move_1.Move(8, 'Sludge Bomb'));
+            expect(result.damage).toBeRange(204, 242);
+            expect(result.desc()).toBe('+3 252+ SpA Life Orb Gengar Sludge Bomb vs. +1 100 HP / 100 SpD Eviolite Chansey: 204-242 (30.6 - 36.3%) -- 52.9% chance to 3HKO');
+        });
+    });
+    describe('field', function () {
+        test('none', function () {
+            var result = calc_1.calculate(7, ABOMASNOW, HOOPA, new move_1.Move(7, 'Wood Hammer'));
+            expect(result.damage).toBeRange(234, 276);
+            expect(result.desc()).toBe('252 Atk Abomasnow Wood Hammer vs. 32 HP / 0 Def Hoopa-Unbound: 234-276 (75.7 - 89.3%) -- guaranteed 2HKO');
+            var recoil = result.recoil();
+            expect(recoil.recoil).toBeRange(24, 28.3);
+            expect(recoil.text).toBe('24 - 28.3% recoil damage');
+            result = calc_1.calculate(7, HOOPA, ABOMASNOW, new move_1.Move(7, 'Drain Punch'));
+            expect(result.damage).toBeRange(398, 470);
+            expect(result.desc()).toBe('224 Atk Choice Band Hoopa-Unbound Drain Punch vs. 0 HP / 0- Def Abomasnow: 398-470 (123.9 - 146.4%) -- guaranteed OHKO');
+            var recovery = result.recovery();
+            expect(recovery.recovery).toBeRange(160, 160);
+            expect(recovery.text).toBe('51.9 - 51.9% recovered');
+        });
+        test('none', function () {
+            var field = new field_1.Field({
+                gameType: 'Doubles',
+                terrain: 'Grassy',
+                weather: 'Hail',
+                defenderSide: {
+                    isSR: true,
+                    spikes: 1,
+                    isLightScreen: true,
+                    isSeeded: true,
+                    isFriendGuard: true
+                },
+                attackerSide: {
+                    isHelpingHand: true,
+                    isTailwind: true
+                }
+            });
+            var result = calc_1.calculate(7, ABOMASNOW, HOOPA, new move_1.Move(7, 'Blizzard'), field);
+            expect(result.damage).toBeRange(50, 59);
+            expect(result.desc()).toBe("0 SpA Abomasnow Helping Hand Blizzard vs. 32 HP / 0 SpD Hoopa-Unbound through Light Screen with an ally's Friend Guard: 50-59 (16.1 - 19%)" +
+                ' -- 91.4% chance to 3HKO after Stealth Rock, 1 layer of Spikes, hail damage, Leech Seed damage, and Grassy Terrain recovery');
+        });
+    });
+    describe('mechanics', function () {
+        test('gen 2 DVs', function () {
+            var aerodactyl = new pokemon_1.Pokemon(2, 'Aerodactyl');
+            var zapdos = new pokemon_1.Pokemon(2, 'Zapdos', { ivs: { atk: 29, def: 27 }, item: 'Leftovers' });
+            expect(zapdos.ivs.hp).toBe(15);
+            var move = new move_1.Move(2, 'Ancient Power');
+            var result = calc_1.calculate(2, aerodactyl, zapdos, move);
+            expect(result.damage).toBeRange(153, 180);
+            expect(result.desc()).toBe('Aerodactyl Ancient Power vs. Zapdos: 153-180 (41.6 - 49%) -- guaranteed 3HKO after Leftovers recovery');
+        });
+        test('gen 2 struggle', function () {
+            var attacker = new pokemon_1.Pokemon(2, 'Skarmory', { boosts: { atk: 6, def: 6 } });
+            var defender = new pokemon_1.Pokemon(2, 'Skarmory', { boosts: { atk: 6, def: 6 } });
+            var move = new move_1.Move(2, 'Struggle');
+            var result = calc_1.calculate(2, attacker, defender, move);
+            expect(result.damage).toBeRange(37, 44);
+            expect(result.desc()).toBe('+6 Skarmory Struggle vs. +6 Skarmory: 37-44 (11.1 - 13.2%) -- possible 8HKO');
+        });
+        test('gen 2 present', function () {
+            var attacker = new pokemon_1.Pokemon(2, 'Togepi', { level: 5, boosts: { atk: -6 }, status: 'Burned' });
+            var defender = new pokemon_1.Pokemon(2, 'Umbreon', { boosts: { def: 6 } });
+            var move = new move_1.Move(2, 'Present');
+            var field = new field_1.Field({ defenderSide: { isReflect: true } });
+            var result = calc_1.calculate(2, attacker, defender, move, field);
+            expect(result.damage).toBeRange(125, 147);
+            expect(result.desc()).toBe('-6 burned Togepi Present vs. +6 Umbreon through Reflect: 125-147 (31.8 - 37.4%) -- 89.1% chance to 3HKO');
+        });
+        test('zmove criticals', function () {
+            var zMove = new move_1.Move(7, 'Wood Hammer', { useZ: true, isCrit: true });
+            var result = calc_1.calculate(7, ABOMASNOW, HOOPA, zMove);
+            expect(result.damage).toBeRange(555, 654);
+            expect(result.desc()).toBe('252 Atk Abomasnow Bloom Doom (190 BP) vs. 32 HP / 0 Def Hoopa-Unbound on a critical hit: 555-654 (179.6 - 211.6%) -- guaranteed OHKO');
+        });
+        test('grass knot', function () {
+            var result = calc_1.calculate(7, new pokemon_1.Pokemon(7, 'Groudon'), new pokemon_1.Pokemon(7, 'Groudon'), new move_1.Move(7, 'Grass Knot'));
+            expect(result.damage).toBeRange(190, 224);
+            result = calc_1.calculate(4, new pokemon_1.Pokemon(4, 'Groudon'), new pokemon_1.Pokemon(4, 'Groudon'), new move_1.Move(4, 'Grass Knot'));
+            expect(result.damage).toBeRange(190, 224);
+        });
+        test('wring out', function () {
+            var smeargle = new pokemon_1.Pokemon(7, 'Smeargle', { level: 50, ability: 'Technician' });
+            var blissey = new pokemon_1.Pokemon(7, 'Blissey', { level: 50, evs: { hp: 252 }, curHP: 184 });
+            var result = calc_1.calculate(7, smeargle, blissey, new move_1.Move(7, 'Wring Out'));
+            expect(result.damage).toBeRange(15, 18);
+            expect(result.desc()).toBe('0 SpA Technician Smeargle Wring Out (60 BP) vs. 252 HP / 0 SpD Blissey: 15-18 (4.1 - 4.9%)');
+        });
+    });
+    describe('gen 3 spread', function () {
+        test('allAdjacent', function () {
+            var gengar = new pokemon_1.Pokemon(3, 'Gengar', { nature: 'Mild', evs: { atk: 100 } });
+            var blissey = new pokemon_1.Pokemon(3, 'Chansey', {
+                item: 'Leftovers',
+                nature: 'Bold',
+                evs: { hp: 252, def: 252 }
+            });
+            var field = new field_1.Field({ gameType: 'Doubles' });
+            var result = calc_1.calculate(3, gengar, blissey, new move_1.Move(3, 'Explosion'), field);
+            expect(result.damage).toBeRange(578, 681);
+            expect(result.desc()).toBe('100 Atk Gengar Explosion vs. 252 HP / 252+ Def Chansey: 578-681 (82.1 - 96.7%) -- guaranteed 2HKO after Leftovers recovery');
+        });
+        test('allAdjacentFoes', function () {
+            var gengar = new pokemon_1.Pokemon(3, 'Gengar', { nature: 'Modest', evs: { spa: 252 } });
+            var blissey = new pokemon_1.Pokemon(3, 'Chansey', {
+                item: 'Leftovers',
+                nature: 'Bold',
+                evs: { hp: 252, def: 252 }
+            });
+            var field = new field_1.Field({ gameType: 'Doubles' });
+            var result = calc_1.calculate(3, gengar, blissey, new move_1.Move(3, 'Blizzard'), field);
+            expect(result.damage).toBeRange(69, 82);
+            expect(result.desc()).toBe('252+ SpA Gengar Blizzard vs. 252 HP / 0 SpD Chansey: 69-82 (9.8 - 11.6%)');
+        });
+    });
+    describe('water absorb', function () {
+        test('gen 3', function () {
+            var cacturne = new pokemon_1.Pokemon(3, 'Cacturne', {
+                ability: 'Sand Veil'
+            });
+            var blastoise = new pokemon_1.Pokemon(3, 'Blastoise', {
+                evs: { spa: 252 }
+            });
+            var surf = new move_1.Move(3, 'Surf');
+            var result = calc_1.calculate(3, blastoise, cacturne, surf);
+            expect(result.damage).toBeRange(88, 104);
+            expect(result.desc()).toBe('252 SpA Blastoise Surf vs. 0 HP / 0 SpD Cacturne: 88-104 (31.3 - 37%) -- 76.6% chance to 3HKO');
+            cacturne.ability = 'Water Absorb';
+            result = calc_1.calculate(3, blastoise, cacturne, surf);
+            expect(result.damage).toBeRange(0, 0);
+        });
+    });
+    describe('mold breaker', function () {
+        test('gen 4', function () {
+            var pinsir = new pokemon_1.Pokemon(4, 'Pinsir', {
+                item: 'Choice Band',
+                nature: 'Adamant',
+                ability: 'Hyper Cutter',
+                evs: { atk: 252 }
+            });
+            var gengar = new pokemon_1.Pokemon(4, 'Gengar', {
+                item: 'Choice Specs',
+                nature: 'Timid',
+                evs: { spa: 252 },
+                boosts: { spa: 1 }
+            });
+            var earthquake = new move_1.Move(4, 'Earthquake');
+            var result = calc_1.calculate(4, pinsir, gengar, earthquake);
+            expect(result.damage).toBeRange(0, 0);
+            pinsir.ability = 'Mold Breaker';
+            result = calc_1.calculate(4, pinsir, gengar, earthquake);
+            expect(result.damage).toBeRange(528, 622);
+            expect(result.desc()).toBe('252+ Atk Choice Band Mold Breaker Pinsir Earthquake vs. 0 HP / 0 Def Gengar: 528-622 (202.2 - 238.3%) -- guaranteed OHKO');
+            pinsir.boosts.atk = 2;
+            gengar.ability = 'Unaware';
+            result = calc_1.calculate(4, pinsir, gengar, earthquake);
+            expect(result.damage).toBeRange(1054, 1240);
+        });
+        test('gen 7', function () {
+            var pinsir = new pokemon_1.Pokemon(7, 'Pinsir', {
+                item: 'Choice Band',
+                nature: 'Adamant',
+                ability: 'Hyper Cutter',
+                evs: { atk: 252 }
+            });
+            var gengar = new pokemon_1.Pokemon(7, 'Gengar', {
+                item: 'Choice Specs',
+                nature: 'Timid',
+                ability: 'Levitate',
+                evs: { spa: 252 },
+                boosts: { spa: 1 }
+            });
+            var earthquake = new move_1.Move(7, 'Earthquake');
+            var result = calc_1.calculate(7, pinsir, gengar, earthquake);
+            expect(result.damage).toBeRange(0, 0);
+            pinsir.ability = 'Mold Breaker';
+            result = calc_1.calculate(7, pinsir, gengar, earthquake);
+            expect(result.damage).toBeRange(528, 622);
+            expect(result.desc()).toBe('252+ Atk Choice Band Mold Breaker Pinsir Earthquake vs. 0 HP / 0 Def Gengar: 528-622 (202.2 - 238.3%) -- guaranteed OHKO');
+            pinsir.boosts.atk = 2;
+            gengar.ability = 'Unaware';
+            result = calc_1.calculate(7, pinsir, gengar, earthquake);
+            expect(result.damage).toBeRange(1054, 1240);
+        });
+    });
+});

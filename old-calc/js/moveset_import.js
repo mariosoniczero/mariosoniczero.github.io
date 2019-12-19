@@ -6,10 +6,12 @@ function placeBsBtn() {
 		var pokes = document.getElementsByClassName("import-team-text")[0].value;
 		addSets(pokes);
 	});
+
+
 }
 
 function ExportPokemon(pokeInfo) {
-	var pokemon = createPokemon(pokeInfo);
+	var pokemon = new Pokemon(pokeInfo);
 	var EV_counter = 0;
 	var finalText = "";
 	finalText = pokemon.name + (pokemon.item ? " @ " + pokemon.item : "") + "\n";
@@ -18,16 +20,22 @@ function ExportPokemon(pokeInfo) {
 	if (gen > 2) {
 		finalText += "EVs: ";
 		var EVs_Array = [];
+		if (pokemon.HPEVs && pokemon.HPEVs > 0) { // Do HP EVs exist and are they greater than 0?
+			EV_counter += pokemon.HPEVs;
+			EVs_Array.push(pokemon.HPEVs + " HP");
+		}
 		for (var stat in pokemon.evs) {
-			if (pokemon.evs[stat]) {
-				EVs_Array.push(pokemon.evs[stat] + " " + calc.displayStat(stat));
-				EV_counter += pokemon.evs[stat];
-				if (EV_counter > 510) break;
+			EV_counter += pokemon.evs[stat];
+			if (EV_counter > 510) {
+				break;
+			} else if (pokemon.evs[stat]) {
+				EVs_Array.push(pokemon.evs[stat] + " " + toSmogonStat(stat));
 			}
 		}
 		finalText += serialize(EVs_Array, " / ");
 		finalText += "\n";
 	}
+	var movesArray = [];
 	for (var i = 0; i < 4; i++) {
 		var moveName = pokemon.moves[i].name;
 		if (moveName !== "(No Move)") {
@@ -60,10 +68,15 @@ function serialize(array, separator) {
 
 function getAbility(row) {
 	var ability = row[1] ? row[1].trim() : '';
-	if (calc.ABILITIES[8].indexOf(ability) !== -1) return ability;
+	if (ABILITIES_SM.indexOf(ability) !== -1) {
+		return (ability);
+	} else {
+		return;
+	}
+
 }
 
-function statToLegacyStat(stat) {
+function statConverter(stat) {
 	switch (stat) {
 	case 'hp':
 		return "hp";
@@ -77,7 +90,10 @@ function statToLegacyStat(stat) {
 		return "sd";
 	case 'spe':
 		return "sp";
+
 	}
+
+
 }
 
 function getStats(currentPoke, rows, offset) {
@@ -86,7 +102,7 @@ function getStats(currentPoke, rows, offset) {
 	var currentIV;
 	var currentNature;
 	currentPoke.level = 100;
-	for (var x = offset; x < offset + 8; x++) {
+	for (var x = offset; x < offset + 7; x++) {
 		var currentRow = rows[x] ? rows[x].split(/[/:]/) : '';
 		var evs = {};
 		var ivs = {};
@@ -100,7 +116,7 @@ function getStats(currentPoke, rows, offset) {
 		case 'EVs':
 			for (j = 1; j < currentRow.length; j++) {
 				currentEV = currentRow[j].trim().split(" ");
-				currentEV[1] = statToLegacyStat(currentEV[1].toLowerCase());
+				currentEV[1] = statConverter(currentEV[1].toLowerCase());
 				evs[currentEV[1]] = parseInt(currentEV[0]);
 			}
 			currentPoke.evs = evs;
@@ -108,7 +124,7 @@ function getStats(currentPoke, rows, offset) {
 		case 'IVs':
 			for (j = 1; j < currentRow.length; j++) {
 				currentIV = currentRow[j].trim().split(" ");
-				currentIV[1] = statToLegacyStat(currentIV[1].toLowerCase());
+				currentIV[1] = statConverter(currentIV[1].toLowerCase());
 				ivs[currentIV[1]] = parseInt(currentIV[0]);
 			}
 			currentPoke.ivs = ivs;
@@ -118,43 +134,55 @@ function getStats(currentPoke, rows, offset) {
 		currentNature = rows[x] ? rows[x].trim().split(" ") : '';
 		if (currentNature[1] == "Nature") {
 			currentPoke.nature = currentNature[0];
+
 		}
 	}
 	return currentPoke;
+
+
 }
 
 function getItem(currentRow, j) {
 	for (;j < currentRow.length; j++) {
 		var item = currentRow[j].trim();
-		if (calc.ITEMS[8].indexOf(item) != -1) {
+		if (ITEMS_SM.indexOf(item) != -1) {
 			return item;
+
 		}
 	}
+	return;
+
 }
 
 function getMoves(currentPoke, rows, offset) {
 	var movesFound = false;
 	var moves = [];
 	for (var x = offset; x < offset + 12; x++) {
+
 		if (rows[x]) {
 			if (rows[x][0] == "-") {
 				movesFound = true;
+
 				var move = rows[x].substr(2, rows[x].length - 2).replace("[", "").replace("]", "").replace("  ", "");
 				moves.push(move);
+
 			} else {
 				if (movesFound == true) {
 					break;
+
 				}
+
 			}
 		}
 	}
 	currentPoke.moves = moves;
 	return currentPoke;
+
+
 }
 
 function addToDex(poke) {
 	var dexObject = {};
-	if (SETDEX_SS[poke.name] == undefined) SETDEX_SS[poke.name] = {};
 	if (SETDEX_SM[poke.name] == undefined) SETDEX_SM[poke.name] = {};
 	if (SETDEX_XY[poke.name] == undefined) SETDEX_XY[poke.name] = {};
 	if (SETDEX_BW[poke.name] == undefined) SETDEX_BW[poke.name] = {};
@@ -165,6 +193,7 @@ function addToDex(poke) {
 
 	if (poke.ability !== undefined) {
 		dexObject.ability = poke.ability;
+
 	}
 	dexObject.level = poke.level;
 	dexObject.evs = poke.evs;
@@ -195,8 +224,6 @@ function addToDex(poke) {
 function updateDex(customsets) {
 	for (var pokemon in customsets) {
 		for (var moveset in customsets[pokemon]) {
-			if (!SETDEX_SS[pokemon]) SETDEX_SS[pokemon] = {};
-			SETDEX_SS[pokemon][moveset] = customsets[pokemon][moveset];
 			if (!SETDEX_SM[pokemon]) SETDEX_SM[pokemon] = {};
 			SETDEX_SM[pokemon][moveset] = customsets[pokemon][moveset];
 			if (!SETDEX_XY[pokemon]) SETDEX_XY[pokemon] = {};
@@ -225,8 +252,8 @@ function addSets(pokes) {
 		currentRow = rows[i].split(/[()@]/);
 		for (var j = 0; j < currentRow.length; j++) {
 			currentRow[j] = checkExeptions(currentRow[j].trim());
-			if (calc.SPECIES[8][currentRow[j].trim()] !== undefined) {
-				currentPoke = calc.SPECIES[8][currentRow[j].trim()];
+			if (POKEDEX_SM[currentRow[j].trim()] !== undefined) {
+				currentPoke = POKEDEX_SM[currentRow[j].trim()];
 				currentPoke.name = currentRow[j].trim();
 				currentPoke.item = getItem(currentRow, j + 1);
 				if (j === 1 && currentRow[0].trim()) {
