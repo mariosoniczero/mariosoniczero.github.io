@@ -8499,7 +8499,7 @@ var SS = util_1.extend(true, {}, SM, {
     'Staraptor': { formes: ['Staraptor', 'Staraptor-Mega'] },
     'Torterra': { formes: ['Torterra', 'Torterra-Mega'] },
     'Typhlosion': { formes: ['Typhlosion', 'Typhlosion-Mega'] },
-    'Weezing': { formes: ['Weezing', 'Weezing-Mega'] },
+    'Weezing': { formes: ['Weezing', 'Weezing-Galar', 'Weezing-Mega'] },
     'Arbok-Mega': {
         t1: 'Poison',
         t2: 'Dark',
