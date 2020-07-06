@@ -20,7 +20,7 @@ function ExportPokemon(pokeInfo) {
 		var EVs_Array = [];
 		for (var stat in pokemon.evs) {
 			if (pokemon.evs[stat]) {
-				EVs_Array.push(pokemon.evs[stat] + " " + calc.displayStat(stat));
+				EVs_Array.push(pokemon.evs[stat] + " " + calc.Stats.displayStat(stat));
 				EV_counter += pokemon.evs[stat];
 				if (EV_counter > 510) break;
 			}
@@ -154,15 +154,25 @@ function getMoves(currentPoke, rows, offset) {
 
 function addToDex(poke) {
 	var dexObject = {};
-	if (SETDEX_SS[poke.name] == undefined) SETDEX_SS[poke.name] = {};
-	if (SETDEX_SM[poke.name] == undefined) SETDEX_SM[poke.name] = {};
-	if (SETDEX_XY[poke.name] == undefined) SETDEX_XY[poke.name] = {};
-	if (SETDEX_BW[poke.name] == undefined) SETDEX_BW[poke.name] = {};
-	if (SETDEX_DPP[poke.name] == undefined) SETDEX_DPP[poke.name] = {};
-	if (SETDEX_ADV[poke.name] == undefined) SETDEX_ADV[poke.name] = {};
-	if (SETDEX_GSC[poke.name] == undefined) SETDEX_GSC[poke.name] = {};
-	if (SETDEX_RBY[poke.name] == undefined) SETDEX_RBY[poke.name] = {};
-
+	if ($("#randoms").prop("checked")) {
+		if (RANDOM_SS[poke.name] == undefined) RANDOM_SS[poke.name] = {};
+		if (RANDOM_SM[poke.name] == undefined) RANDOM_SM[poke.name] = {};
+		if (RANDOM_XY[poke.name] == undefined) RANDOM_XY[poke.name] = {};
+		if (RANDOM_BW[poke.name] == undefined) RANDOM_BW[poke.name] = {};
+		if (RANDOM_DPP[poke.name] == undefined) RANDOM_DPP[poke.name] = {};
+		if (RANDOM_ADV[poke.name] == undefined) RANDOM_ADV[poke.name] = {};
+		if (RANDOM_GSC[poke.name] == undefined) RANDOM_GSC[poke.name] = {};
+		if (RANDOM_RBY[poke.name] == undefined) RANDOM_RBY[poke.name] = {};
+	} else {
+		if (SETDEX_SS[poke.name] == undefined) SETDEX_SS[poke.name] = {};
+		if (SETDEX_SM[poke.name] == undefined) SETDEX_SM[poke.name] = {};
+		if (SETDEX_XY[poke.name] == undefined) SETDEX_XY[poke.name] = {};
+		if (SETDEX_BW[poke.name] == undefined) SETDEX_BW[poke.name] = {};
+		if (SETDEX_DPP[poke.name] == undefined) SETDEX_DPP[poke.name] = {};
+		if (SETDEX_ADV[poke.name] == undefined) SETDEX_ADV[poke.name] = {};
+		if (SETDEX_GSC[poke.name] == undefined) SETDEX_GSC[poke.name] = {};
+		if (SETDEX_RBY[poke.name] == undefined) SETDEX_RBY[poke.name] = {};
+	}
 	if (poke.ability !== undefined) {
 		dexObject.ability = poke.ability;
 	}
@@ -259,8 +269,8 @@ function checkExeptions(poke) {
 	case 'Basculin-Blue-Striped':
 		poke = "Basculin";
 		break;
-	case 'Keldeo-Resolute':
-		poke = "Keldeo";
+	case 'Gastrodon-East':
+		poke = "Gastrodon";
 		break;
 	case 'Mimikyu-Busted-Totem':
 		poke = "Mimikyu-Totem";
@@ -268,19 +278,14 @@ function checkExeptions(poke) {
 	case 'Mimikyu-Busted':
 		poke = "Mimikyu";
 		break;
-	case 'Pikachu-Alola':
 	case 'Pikachu-Belle':
 	case 'Pikachu-Cosplay':
-	case 'Pikachu-Hoenn':
-	case 'Pikachu-Kalos':
 	case 'Pikachu-Libre':
 	case 'Pikachu-Original':
 	case 'Pikachu-Partner':
 	case 'Pikachu-PhD':
 	case 'Pikachu-Pop-Star':
 	case 'Pikachu-Rock-Star':
-	case 'Pikachu-Sinnoh':
-	case 'Pikachu-Unova':
 		poke = "Pikachu";
 		break;
 	case 'Vivillon-Fancy':

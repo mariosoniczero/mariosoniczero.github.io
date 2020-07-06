@@ -1,14 +1,26 @@
 "use strict";
 exports.__esModule = true;
+function toID(text) {
+    return ('' + text).toLowerCase().replace(/[^a-z0-9]+/g, '');
+}
+exports.toID = toID;
 function error(err, msg) {
     if (err) {
         throw new Error(msg);
     }
     else {
-        console.log(error);
+        console.log(msg);
     }
 }
 exports.error = error;
+function assignWithout(a, b, exclude) {
+    for (var key in b) {
+        if (Object.prototype.hasOwnProperty.call(b, key) && !exclude.has(key)) {
+            a[key] = b[key];
+        }
+    }
+}
+exports.assignWithout = assignWithout;
 var class2Type = {
     '[object Boolean]': 'boolean',
     '[object Number]': 'number',
@@ -99,3 +111,4 @@ function extend() {
     return target;
 }
 exports.extend = extend;
+//# sourceMappingURL=util.js.map

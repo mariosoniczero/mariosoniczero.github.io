@@ -138,8 +138,14 @@ html, body {
 }
 .wrapper {
     padding: 0 1em;
-    max-width: 1276px;
+    max-width: 1285px;
     margin: 0 auto;
+}
+.credits {
+    clear: both;
+    padding: 20px;
+    max-width: 1285px;
+    margin: 0px auto;
 }
 div.wrapper > div > span {
     padding-right: 5px;
@@ -163,6 +169,8 @@ th {
     font-weight: bold;
     font-size: 1.5em;
     margin: 0.5em 1em 0.5em 0;
+    position: relative;
+    top: -5px;
 }
 .big-text {
     text-align: left;
@@ -175,7 +183,7 @@ th {
 }
 .panel {
     float: left;
-    display: inline-block;
+    display: inline-block; /* required for honkaculate to work */
 }
 .poke-info {
     width: 30em;
@@ -285,9 +293,14 @@ th {
     background: #ffff99;
 }
 
+.genSelection, .notationSelection {
+    display: inline-block;
+    position: relative;
+    top: -8px;
+}
+
 /* header */
 .move-result-group {
-    max-width: 80em;
     min-width: 50em;
     margin: 1em 0 11.5em;
 }
@@ -340,7 +353,7 @@ select.toxic-counter {
     font-size: 0.9em;
 }
 .move-selector {
-    width: 8.5em;
+    width: 11.5em;
 }
 .poke-info input.move-bp {
     width: 2em;
@@ -366,6 +379,12 @@ select.toxic-counter {
     width: 1.5em;
     height: 1em;
     padding: 3px 3px;
+}
+.poke-info .max-btn {
+	font-size: 0.8em;
+	width: 2.5em;
+	height: 1em;
+	padding: 3px 3px;
 }
 
 /* field info */
@@ -441,4 +460,16 @@ table.field {
     background-color: #ee4928;
     border-bottom-color: #a3260d;
     border-right-color: #a3260d;
+}
+
+.pool {
+    padding: 15px 0;
+}
+.ability-pool, .move-pool  {
+    padding-bottom: 5px;
+}
+.extraSetAbilities,
+.extraSetItems,
+.extraSetMoves {
+    width: 100%;
 }

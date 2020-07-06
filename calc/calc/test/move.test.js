@@ -1,9 +1,9 @@
 "use strict";
 exports.__esModule = true;
-var move_1 = require("../move");
+var index_1 = require("../index");
 describe('Move', function () {
     test('clone', function () {
-        var m = new move_1.Move(7, 'Blizzard', { useZ: true });
+        var m = new index_1.Move(7, 'Blizzard', { useZ: true });
         expect(m.name).toBe('Subzero Slammer');
         expect(m.bp).toBe(185);
         var clone = m.clone();
@@ -11,3 +11,4 @@ describe('Move', function () {
         expect(clone.bp).toBe(185);
     });
 });
+//# sourceMappingURL=move.test.js.map

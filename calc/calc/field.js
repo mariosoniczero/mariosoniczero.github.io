@@ -1,4 +1,20 @@
 "use strict";
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 exports.__esModule = true;
 var Field = (function () {
     function Field(field) {
@@ -15,11 +31,18 @@ var Field = (function () {
         for (var _i = 0; _i < arguments.length; _i++) {
             weathers[_i] = arguments[_i];
         }
-        return this.weather && weathers.indexOf(this.weather) !== -1;
+        return !!(this.weather && weathers.includes(this.weather));
+    };
+    Field.prototype.hasTerrain = function () {
+        var terrains = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            terrains[_i] = arguments[_i];
+        }
+        return !!(this.terrain && terrains.includes(this.terrain));
     };
     Field.prototype.swap = function () {
         var _a;
-        _a = [this.defenderSide, this.attackerSide], this.attackerSide = _a[0], this.defenderSide = _a[1];
+        _a = __read([this.defenderSide, this.attackerSide], 2), this.attackerSide = _a[0], this.defenderSide = _a[1];
         return this;
     };
     Field.prototype.clone = function () {
@@ -37,9 +60,14 @@ var Field = (function () {
 exports.Field = Field;
 var Side = (function () {
     function Side(side) {
+        if (side === void 0) { side = {}; }
         this.spikes = side.spikes || 0;
-        this.isSR = !!side.isSR;
         this.steelsurge = !!side.steelsurge;
+        this.vinelash = !!side.vinelash;
+        this.wildfire = !!side.wildfire;
+        this.cannonade = !!side.cannonade;
+        this.volcalith = !!side.volcalith;
+        this.isSR = !!side.isSR;
         this.isReflect = !!side.isReflect;
         this.isLightScreen = !!side.isLightScreen;
         this.isProtected = !!side.isProtected;
@@ -50,6 +78,7 @@ var Side = (function () {
         this.isFriendGuard = !!side.isFriendGuard;
         this.isAuroraVeil = !!side.isAuroraVeil;
         this.isBattery = !!side.isBattery;
+        this.isSwitching = side.isSwitching;
     }
     Side.prototype.clone = function () {
         return new Side(this);
@@ -57,3 +86,4 @@ var Side = (function () {
     return Side;
 }());
 exports.Side = Side;
+//# sourceMappingURL=field.js.map
