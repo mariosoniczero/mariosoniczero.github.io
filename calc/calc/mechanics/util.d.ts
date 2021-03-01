@@ -1,4 +1,4 @@
-import { Generation, NatureName, StatName, StatsTable, TypeName, Weather } from '../data/interface';
+import { Generation, MoveCategory, NatureName, StatName, StatsTable, TypeName, Weather } from '../data/interface';
 import { Field, Side } from '../field';
 import { Move } from '../move';
 import { Pokemon } from '../pokemon';
@@ -22,6 +22,7 @@ export declare function checkMultihitBoost(gen: Generation, attacker: Pokemon, d
 export declare function chainMods(mods: number[]): number;
 export declare function getBaseDamage(level: number, basePower: number, attack: number, defense: number): number;
 export declare function getFinalDamage(baseAmount: number, i: number, effectiveness: number, isBurned: boolean, stabMod: number, finalMod: number, protect?: boolean): number;
+export declare function getShellSideArmCategory(source: Pokemon, target: Pokemon): MoveCategory;
 export declare function getWeightFactor(pokemon: Pokemon): 1 | 2 | 0.5;
 export declare function countBoosts(gen: Generation, boosts: StatsTable): number;
 export declare function getEVDescriptionText(gen: Generation, pokemon: Pokemon, stat: 'atk' | 'def' | 'spd' | 'spa', natureName: NatureName): string;

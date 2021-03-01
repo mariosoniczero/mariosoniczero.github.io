@@ -33,6 +33,9 @@ export declare namespace State {
         weather?: I.Weather;
         terrain?: I.Terrain;
         isGravity?: boolean;
+        isAuraBreak?: boolean;
+        isFairyAura?: boolean;
+        isDarkAura?: boolean;
         attackerSide: Side;
         defenderSide: Side;
     }

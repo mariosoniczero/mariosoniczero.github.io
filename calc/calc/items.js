@@ -1,5 +1,6 @@
 "use strict";
 exports.__esModule = true;
+
 var util_1 = require("./util");
 exports.SEED_BOOSTED_STAT = {
     'Electric Seed': 'def',
@@ -28,7 +29,7 @@ function getItemBoostType(item) {
         case 'Never-Melt Ice':
             return 'Ice';
         case 'Insect Plate':
-        case 'SilverPowder':
+        case 'Silver Powder':
             return 'Bug';
         case 'Iron Plate':
         case 'Metal Coat':
@@ -330,7 +331,7 @@ var FLING_10 = new Set([
     'Wide Lens',
     'Wise Glasses',
     'Zoom Lens',
-    'SilverPowder',
+    'Silver Powder',
     'Power Herb',
     'TR00',
     'TR07',

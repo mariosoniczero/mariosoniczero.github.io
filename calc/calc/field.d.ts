@@ -5,6 +5,9 @@ export declare class Field implements State.Field {
     weather?: Weather;
     terrain?: Terrain;
     isGravity: boolean;
+    isAuraBreak?: boolean;
+    isFairyAura?: boolean;
+    isDarkAura?: boolean;
     attackerSide: Side;
     defenderSide: Side;
     constructor(field?: Partial<State.Field>);

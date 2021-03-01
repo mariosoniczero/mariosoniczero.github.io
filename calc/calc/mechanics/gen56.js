@@ -1,5 +1,6 @@
 "use strict";
 exports.__esModule = true;
+
 var util_1 = require("../util");
 var items_1 = require("../items");
 var result_1 = require("../result");
@@ -390,8 +391,12 @@ function calculateBWXY(gen, attacker, defender, move, field) {
     var aura = move.type + " Aura";
     var isAttackerAura = attacker.hasAbility(aura);
     var isDefenderAura = defender.hasAbility(aura);
-    if (isAttackerAura || isDefenderAura) {
-        if (attacker.hasAbility('Aura Break') || defender.hasAbility('Aura Break')) {
+    var isUserAuraBreak = attacker.hasAbility('Aura Break') || defender.hasAbility('Aura Break');
+    var isFieldAuraBreak = field.isAuraBreak;
+    var isFieldFairyAura = field.isFairyAura && move.type === 'Fairy';
+    var isFieldDarkAura = field.isDarkAura && move.type === 'Dark';
+    if (isFieldFairyAura || isFieldDarkAura || isAttackerAura || isDefenderAura) {
+        if (isFieldAuraBreak || isUserAuraBreak) {
             bpMods.push(0x0c00);
             desc.attackerAbility = attacker.ability;
             desc.defenderAbility = defender.ability;
@@ -508,7 +513,7 @@ function calculateBWXY(gen, attacker, defender, move, field) {
         (attacker.hasItem('Deep Sea Tooth') &&
             attacker.named('Clamperl') &&
             move.category === 'Special') ||
-        (attacker.hasItem('Light Ball') && attacker.named('Pikachu') && !move.isZ)) {
+        (attacker.hasItem('Light Ball') && attacker.name.startsWith('Pikachu') && !move.isZ)) {
         atMods.push(0x2000);
         desc.attackerItem = attacker.item;
     }

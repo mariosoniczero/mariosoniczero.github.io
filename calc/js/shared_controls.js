@@ -212,7 +212,7 @@ $(".ability").bind("keyup change", function () {
 
 	var ability = $(this).closest(".poke-info").find(".ability").val();
 
-	var TOGGLE_ABILITIES = ['Flash Fire', 'Intimidate', 'Minus', 'Plus', 'Slow Start', 'Unburden', 'Stakeout', 'Terrify'];
+	var TOGGLE_ABILITIES = ['Flash Fire', 'Intimidate', 'Minus', 'Plus', 'Slow Start', 'Unburden', 'Stakeout'];
 
 	if (TOGGLE_ABILITIES.indexOf(ability) >= 0) {
 		$(this).closest(".poke-info").find(".abilityToggle").show();
@@ -263,10 +263,6 @@ function autosetWeather(ability, i) {
 		lastAutoWeather[i] = "Strong Winds";
 		$("#strong-winds").prop("checked", true);
 		break;
-    case "Thunderstorm":
-		lastAutoWeather[i] = "Rain";
-		$("#rain").prop("checked", true);
-		break;
 	default:
 		lastAutoWeather[i] = "";
 		var newWeather = lastAutoWeather[1 - i] !== "" ? lastAutoWeather[1 - i] : "";
@@ -301,10 +297,6 @@ function autosetTerrain(ability, i) {
 	case "Psychic Surge":
 		lastAutoTerrain[i] = "Psychic";
 		$("#psychic").prop("checked", true);
-		break;
-    case "Thunderstorm":
-		lastAutoTerrain[i] = "Electric";
-		$("#electric").prop("checked", true);
 		break;
 	default:
 		lastAutoTerrain[i] = "";
@@ -375,10 +367,10 @@ $(".move-selector").change(function () {
 				}
 				if (gen < 3) {
 					var hpDV = calc.Stats.getHPDV({
-						atk: pokemon.ivs.atk,
-						def: pokemon.ivs.def,
-						spe: pokemon.ivs.spe,
-						spc: pokemon.ivs.spa
+						atk: pokeObj.find(".at .ivs").val(),
+						def: pokeObj.find(".df .ivs").val(),
+						spe: pokeObj.find(".sp .ivs").val(),
+						spc: pokeObj.find(".sa .ivs").val()
 					});
 					pokeObj.find(".hp .ivs").val(calc.Stats.DVToIV(hpDV));
 					pokeObj.find(".hp .dvs").val(hpDV);
@@ -577,7 +569,7 @@ function formatMovePool(moves) {
 
 function isKnownDamagingMove(move) {
 	var m = GENERATION.moves.get(calc.toID(move));
-	return m && m.bp;
+	return m && m.basePower;
 }
 
 function selectMovesFromRandomOptions(moves) {
@@ -722,6 +714,12 @@ function createPokemon(pokeInfo) {
 		for (var i = 0; i < 4; i++) {
 			var moveName = set.moves[i];
 			pokemonMoves.push(new calc.Move(gen, moves[moveName] ? moveName : "(No Move)", {ability: ability, item: item}));
+		}
+
+		if (isRandoms) {
+			pokemonMoves = pokemonMoves.filter(function (move) {
+				return move.category !== "Status";
+			});
 		}
 
 		return new calc.Pokemon(gen, name, {
@@ -932,14 +930,14 @@ var SETDEX = [
 ];
 var RANDDEX = [
 	{},
-	typeof RANDOM_RBY === 'undefined' ? {} : RANDOM_RBY,
-	typeof RANDOM_GSC === 'undefined' ? {} : RANDOM_GSC,
-	typeof RANDOM_ADV === 'undefined' ? {} : RANDOM_ADV,
-	typeof RANDOM_DPP === 'undefined' ? {} : RANDOM_DPP,
-	typeof RANDOM_BW === 'undefined' ? {} : RANDOM_BW,
-	typeof RANDOM_XY === 'undefined' ? {} : RANDOM_XY,
-	typeof RANDOM_SM === 'undefined' ? {} : RANDOM_SM,
-	typeof RANDOM_SS === 'undefined' ? {} : RANDOM_SS,
+	typeof GEN1RANDOMBATTLE === 'undefined' ? {} : GEN1RANDOMBATTLE,
+	typeof GEN2RANDOMBATTLE === 'undefined' ? {} : GEN2RANDOMBATTLE,
+	typeof GEN3RANDOMBATTLE === 'undefined' ? {} : GEN3RANDOMBATTLE,
+	typeof GEN4RANDOMBATTLE === 'undefined' ? {} : GEN4RANDOMBATTLE,
+	typeof GEN5RANDOMBATTLE === 'undefined' ? {} : GEN5RANDOMBATTLE,
+	typeof GEN6RANDOMBATTLE === 'undefined' ? {} : GEN6RANDOMBATTLE,
+	typeof GEN7RANDOMBATTLE === 'undefined' ? {} : GEN7RANDOMBATTLE,
+	typeof GEN8RANDOMBATTLE === 'undefined' ? {} : GEN8RANDOMBATTLE,
 ];
 var gen, genWasChanged, notation, pokedex, setdex, randdex, typeChart, moves, abilities, items, calcHP, calcStat, GENERATION;
 $(".gen").change(function () {
@@ -1259,17 +1257,21 @@ function loadCustomList(id) {
 			return (set.nickname ? set.pokemon + " (" + set.nickname + ")" : set.id);
 		},
 		query: function (query) {
-			var pageSize = 20;
+			var pageSize = 30;
 			var results = [];
 			var options = getSetOptions();
 			for (var i = 0; i < options.length; i++) {
 				var option = options[i];
-				if (option.isCustom && (option.nickname || option.id)) {
+				var pokeName = option.pokemon.toUpperCase();
+				var setName = option.set ? option.set.toUpperCase() : option.set;
+				if (option.isCustom && option.set && (!query.term || query.term.toUpperCase().split(" ").every(function (term) {
+					return pokeName.indexOf(term) === 0 || pokeName.indexOf("-" + term) >= 0 || pokeName.indexOf(" " + term) >= 0 || setName.indexOf(term) === 0 || setName.indexOf("-" + term) >= 0 || setName.indexOf(" " + term) >= 0;
+				}))) {
 					results.push(option);
 				}
 			}
 			query.callback({
-				results: results,
+				results: results.slice((query.page - 1) * pageSize, query.page * pageSize),
 				more: results.length >= query.page * pageSize
 			});
 		},

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <title>Pok&eacute;mon Damage Calculator</title>
     <link type="text/css" rel="stylesheet" href="./js/vendor/select2/select2.css" />
-    <link type="text/css" rel="stylesheet" href="./css/main.css?dfcde920" />
+    <link type="text/css" rel="stylesheet" href="./css/main.css?2f51c96c" />
     <link type="text/css" rel="stylesheet" href="./css/vendor/bootstrap.css" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-26211653-3"></script>
@@ -888,14 +888,6 @@
                                 <label class="btn btn-xxwide" for="switchingR">Switching Out</label>
                             </div></td>
                         </tr>
-                        <tr>
-                            <td><div class="left" title="Export the leftmost Pok&eacute;mon set">
-                                <button id="exportL">Export</button>
-                            </div></td>
-                            <td><div class="right" title="Export the rightmost Pok&eacute;mon set">
-                                <button id="exportR">Export</button>
-                            </div></td>
-                        </tr>
                     </tbody>
                 </table>
             </fieldset>
@@ -1418,47 +1410,51 @@
     <script type="text/javascript" src="./js/vendor/select2/select2.min.js"></script>
     <script type="text/javascript" src="./js/vendor/url-search-params-0.1.2.min.js"></script>
     <script type="text/javascript">
+        this.__createBinding = function(o, m, k, k2) {
+            if (k2 === undefined) k2 = k;
+            o[k2] = m[k];
+        };
         var calc = exports = {};
         function require() { return exports };
     </script>
-    <script type="text/javascript" src="./calc/util.js?3175bd21"></script>
-    <script type="text/javascript" src="./calc/stats.js?c5cf3a28"></script>
-    <script type="text/javascript" src="./calc/data/species.js?1da2f871"></script>
-    <script type="text/javascript" src="./js/data/randoms/gen8.js?92de1e16"></script>
-    <script type="text/javascript" src="./js/data/randoms/gen7.js?0966283d"></script>
-    <script type="text/javascript" src="./js/data/randoms/gen6.js?b9ce1857"></script>
-    <script type="text/javascript" src="./js/data/randoms/gen5.js?0567ea8e"></script>
-    <script type="text/javascript" src="./js/data/randoms/gen4.js?e199c6f4"></script>
-    <script type="text/javascript" src="./js/data/randoms/gen3.js?b3682862"></script>
-    <script type="text/javascript" src="./js/data/randoms/gen2.js?2e2c180c"></script>
-    <script type="text/javascript" src="./js/data/randoms/gen1.js?8de5f2e4"></script>
-    <script type="text/javascript" src="./calc/data/types.js?b7a5e8ed"></script>
-    <script type="text/javascript" src="./calc/data/natures.js?e8a812d4"></script>
-    <script type="text/javascript" src="./calc/data/abilities.js?3c4e0aef"></script>
-    <script type="text/javascript" src="./calc/data/moves.js?17966f12"></script>
-    <script type="text/javascript" src="./calc/data/items.js?1f908fc8"></script>
-    <script type="text/javascript" src="./calc/data/index.js?dca6d805"></script>
-    <script type="text/javascript" src="./calc/move.js?0e84026d"></script>
-    <script type="text/javascript" src="./calc/pokemon.js?6d6ca8a4"></script>
-    <script type="text/javascript" src="./calc/field.js?40132a22"></script>
-    <script type="text/javascript" src="./calc/items.js?2d6ff9a9"></script>
-    <script type="text/javascript" src="./calc/mechanics/util.js?1b1b11d8"></script>
-    <script type="text/javascript" src="./calc/mechanics/gen78.js?bef60488"></script>
-    <script type="text/javascript" src="./calc/mechanics/gen56.js?6265c607"></script>
-    <script type="text/javascript" src="./calc/mechanics/gen4.js?cfceb2b7"></script>
-    <script type="text/javascript" src="./calc/mechanics/gen3.js?b963d692"></script>
-    <script type="text/javascript" src="./calc/mechanics/gen12.js?3f2f6ee1"></script>
-    <script type="text/javascript" src="./calc/calc.js?c4cb99fa"></script>
-    <script type="text/javascript" src="./calc/desc.js?7833ba06"></script>
-    <script type="text/javascript" src="./calc/result.js?af8a0fe2"></script>
-    <script type="text/javascript" src="./calc/adaptable.js?b0fbc4ca"></script>
-    <script type="text/javascript" src="./calc/index.js?7bae9078"></script>
-    <script type="text/javascript" src="./js/shared_controls.js?49d91de1"></script>
-    <script type="text/javascript" src="./js/index_randoms_controls.js?c05b55a3"></script>
-    <script type="text/javascript" src="./js/moveset_import.js?a0c32dc6"></script>
+    <script type="text/javascript" src="./calc/util.js?8fa0c7ff"></script>
+    <script type="text/javascript" src="./calc/stats.js?2aa77a44"></script>
+    <script type="text/javascript" src="./calc/data/species.js?27e291e3"></script>
+    <script type="text/javascript" src="https://pkmn.github.io/randbats/data/gen8randombattle.js?"></script>
+    <script type="text/javascript" src="https://pkmn.github.io/randbats/data/gen7randombattle.js?"></script>
+    <script type="text/javascript" src="https://pkmn.github.io/randbats/data/gen6randombattle.js?"></script>
+    <script type="text/javascript" src="https://pkmn.github.io/randbats/data/gen5randombattle.js?"></script>
+    <script type="text/javascript" src="https://pkmn.github.io/randbats/data/gen4randombattle.js?"></script>
+    <script type="text/javascript" src="https://pkmn.github.io/randbats/data/gen3randombattle.js?"></script>
+    <script type="text/javascript" src="https://pkmn.github.io/randbats/data/gen2randombattle.js?"></script>
+    <script type="text/javascript" src="https://pkmn.github.io/randbats/data/gen1randombattle.js?"></script>
+    <script type="text/javascript" src="./calc/data/types.js?a781ce67"></script>
+    <script type="text/javascript" src="./calc/data/natures.js?f42bc346"></script>
+    <script type="text/javascript" src="./calc/data/abilities.js?7c1f9edb"></script>
+    <script type="text/javascript" src="./calc/data/moves.js?5379dccb"></script>
+    <script type="text/javascript" src="./calc/data/items.js?acb7fa8f"></script>
+    <script type="text/javascript" src="./calc/data/index.js?083d2bc9"></script>
+    <script type="text/javascript" src="./calc/move.js?56f54cf0"></script>
+    <script type="text/javascript" src="./calc/pokemon.js?6c5d09f0"></script>
+    <script type="text/javascript" src="./calc/field.js?761aeb8c"></script>
+    <script type="text/javascript" src="./calc/items.js?e6fbb656"></script>
+    <script type="text/javascript" src="./calc/mechanics/util.js?009899ab"></script>
+    <script type="text/javascript" src="./calc/mechanics/gen78.js?5ac6e309"></script>
+    <script type="text/javascript" src="./calc/mechanics/gen56.js?61f7870d"></script>
+    <script type="text/javascript" src="./calc/mechanics/gen4.js?edb5a7ad"></script>
+    <script type="text/javascript" src="./calc/mechanics/gen3.js?1cfda7de"></script>
+    <script type="text/javascript" src="./calc/mechanics/gen12.js?e08ab9bf"></script>
+    <script type="text/javascript" src="./calc/calc.js?d7fc4fbd"></script>
+    <script type="text/javascript" src="./calc/desc.js?15130c1e"></script>
+    <script type="text/javascript" src="./calc/result.js?027e0256"></script>
+    <script type="text/javascript" src="./calc/adaptable.js?419a08e8"></script>
+    <script type="text/javascript" src="./calc/index.js?3e0c00e8"></script>
+    <script type="text/javascript" src="./js/shared_controls.js?54c05cd2"></script>
+    <script type="text/javascript" src="./js/index_randoms_controls.js?3375d6f1"></script>
+    <script type="text/javascript" src="./js/moveset_import.js?4cf52a0c"></script>
 </div>
 
-<div class="credits">Created by Honko, maintained by Austin and pre
+<div class="credits">Created by Honko, maintained by Austin and Kris
     <ul><li><a href="https://github.com/smogon/damage-calc/contributors" target="_blank">Contributors</a></li>
     <li><a href="https://www.smogon.com/forums/threads/pok%C3%A9mon-showdown-damage-calculator.3593546/" target="_blank">Bug Reports</a></li>
     <li><a href="https://github.com/smogon/damage-calc" target="_blank">GitHub repository</a></li></ul>

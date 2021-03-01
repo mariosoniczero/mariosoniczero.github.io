@@ -53,11 +53,13 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spread = (this && this.__spread) || function () {
-    for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
-    return ar;
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
 };
 exports.__esModule = true;
+
 function toID(s) {
     return ('' + s).toLowerCase().replace(/[^a-z0-9]+/g, '');
 }
@@ -389,20 +391,33 @@ var Specie = (function () {
             }
         }
         else if (species.id === 'toxtricity') {
-            this.otherFormes = ['Toxtricity-Gmax', 'Toxtricity-Low-Key', 'Toxtricity-Low-Key-Gmax',
+            this.otherFormes = [
+                'Toxtricity-Gmax', 'Toxtricity-Low-Key', 'Toxtricity-Low-Key-Gmax',
             ];
         }
         else if (species.id === 'toxtricitylowkey') {
             this.baseSpecies = 'Toxtricity';
         }
+        else if (species.id === 'urshifu') {
+            this.otherFormes = [
+                'Urshifu-Gmax', 'Urshifu-Rapid-Strike', 'Urshifu-Rapid-Strike-Gmax',
+            ];
+        }
         else if (species.id === 'eternatus') {
             this.otherFormes = ['Eternatus-Eternamax'];
         }
         else if (formes === null || formes === void 0 ? void 0 : formes.length) {
-            this.otherFormes = __spread(formes).sort();
+            this.otherFormes = __spreadArray([], __read(formes)).sort();
         }
         else if (species.baseSpecies !== this.name) {
             this.baseSpecies = species.baseSpecies;
+        }
+        if (dex.gen === 8 && species.canGigantamax &&
+            !(species.id.startsWith('toxtricity') || species.id.startsWith('urshifu'))) {
+            var formes_1 = this.otherFormes || [];
+            var gmax = dex.getSpecies(species.name + "-Gmax");
+            if (exists(gmax, dex.gen))
+                this.otherFormes = __spreadArray(__spreadArray([], __read(formes_1)), [gmax.name]).sort();
         }
         if (dex.gen > 2)
             this.abilities = { 0: species.abilities[0] };
@@ -566,8 +581,9 @@ function exists(val, gen) {
         return true;
     if (gen === 8 && ['eternatuseternamax', 'zarude', 'zarudedada'].includes(val.id))
         return true;
-    if (val.isNonstandard && !['CAP', 'Unobtainable'].includes(val.isNonstandard))
+    if (val.isNonstandard && !['CAP', 'Unobtainable', 'Gigantamax'].includes(val.isNonstandard)) {
         return false;
+    }
     return !('tier' in val && ['Illegal', 'Unreleased'].includes(val.tier));
 }
 //# sourceMappingURL=gen.js.map

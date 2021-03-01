@@ -39,6 +39,7 @@ var __values = (this && this.__values) || function(o) {
 };
 var e_1, _a;
 exports.__esModule = true;
+
 var util_1 = require("../util");
 var RBY = {
     Abra: {
@@ -3247,7 +3248,7 @@ var DPP_PATCH = {
         abilities: { 0: 'Blaze' }
     },
     Kitsunoh: {
-        types: ['Steel', 'Ghost'],
+        types: ['Ghost', 'Steel'],
         bs: { hp: 80, at: 103, df: 85, sa: 55, sd: 80, sp: 110 },
         weightkg: 51,
         abilities: { 0: 'Frisk' }
@@ -6505,6 +6506,14 @@ var SM_PATCH = {
         nfe: true,
         abilities: { 0: 'Bulletproof' }
     },
+    Justyke: {
+        types: ['Steel', 'Ground'],
+        bs: { hp: 72, at: 70, df: 56, sa: 83, sd: 68, sp: 30 },
+        weightkg: 36.5,
+        nfe: true,
+        abilities: { 0: 'Levitate' },
+        gender: 'N'
+    },
     Jumbao: {
         types: ['Grass', 'Fairy'],
         bs: { hp: 92, at: 63, df: 97, sa: 124, sd: 104, sp: 96 },
@@ -7440,6 +7449,7 @@ var SS_PATCH = {
     'Aegislash-Blade': { bs: { at: 140, sa: 140 } },
     'Aegislash-Both': { bs: { at: 140, df: 140, sa: 140, sd: 140 } },
     'Aegislash-Shield': { bs: { df: 140, sd: 140 } },
+    Articuno: { otherFormes: ['Articuno-Galar'] },
     Blastoise: { otherFormes: ['Blastoise-Gmax', 'Blastoise-Mega'] },
     Charizard: { otherFormes: ['Charizard-Gmax', 'Charizard-Mega-X', 'Charizard-Mega-Y'] },
     Corsola: { otherFormes: ['Corsola-Galar'] },
@@ -7448,6 +7458,7 @@ var SS_PATCH = {
     },
     Darumaka: { otherFormes: ['Darumaka-Galar'] },
     Eevee: { otherFormes: ['Eevee-Gmax'] },
+    Equilibra: { bs: { sa: 121 } },
     'Farfetch\u2019d': { otherFormes: ['Farfetch\u2019d-Galar'] },
     Garbodor: { otherFormes: ['Garbodor-Gmax'] },
     Gengar: { otherFormes: ['Gengar-Gmax', 'Gengar-Mega'] },
@@ -7455,7 +7466,9 @@ var SS_PATCH = {
     Lapras: { otherFormes: ['Lapras-Gmax'] },
     Linoone: { otherFormes: ['Linoone-Galar'] },
     Machamp: { otherFormes: ['Machamp-Gmax'] },
+    Melmetal: { otherFormes: ['Melmetal-Gmax'] },
     Meowth: { otherFormes: ['Meowth-Alola', 'Meowth-Galar', 'Meowth-Gmax'] },
+    Moltres: { otherFormes: ['Moltres-Galar'] },
     'Mr. Mime': { otherFormes: ['Mr. Mime-Galar'] },
     Pikachu: {
         otherFormes: [
@@ -7472,11 +7485,13 @@ var SS_PATCH = {
     },
     Ponyta: { otherFormes: ['Ponyta-Galar'] },
     Slowbro: { otherFormes: ['Slowbro-Galar', 'Slowbro-Mega'] },
+    Slowking: { otherFormes: ['Slowking-Galar'] },
     Slowpoke: { otherFormes: ['Slowpoke-Galar'] },
     Snorlax: { otherFormes: ['Snorlax-Gmax'] },
     Stunfisk: { otherFormes: ['Stunfisk-Galar'] },
     Venusaur: { otherFormes: ['Venusaur-Gmax', 'Venusaur-Mega'] },
     Yamask: { otherFormes: ['Yamask-Galar'] },
+    Zapdos: { otherFormes: ['Zapdos-Galar'] },
     Zigzagoon: { otherFormes: ['Zigzagoon-Galar'] },
     Alcremie: {
         types: ['Fairy'],
@@ -7534,6 +7549,14 @@ var SS_PATCH = {
         abilities: { 0: 'Swift Swim' },
         nfe: true
     },
+    'Articuno-Galar': {
+        types: ['Psychic', 'Flying'],
+        bs: { hp: 90, at: 85, df: 85, sa: 125, sd: 100, sp: 95 },
+        weightkg: 50.9,
+        abilities: { 0: 'Competitive' },
+        gender: 'N',
+        baseSpecies: 'Articuno'
+    },
     Astrolotl: {
         types: ['Fire', 'Dragon'],
         bs: { hp: 108, at: 108, df: 74, sa: 92, sd: 64, sp: 114 },
@@ -7564,7 +7587,8 @@ var SS_PATCH = {
         types: ['Electric'],
         bs: { hp: 69, at: 90, df: 60, sa: 90, sd: 60, sp: 121 },
         weightkg: 34,
-        abilities: { 0: 'Strong Jaw' }
+        abilities: { 0: 'Strong Jaw' },
+        otherFormes: ['Boltund-Mega']
     },
     'Butterfree-Gmax': {
         types: ['Bug', 'Flying'],
@@ -7572,6 +7596,30 @@ var SS_PATCH = {
         weightkg: 0,
         abilities: { 0: 'Compound Eyes' },
         baseSpecies: 'Butterfree'
+    },
+    Calyrex: {
+        types: ['Psychic', 'Grass'],
+        bs: { hp: 100, at: 80, df: 80, sa: 80, sd: 80, sp: 80 },
+        weightkg: 7.7,
+        abilities: { 0: 'Unnerve' },
+        gender: 'N',
+        otherFormes: ['Calyrex-Ice', 'Calyrex-Shadow']
+    },
+    'Calyrex-Ice': {
+        types: ['Psychic', 'Ice'],
+        bs: { hp: 100, at: 165, df: 150, sa: 85, sd: 130, sp: 50 },
+        weightkg: 809.1,
+        abilities: { 0: 'As One (Glastrier)' },
+        gender: 'N',
+        baseSpecies: 'Calyrex'
+    },
+    'Calyrex-Shadow': {
+        types: ['Psychic', 'Ghost'],
+        bs: { hp: 100, at: 85, df: 80, sa: 165, sd: 100, sp: 150 },
+        weightkg: 53.6,
+        abilities: { 0: 'As One (Spectrier)' },
+        gender: 'N',
+        baseSpecies: 'Calyrex'
     },
     Carkol: {
         types: ['Rock', 'Fire'],
@@ -7916,6 +7964,13 @@ var SS_PATCH = {
         abilities: { 0: 'Cursed Body' },
         baseSpecies: 'Gengar'
     },
+    Glastrier: {
+        types: ['Ice'],
+        bs: { hp: 100, at: 145, df: 130, sa: 65, sd: 110, sp: 30 },
+        weightkg: 800,
+        abilities: { 0: 'Chilling Neigh' },
+        gender: 'N'
+    },
     Gossifleur: {
         types: ['Grass'],
         bs: { hp: 40, at: 40, df: 60, sa: 40, sd: 60, sp: 10 },
@@ -8064,6 +8119,14 @@ var SS_PATCH = {
         abilities: { 0: 'Guts' },
         baseSpecies: 'Machamp'
     },
+    'Melmetal-Gmax': {
+        types: ['Steel'],
+        bs: { hp: 135, at: 143, df: 143, sa: 80, sd: 65, sp: 34 },
+        weightkg: 0,
+        abilities: { 0: 'Iron Fist' },
+        baseSpecies: 'Melmetal',
+        gender: 'N'
+    },
     'Meowth-Galar': {
         types: ['Steel'],
         bs: { hp: 50, at: 65, df: 55, sa: 40, sd: 40, sp: 40 },
@@ -8079,12 +8142,33 @@ var SS_PATCH = {
         abilities: { 0: 'Pickup' },
         baseSpecies: 'Meowth'
     },
+    Miasmaw: {
+        types: ['Bug', 'Dragon'],
+        bs: { hp: 85, at: 135, df: 60, sa: 115, sd: 85, sp: 92 },
+        weightkg: 57,
+        abilities: { 0: 'Neutralizing Gas' }
+    },
+    Miasmite: {
+        types: ['Bug', 'Dragon'],
+        bs: { hp: 40, at: 85, df: 60, sa: 52, sd: 52, sp: 44 },
+        weightkg: 10.1,
+        abilities: { 0: 'Neutralizing Gas' },
+        nfe: true
+    },
     Milcery: {
         types: ['Fairy'],
         bs: { hp: 45, at: 40, df: 40, sa: 50, sd: 61, sp: 34 },
         weightkg: 0.3,
         abilities: { 0: 'Sweet Veil' },
         nfe: true
+    },
+    'Moltres-Galar': {
+        types: ['Dark', 'Flying'],
+        bs: { hp: 90, at: 85, df: 90, sa: 100, sd: 125, sp: 90 },
+        weightkg: 66,
+        abilities: { 0: 'Berserk' },
+        gender: 'N',
+        baseSpecies: 'Moltres'
     },
     Morgrem: {
         types: ['Dark', 'Fairy'],
@@ -8212,6 +8296,20 @@ var SS_PATCH = {
         abilities: { 0: 'Run Away' },
         baseSpecies: 'Rapidash'
     },
+    Regidrago: {
+        types: ['Dragon'],
+        bs: { hp: 200, at: 100, df: 50, sa: 100, sd: 50, sp: 80 },
+        weightkg: 200,
+        abilities: { 0: 'Dragon\'s Maw' },
+        gender: 'N'
+    },
+    Regieleki: {
+        types: ['Electric'],
+        bs: { hp: 80, at: 100, df: 50, sa: 100, sd: 50, sp: 200 },
+        weightkg: 145,
+        abilities: { 0: 'Transistor' },
+        gender: 'N'
+    },
     Rillaboom: {
         types: ['Grass'],
         bs: { hp: 100, at: 125, df: 90, sa: 60, sd: 70, sp: 85 },
@@ -8313,11 +8411,18 @@ var SS_PATCH = {
         nfe: true
     },
     'Slowbro-Galar': {
-        types: ['Psychic', 'Poison'],
+        types: ['Poison', 'Psychic'],
         bs: { hp: 95, at: 100, df: 95, sa: 100, sd: 70, sp: 30 },
         weightkg: 70.5,
         abilities: { 0: 'Quick Draw' },
         baseSpecies: 'Slowbro'
+    },
+    'Slowking-Galar': {
+        types: ['Poison', 'Psychic'],
+        bs: { hp: 95, at: 65, df: 80, sa: 110, sd: 110, sp: 30 },
+        weightkg: 79.5,
+        abilities: { 0: 'Curious Medicine' },
+        baseSpecies: 'Slowking'
     },
     'Slowpoke-Galar': {
         types: ['Psychic'],
@@ -8326,6 +8431,13 @@ var SS_PATCH = {
         nfe: true,
         abilities: { 0: 'Gluttony' },
         baseSpecies: 'Slowpoke'
+    },
+    Solotl: {
+        types: ['Fire', 'Dragon'],
+        bs: { hp: 68, at: 48, df: 34, sa: 72, sd: 24, sp: 84 },
+        weightkg: 11.8,
+        nfe: true,
+        abilities: { 0: 'Regenerator' }
     },
     Snom: {
         types: ['Ice', 'Bug'],
@@ -8347,6 +8459,13 @@ var SS_PATCH = {
         weightkg: 4,
         abilities: { 0: 'Torrent' },
         nfe: true
+    },
+    Spectrier: {
+        types: ['Ghost'],
+        bs: { hp: 100, at: 65, df: 60, sa: 145, sd: 80, sp: 130 },
+        weightkg: 44.5,
+        abilities: { 0: 'Grim Neigh' },
+        gender: 'N'
     },
     Stonjourner: {
         types: ['Rock'],
@@ -8504,6 +8623,14 @@ var SS_PATCH = {
         abilities: { 0: 'Dauntless Shield' },
         baseSpecies: 'Zamazenta',
         gender: 'N'
+    },
+    'Zapdos-Galar': {
+        types: ['Fighting', 'Flying'],
+        bs: { hp: 90, at: 125, df: 90, sa: 85, sd: 90, sp: 100 },
+        weightkg: 58.2,
+        abilities: { 0: 'Defiant' },
+        gender: 'N',
+        baseSpecies: 'Zapdos'
     },
     Zarude: {
         types: ['Dark', 'Grass'],
@@ -8799,6 +8926,69 @@ var SS_PATCH = {
         weightkg: 75,
         abilities: { 0: 'Momentum' },
         baseSpecies: 'Crobat'
+    },
+    Decidueye: { otherFormes: ['Decidueye-Mega'] },
+    Incineroar: { otherFormes: ['Incineroar-Mega'] },
+    Primarina: { otherFormes: ['Primarina-Mega'] },
+    Crustle: { otherFormes: ['Crustle-Mega'] },
+    Primeape: { otherFormes: ['Primeape-Mega'] },
+    Girafarig: { otherFormes: ['Girafarig-Mega'] },
+    Mightyena: { otherFormes: ['Mightyena-Mega'] },
+    'Decidueye-Mega': {
+        types: ['Grass', 'Ghost'],
+        bs: { hp: 78, at: 137, df: 100, sa: 85, sd: 130, sp: 100 },
+        weightkg: 36.6,
+        abilities: { 0: 'Starstruck' },
+        baseSpecies: 'Decidueye'
+    },
+    'Incineroar-Mega': {
+        types: ['Fire', 'Dark'],
+        bs: { hp: 95, at: 150, df: 110, sa: 85, sd: 100, sp: 90 },
+        weightkg: 83,
+        abilities: { 0: 'Heel Tactics' },
+        baseSpecies: 'Incineroar'
+    },
+    'Primarina-Mega': {
+        types: ['Water', 'Fairy'],
+        bs: { hp: 80, at: 99, df: 99, sa: 146, sd: 131, sp: 75 },
+        weightkg: 44,
+        abilities: { 0: 'Crescendo' },
+        baseSpecies: 'Primarina'
+    },
+    'Crustle-Mega': {
+        types: ['Bug', 'Rock'],
+        bs: { hp: 70, at: 125, df: 155, sa: 95, sd: 80, sp: 60 },
+        weightkg: 200,
+        abilities: { 0: 'Vigor Charge' },
+        baseSpecies: 'Crustle'
+    },
+    'Primeape-Mega': {
+        types: ['Fighting', 'Ground'],
+        bs: { hp: 65, at: 140, df: 75, sa: 75, sd: 85, sp: 115 },
+        weightkg: 32,
+        abilities: { 0: 'Determination' },
+        baseSpecies: 'Primeape'
+    },
+    'Girafarig-Mega': {
+        types: ['Normal', 'Psychic'],
+        bs: { hp: 70, at: 110, df: 70, sa: 125, sd: 70, sp: 110 },
+        weightkg: 41.5,
+        abilities: { 0: 'Neuroforce' },
+        baseSpecies: 'Girafarig'
+    },
+    'Mightyena-Mega': {
+        types: ['Dark', 'Fairy'],
+        bs: { hp: 70, at: 140, df: 80, sa: 30, sd: 70, sp: 130 },
+        weightkg: 37,
+        abilities: { 0: 'Pack Tactics' },
+        baseSpecies: 'Mightyena'
+    },
+    'Boltund-Mega': {
+        types: ['Electric', 'Ice'],
+        bs: { hp: 69, at: 125, df: 80, sa: 125, sd: 80, sp: 111 },
+        weightkg: 34,
+        abilities: { 0: 'Refrigerate' },
+        baseSpecies: 'Boltund'
     }
 };
 var SS = util_1.extend(true, {}, SM, SS_PATCH);

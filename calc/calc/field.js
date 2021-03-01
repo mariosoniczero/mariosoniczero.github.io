@@ -16,6 +16,7 @@ var __read = (this && this.__read) || function (o, n) {
     return ar;
 };
 exports.__esModule = true;
+
 var Field = (function () {
     function Field(field) {
         if (field === void 0) { field = {}; }
@@ -23,6 +24,9 @@ var Field = (function () {
         this.terrain = field.terrain;
         this.weather = field.weather;
         this.isGravity = !!field.isGravity;
+        this.isAuraBreak = field.isAuraBreak || false;
+        this.isFairyAura = field.isFairyAura || false;
+        this.isDarkAura = field.isDarkAura || false;
         this.attackerSide = new Side(field.attackerSide || {});
         this.defenderSide = new Side(field.defenderSide || {});
     }
@@ -52,7 +56,10 @@ var Field = (function () {
             terrain: this.terrain,
             isGravity: this.isGravity,
             attackerSide: this.attackerSide,
-            defenderSide: this.defenderSide
+            defenderSide: this.defenderSide,
+            isAuraBreak: this.isAuraBreak,
+            isDarkAura: this.isDarkAura,
+            isFairyAura: this.isFairyAura
         });
     };
     return Field;

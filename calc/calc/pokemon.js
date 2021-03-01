@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __values = (this && this.__values) || function(o) {
     var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
     if (m) return m.call(o);
@@ -11,6 +22,7 @@ var __values = (this && this.__values) || function(o) {
     throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 };
 exports.__esModule = true;
+
 var stats_1 = require("./stats");
 var util_1 = require("./util");
 var STATS = ['hp', 'atk', 'def', 'spa', 'spd', 'spe'];
@@ -24,12 +36,15 @@ var Pokemon = (function () {
         this.gen = gen;
         this.name = options.name || name;
         this.types = this.species.types;
+        this.isDynamaxed = !!options.isDynamaxed;
         this.weightkg = this.species.weightkg;
+        if (this.weightkg === 0 && !this.isDynamaxed && this.species.baseSpecies) {
+            this.weightkg = gen.species.get(util_1.toID(this.species.baseSpecies)).weightkg;
+        }
         this.level = options.level || 100;
         this.gender = options.gender || this.species.gender || 'M';
         this.ability = options.ability || ((_b = this.species.abilities) === null || _b === void 0 ? void 0 : _b[0]) || undefined;
         this.abilityOn = !!options.abilityOn;
-        this.isDynamaxed = !!options.isDynamaxed;
         this.item = options.item;
         this.nature = options.nature || 'Serious';
         this.ivs = Pokemon.withDefault(gen, options.ivs, 31);
@@ -182,7 +197,7 @@ var Pokemon = (function () {
                 throw new Error('Special Attack and Special Defense must match before Gen 3');
             }
         }
-        return Object.assign({ hp: val, atk: val, def: val, spa: val, spd: val, spe: val }, cur);
+        return __assign({ hp: val, atk: val, def: val, spa: val, spd: val, spe: val }, cur);
     };
     return Pokemon;
 }());

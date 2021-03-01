@@ -15,11 +15,13 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spread = (this && this.__spread) || function () {
-    for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
-    return ar;
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
 };
 exports.__esModule = true;
+
 var items_1 = require("../items");
 var result_1 = require("../result");
 var util_1 = require("./util");
@@ -165,7 +167,7 @@ function calculateRBYGSC(gen, attacker, defender, move, field) {
         baseDamage = Math.floor(baseDamage / 2);
         desc.weather = field.weather;
     }
-    if (move.hasType.apply(move, __spread(attacker.types))) {
+    if (move.hasType.apply(move, __spreadArray([], __read(attacker.types)))) {
         baseDamage = Math.floor(baseDamage * 1.5);
     }
     baseDamage = Math.floor(baseDamage * typeEffectiveness);

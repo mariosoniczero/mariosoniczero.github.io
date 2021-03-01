@@ -39,6 +39,7 @@ var __values = (this && this.__values) || function(o) {
 };
 var e_1, _a, e_2, _b;
 exports.__esModule = true;
+
 var util_1 = require("../util");
 var RBY = [];
 var GSC = [];
@@ -289,12 +290,21 @@ var SM = XY.concat([
     'Wimp Out',
 ]);
 var SS = SM.concat([
+    'As One (Glastrier)',
+    'As One (Spectrier)',
     'Ball Fetch',
+    'Chilling Neigh',
     'Cotton Down',
     'Conflagrate',
+    'Crescendo',
+    'Curious Medicine',
     'Dauntless Shield',
+    'Determination',
+    'Dragon\'s Maw',
     'Gorilla Tactics',
+    'Grim Neigh',
     'Gulp Missile',
+    'Heel Tactics',
     'Hunger Switch',
     'Ice Face',
     'Ice Scales',
@@ -304,6 +314,7 @@ var SS = SM.concat([
     'Mimicry',
     'Mirror Armor',
     'Neutralizing Gas',
+    'Pack Tactics',
     'Pastel Veil',
     'Perish Body',
     'Power Spot',
@@ -316,11 +327,14 @@ var SS = SM.concat([
     'Sharpened Fangs',
     'Spectral Battery',
     'Stalwart',
+    'Starstruck',
     'Steam Engine',
     'Steely Spirit',
     'Terrify',
     'Thunderstorm',
+    'Transistor',
     'Unseen Fist',
+    'Vigor Charge',
     'Wandering Spirit',
     'Weather Rush',
 ]);

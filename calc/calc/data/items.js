@@ -42,9 +42,10 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spread = (this && this.__spread) || function () {
-    for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
-    return ar;
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
 };
 var __values = (this && this.__values) || function(o) {
     var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
@@ -59,6 +60,7 @@ var __values = (this && this.__values) || function(o) {
 };
 var e_1, _a, e_2, _b;
 exports.__esModule = true;
+
 var util_1 = require("../util");
 var RBY = [];
 var GSC = [
@@ -114,7 +116,7 @@ var GSC = [
     'Safari Ball',
     'Scope Lens',
     'Sharp Beak',
-    'SilverPowder',
+    'Silver Powder',
     'Soft Sand',
     'Spell Tag',
     'Sport Ball',
@@ -397,7 +399,7 @@ exports.MEGA_STONES = {
     Tyranitarite: 'Tyranitar',
     Venusaurite: 'Venusaur'
 };
-var XY = BW.concat(__spread(Object.keys(exports.MEGA_STONES), [
+var XY = BW.concat(__spreadArray(__spreadArray([], __read(Object.keys(exports.MEGA_STONES))), [
     'Assault Vest',
     'Blue Orb',
     'Fairy Gem',
@@ -492,6 +494,8 @@ var SS = SM.concat([
     'Fossilized Dino',
     'Fossilized Drake',
     'Fossilized Fish',
+    'Galarica Cuff',
+    'Galarica Wreath',
     'Heavy-Duty Boots',
     'Leek',
     'Love Sweet',
@@ -509,7 +513,7 @@ for (var i = 0; i < 100; i++) {
     SS.push("TR" + (i < 10 ? "0" + i : i));
 }
 SS.push('Utility Umbrella');
-SS.push.apply(SS, __spread(GSC_ONLY, ['Old Amber']));
+SS.push.apply(SS, __spreadArray(__spreadArray([], __read(GSC_ONLY)), ['Old Amber']));
 var BERRIES = {
     'Aguav Berry': { t: 'Dragon', p: 80 },
     'Apicot Berry': { t: 'Ground', p: 100 },

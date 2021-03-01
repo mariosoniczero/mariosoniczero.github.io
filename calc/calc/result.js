@@ -15,11 +15,13 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spread = (this && this.__spread) || function () {
-    for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
-    return ar;
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
 };
 exports.__esModule = true;
+
 var desc_1 = require("./desc");
 var Result = (function () {
     function Result(gen, attacker, defender, move, field, damage, rawDesc) {
@@ -71,7 +73,7 @@ function damageRange(damage) {
     if (damage.length > 2) {
         var d_1 = damage;
         if (d_1[0] > d_1[d_1.length - 1])
-            return [Math.min.apply(Math, __spread(d_1)), Math.max.apply(Math, __spread(d_1))];
+            return [Math.min.apply(Math, __spreadArray([], __read(d_1))), Math.max.apply(Math, __spreadArray([], __read(d_1)))];
         return [d_1[0], d_1[d_1.length - 1]];
     }
     if (typeof damage[0] === 'number' && typeof damage[1] === 'number') {

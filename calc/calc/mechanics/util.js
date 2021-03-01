@@ -26,11 +26,13 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spread = (this && this.__spread) || function () {
-    for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
-    return ar;
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
 };
 exports.__esModule = true;
+
 var util_1 = require("../util");
 var stats_1 = require("../stats");
 var EV_ITEMS = [
@@ -117,7 +119,7 @@ function getFinalSpeed(gen, pokemon, field, side) {
     if (pokemon.hasItem('Choice Scarf')) {
         mods *= 1.5;
     }
-    else if (pokemon.hasItem.apply(pokemon, __spread(['Iron Ball'], EV_ITEMS))) {
+    else if (pokemon.hasItem.apply(pokemon, __spreadArray(['Iron Ball'], __read(EV_ITEMS)))) {
         mods *= 0.5;
     }
     else if (pokemon.hasItem('Quick Powder') && pokemon.named('Ditto')) {
@@ -393,8 +395,15 @@ function getFinalDamage(baseAmount, i, effectiveness, isBurned, stabMod, finalMo
     return OF16(pokeRound(Math.max(1, OF32(damageAmount * finalMod) / 0x1000)));
 }
 exports.getFinalDamage = getFinalDamage;
+function getShellSideArmCategory(source, target) {
+    var physicalDamage = source.stats.atk / target.stats.def;
+    var specialDamage = source.stats.spa / target.stats.spd;
+    return physicalDamage > specialDamage ? 'Physical' : 'Special';
+}
+exports.getShellSideArmCategory = getShellSideArmCategory;
 function getWeightFactor(pokemon) {
-    return pokemon.hasAbility('Heavy Metal') ? 2 : pokemon.hasAbility('Light Metal') ? 0.5 : 1;
+    return pokemon.hasAbility('Heavy Metal') ? 2
+        : (pokemon.hasAbility('Light Metal') || pokemon.hasItem('Float Stone')) ? 0.5 : 1;
 }
 exports.getWeightFactor = getWeightFactor;
 function countBoosts(gen, boosts) {

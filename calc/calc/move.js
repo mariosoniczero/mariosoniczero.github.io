@@ -1,5 +1,6 @@
 "use strict";
 exports.__esModule = true;
+
 var util_1 = require("./util");
 var SPECIAL = ['Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Psychic', 'Dark', 'Dragon'];
 var Move = (function () {
@@ -62,8 +63,8 @@ var Move = (function () {
         this.overrides = options.overrides;
         this.species = options.species;
         this.bp = data.basePower;
-        var typelessDamage = gen.num >= 2 && gen.num <= 4 &&
-            ['futuresight', 'doomdesire', 'struggle'].includes(data.id);
+        var typelessDamage = (gen.num >= 2 && data.id === 'struggle') ||
+            (gen.num <= 4 && ['futuresight', 'doomdesire'].includes(data.id));
         this.type = typelessDamage ? '???' : data.type;
         this.category = data.category ||
             (gen.num < 4 ? (SPECIAL.includes(data.type) ? 'Special' : 'Physical') : 'Status');
@@ -227,7 +228,8 @@ function getMaxMoveName(moveType, pokemonSpecies, isStatus) {
     if (moveType === 'Electric') {
         if (pokemonSpecies === 'Pikachu-Gmax')
             return 'G-Max Volt Crash';
-        if ((pokemonSpecies === null || pokemonSpecies === void 0 ? void 0 : pokemonSpecies.startsWith('Toxtricity')) && (pokemonSpecies === null || pokemonSpecies === void 0 ? void 0 : pokemonSpecies.endsWith('Gmax')))
+        if ((pokemonSpecies === null || pokemonSpecies === void 0 ? void 0 : pokemonSpecies.startsWith('Toxtricity')) &&
+            (pokemonSpecies === null || pokemonSpecies === void 0 ? void 0 : pokemonSpecies.endsWith('Gmax')))
             return 'G-Max Stun Shock';
     }
     if (moveType === 'Grass') {

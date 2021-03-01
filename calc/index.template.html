@@ -130,7 +130,7 @@
             <input type="text" class="set-selector calc-trigger" />
             <span id="importedSetsOptions" style="width:auto; display:none">
                 <input type="checkbox" id="importedSets" /> Only show imported sets <br />
-                <button id="clearSets">Clear Custom Sets</button>
+                <button id="clearSets">Clear Imported Sets</button>
             </span>
             <div class="info-group top">
                 <div>
@@ -921,6 +921,7 @@
                 <legend align="center">Import / Export</legend>
                 <div id="import-1_wrapper" class="dataTables_wrapper no-footer">
                     <form class="import-team">
+                        <input class="import-name-text" value="Custom Set"></input>
                         <textarea class="import-team-text"></textarea>
                         <!--<button style='position:absolute' class='bs-btn bs-btn-default'>Import</button>-->
                     </form>
@@ -934,7 +935,7 @@
             <input type="text" class="set-selector calc-trigger" />
             <span id="importedSetsOptions" style="width:auto; display:none">
                 <input type="checkbox" id="importedSets" /> Only show imported sets <br />
-                <button id="clearSets">Clear Custom Sets</button>
+                <button id="clearSets">Clear Imported Sets</button>
             </span>
             <div class="info-group top">
                 <div>
@@ -1435,6 +1436,9 @@
     <script type="text/javascript" src="./js/vendor/select2/select2.min.js"></script>
     <script type="text/javascript" src="./js/vendor/url-search-params-0.1.2.min.js"></script>
     <script type="text/javascript">
+        this.__createBinding = function(o, m, k) {
+            o[k] = m[k];
+        };
         var calc = exports = {};
         function require() { return exports };
     </script>
@@ -1475,7 +1479,7 @@
     <script type="text/javascript" src="./js/moveset_import.js?"></script>
 </div>
 
-<div class="credits">Created by Honko, maintained by Austin and pre
+<div class="credits">Created by Honko, maintained by Austin and Kris
     <ul><li><a href="https://github.com/smogon/damage-calc/contributors" target="_blank">Contributors</a></li>
     <li><a href="https://www.smogon.com/forums/threads/pok%C3%A9mon-showdown-damage-calculator.3593546/" target="_blank">Bug Reports</a></li>
     <li><a href="https://github.com/smogon/damage-calc" target="_blank">GitHub repository</a></li></ul>

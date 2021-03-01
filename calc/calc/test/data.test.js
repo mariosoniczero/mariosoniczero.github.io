@@ -1,4 +1,23 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __values = (this && this.__values) || function(o) {
     var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
     if (m) return m.call(o);
@@ -10,13 +29,6 @@ var __values = (this && this.__values) || function(o) {
     };
     throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 };
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
-};
 exports.__esModule = true;
 var adaptable_1 = require("../adaptable");
 var calc = __importStar(require("../index"));
@@ -25,7 +37,7 @@ var gen_1 = require("./gen");
 var pkmn = { Generations: new gen_1.Generations(dex_1.Dex) };
 var gens = [1, 2, 3, 4, 5, 6, 7, 8];
 describe('Generations', function () {
-    it('abilities', function () {
+    test('abilities', function () {
         var e_1, _a, e_2, _b, e_3, _c;
         try {
             for (var gens_1 = __values(gens), gens_1_1 = gens_1.next(); !gens_1_1.done; gens_1_1 = gens_1.next()) {
@@ -45,11 +57,11 @@ describe('Generations', function () {
                     }
                     finally { if (e_2) throw e_2.error; }
                 }
-                expect(p).toHaveLength(c.size);
+                expect(Array.from(c.values()).map(function (s) { return s.name; }).sort()).toEqual(p.map(function (s) { return s.name; }).sort());
                 try {
                     for (var p_1 = (e_3 = void 0, __values(p)), p_1_1 = p_1.next(); !p_1_1.done; p_1_1 = p_1.next()) {
                         var ability = p_1_1.value;
-                        expect(ability).toEqual(c.get(ability.id));
+                        expect(c.get(ability.id)).toEqual(ability);
                         c["delete"](ability.id);
                     }
                 }
@@ -71,7 +83,7 @@ describe('Generations', function () {
             finally { if (e_1) throw e_1.error; }
         }
     });
-    it('items', function () {
+    test('items', function () {
         var e_4, _a, e_5, _b, e_6, _c;
         try {
             for (var gens_2 = __values(gens), gens_2_1 = gens_2.next(); !gens_2_1.done; gens_2_1 = gens_2.next()) {
@@ -91,11 +103,11 @@ describe('Generations', function () {
                     }
                     finally { if (e_5) throw e_5.error; }
                 }
-                expect(p).toHaveLength(c.size);
+                expect(Array.from(c.values()).map(function (s) { return s.name; }).sort()).toEqual(p.map(function (s) { return s.name; }).sort());
                 try {
                     for (var p_2 = (e_6 = void 0, __values(p)), p_2_1 = p_2.next(); !p_2_1.done; p_2_1 = p_2.next()) {
                         var item = p_2_1.value;
-                        expect(item).toEqual(c.get(item.id));
+                        expect(c.get(item.id)).toEqual(item);
                         c["delete"](item.id);
                     }
                 }
@@ -117,7 +129,7 @@ describe('Generations', function () {
             finally { if (e_4) throw e_4.error; }
         }
     });
-    it('moves', function () {
+    test('moves', function () {
         var e_7, _a, e_8, _b, e_9, _c;
         try {
             for (var gens_3 = __values(gens), gens_3_1 = gens_3.next(); !gens_3_1.done; gens_3_1 = gens_3.next()) {
@@ -137,11 +149,11 @@ describe('Generations', function () {
                     }
                     finally { if (e_8) throw e_8.error; }
                 }
-                expect(p).toHaveLength(c.size);
+                expect(Array.from(c.values()).map(function (s) { return s.name; }).sort()).toEqual(p.map(function (s) { return s.name; }).sort());
                 try {
                     for (var p_3 = (e_9 = void 0, __values(p)), p_3_1 = p_3.next(); !p_3_1.done; p_3_1 = p_3.next()) {
                         var move = p_3_1.value;
-                        expect(move).toEqual(c.get(move.id));
+                        expect(c.get(move.id)).toEqual(move);
                         c["delete"](move.id);
                     }
                 }
@@ -163,7 +175,7 @@ describe('Generations', function () {
             finally { if (e_7) throw e_7.error; }
         }
     });
-    it('species', function () {
+    test('species', function () {
         var e_10, _a, e_11, _b, e_12, _c;
         try {
             for (var gens_4 = __values(gens), gens_4_1 = gens_4.next(); !gens_4_1.done; gens_4_1 = gens_4.next()) {
@@ -183,11 +195,11 @@ describe('Generations', function () {
                     }
                     finally { if (e_11) throw e_11.error; }
                 }
-                expect(p).toHaveLength(c.size);
+                expect(Array.from(c.values()).map(function (s) { return s.name; }).sort()).toEqual(p.map(function (s) { return s.name; }).sort());
                 try {
                     for (var p_4 = (e_12 = void 0, __values(p)), p_4_1 = p_4.next(); !p_4_1.done; p_4_1 = p_4.next()) {
                         var specie = p_4_1.value;
-                        expect(specie).toEqual(c.get(specie.id));
+                        expect(c.get(specie.id)).toEqual(specie);
                         c["delete"](specie.id);
                     }
                 }
@@ -209,7 +221,7 @@ describe('Generations', function () {
             finally { if (e_10) throw e_10.error; }
         }
     });
-    it('types', function () {
+    test('types', function () {
         var e_13, _a, e_14, _b, e_15, _c;
         try {
             for (var gens_5 = __values(gens), gens_5_1 = gens_5.next(); !gens_5_1.done; gens_5_1 = gens_5.next()) {
@@ -229,11 +241,11 @@ describe('Generations', function () {
                     }
                     finally { if (e_14) throw e_14.error; }
                 }
-                expect(p).toHaveLength(c.size);
+                expect(Array.from(c.values()).map(function (s) { return s.name; }).sort()).toEqual(p.map(function (s) { return s.name; }).sort());
                 try {
                     for (var p_5 = (e_15 = void 0, __values(p)), p_5_1 = p_5.next(); !p_5_1.done; p_5_1 = p_5.next()) {
                         var type = p_5_1.value;
-                        expect(type).toEqual(c.get(type.id));
+                        expect(c.get(type.id)).toEqual(type);
                         c["delete"](type.id);
                     }
                 }
@@ -255,7 +267,7 @@ describe('Generations', function () {
             finally { if (e_13) throw e_13.error; }
         }
     });
-    it('natures', function () {
+    test('natures', function () {
         var e_16, _a, e_17, _b, e_18, _c;
         try {
             for (var gens_6 = __values(gens), gens_6_1 = gens_6.next(); !gens_6_1.done; gens_6_1 = gens_6.next()) {
@@ -275,11 +287,11 @@ describe('Generations', function () {
                     }
                     finally { if (e_17) throw e_17.error; }
                 }
-                expect(p).toHaveLength(c.size);
+                expect(Array.from(c.values()).map(function (s) { return s.name; }).sort()).toEqual(p.map(function (s) { return s.name; }).sort());
                 try {
                     for (var p_6 = (e_18 = void 0, __values(p)), p_6_1 = p_6.next(); !p_6_1.done; p_6_1 = p_6.next()) {
                         var nature = p_6_1.value;
-                        expect(nature).toEqual(c.get(nature.id));
+                        expect(c.get(nature.id)).toEqual(nature);
                         c["delete"](nature.id);
                     }
                 }
@@ -303,7 +315,7 @@ describe('Generations', function () {
     });
 });
 describe('Adaptable', function () {
-    it('usage', function () {
+    test('usage', function () {
         var gen = pkmn.Generations.get(5);
         var result = adaptable_1.calculate(gen, new adaptable_1.Pokemon(gen, 'Gengar', {
             item: 'Choice Specs',
