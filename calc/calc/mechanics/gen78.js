@@ -255,7 +255,7 @@ function calculateSMSS(gen, attacker, defender, move, field) {
         desc.hits = move.hits;
     }
     var turnOrder = attacker.stats.spe > defender.stats.spe ? 'first' : 'last';
-    var basePower = calculateBasePowerSMSS(gen, attacker, defender, move, field, desc, isAerilate, isPixilate, isRefrigerate, isGalvanize, isNormalize);
+    var basePower = calculateBasePowerSMSS(gen, attacker, defender, move, field, desc, isAerilate, isPixilate, isRefrigerate, isGalvanize, isNormalize, isConflagrate, isInfectate);
     if (basePower === 0) {
         return result;
     }
@@ -396,12 +396,14 @@ function calculateSMSS(gen, attacker, defender, move, field) {
     return result;
 }
 exports.calculateSMSS = calculateSMSS;
-function calculateBasePowerSMSS(gen, attacker, defender, move, field, desc, isAerilate, isPixilate, isGalvanize, isRefrigerate, isNormalize) {
+function calculateBasePowerSMSS(gen, attacker, defender, move, field, desc, isAerilate, isPixilate, isGalvanize, isRefrigerate, isNormalize, isConflagrate, isInfectate) {
     if (isAerilate === void 0) { isAerilate = false; }
     if (isPixilate === void 0) { isPixilate = false; }
     if (isGalvanize === void 0) { isGalvanize = false; }
     if (isRefrigerate === void 0) { isRefrigerate = false; }
     if (isNormalize === void 0) { isNormalize = false; }
+    if (isConflagrate === void 0) { isConflagrate = false; }
+    if (isInfectate === void 0) { isInfectate = false; }
     var turnOrder = attacker.stats.spe > defender.stats.spe ? 'first' : 'last';
     var basePower;
     switch (move.name) {
@@ -547,17 +549,19 @@ function calculateBasePowerSMSS(gen, attacker, defender, move, field, desc, isAe
     if (move.named('Breakneck Blitz', 'Bloom Doom', 'Inferno Overdrive', 'Hydro Vortex', 'Gigavolt Havoc', 'Subzero Slammer', 'Supersonic Skystrike', 'Savage Spin-Out', 'Acid Downpour', 'Tectonic Rage', 'Continental Crush', 'All-Out Pummeling', 'Shattered Psyche', 'Never-Ending Nightmare', 'Devastating Drake', 'Black Hole Eclipse', 'Corkscrew Crash', 'Twinkle Tackle')) {
         desc.moveBP = move.bp;
     }
-    var bpMods = calculateBPModsSMSS(gen, attacker, defender, move, field, desc, basePower, turnOrder, isAerilate, isPixilate, isRefrigerate, isNormalize);
+    var bpMods = calculateBPModsSMSS(gen, attacker, defender, move, field, desc, basePower, turnOrder, isAerilate, isPixilate, isRefrigerate, isNormalize, isConflagrate, isInfectate);
     basePower = util_2.OF16(Math.max(1, util_2.pokeRound((basePower * util_2.chainMods(bpMods)) / 0x1000)));
     return basePower;
 }
 exports.calculateBasePowerSMSS = calculateBasePowerSMSS;
-function calculateBPModsSMSS(gen, attacker, defender, move, field, desc, basePower, turnOrder, isAerilate, isPixilate, isGalvanize, isRefrigerate, isNormalize) {
+function calculateBPModsSMSS(gen, attacker, defender, move, field, desc, basePower, turnOrder, isAerilate, isPixilate, isGalvanize, isRefrigerate, isNormalize, isConflagrate, isInfectate) {
     if (isAerilate === void 0) { isAerilate = false; }
     if (isPixilate === void 0) { isPixilate = false; }
     if (isGalvanize === void 0) { isGalvanize = false; }
     if (isRefrigerate === void 0) { isRefrigerate = false; }
     if (isNormalize === void 0) { isNormalize = false; }
+    if (isConflagrate === void 0) { isConflagrate = false; }
+    if (isInfectate === void 0) { isInfectate = false; }
     var resistedKnockOffDamage = !defender.item ||
         (defender.named('Giratina-Origin') && defender.hasItem('Griseous Orb')) ||
         (defender.name.includes('Arceus') && defender.item.includes('Plate')) ||
@@ -602,7 +606,7 @@ function calculateBPModsSMSS(gen, attacker, defender, move, field, desc, basePow
         desc.attackerAbility = attacker.ability;
     }
     if (!move.isZ && !move.isMax &&
-        (isAerilate || isPixilate || isRefrigerate || isGalvanize || isNormalize)) {
+        (isAerilate || isPixilate || isRefrigerate || isGalvanize || isNormalize || isConflagrate)) {
         bpMods.push(0x1333);
         desc.attackerAbility = attacker.ability;
     }
