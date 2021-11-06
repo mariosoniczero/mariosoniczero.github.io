@@ -23,7 +23,7 @@ var util_2 = require("./mechanics/util");
 function display(gen, attacker, defender, move, field, damage, rawDesc, notation, err) {
     if (notation === void 0) { notation = '%'; }
     if (err === void 0) { err = true; }
-    var _a = __read(result_1.damageRange(damage), 2), minDamage = _a[0], maxDamage = _a[1];
+    var _a = __read((0, result_1.damageRange)(damage), 2), minDamage = _a[0], maxDamage = _a[1];
     var min = (typeof minDamage === 'number' ? minDamage : minDamage[0] + minDamage[1]) * move.hits;
     var max = (typeof maxDamage === 'number' ? maxDamage : maxDamage[0] + maxDamage[1]) * move.hits;
     var minDisplay = toDisplay(notation, min, defender.maxHP());
@@ -38,7 +38,7 @@ function display(gen, attacker, defender, move, field, damage, rawDesc, notation
 exports.display = display;
 function displayMove(gen, attacker, defender, move, damage, notation) {
     if (notation === void 0) { notation = '%'; }
-    var _a = __read(result_1.damageRange(damage), 2), minDamage = _a[0], maxDamage = _a[1];
+    var _a = __read((0, result_1.damageRange)(damage), 2), minDamage = _a[0], maxDamage = _a[1];
     var min = (typeof minDamage === 'number' ? minDamage : minDamage[0] + minDamage[1]) * move.hits;
     var max = (typeof maxDamage === 'number' ? maxDamage : maxDamage[0] + maxDamage[1]) * move.hits;
     var minDisplay = toDisplay(notation, min, defender.maxHP());
@@ -51,7 +51,7 @@ function displayMove(gen, attacker, defender, move, damage, notation) {
 exports.displayMove = displayMove;
 function getRecovery(gen, attacker, defender, move, damage, notation) {
     if (notation === void 0) { notation = '%'; }
-    var _a = __read(result_1.damageRange(damage), 2), minDamage = _a[0], maxDamage = _a[1];
+    var _a = __read((0, result_1.damageRange)(damage), 2), minDamage = _a[0], maxDamage = _a[1];
     var minD = typeof minDamage === 'number' ? [minDamage] : minDamage;
     var maxD = typeof maxDamage === 'number' ? [maxDamage] : maxDamage;
     var recovery = [0, 0];
@@ -85,7 +85,7 @@ function getRecovery(gen, attacker, defender, move, damage, notation) {
 exports.getRecovery = getRecovery;
 function getRecoil(gen, attacker, defender, move, damage, notation) {
     if (notation === void 0) { notation = '%'; }
-    var _a = __read(result_1.damageRange(damage), 2), minDamage = _a[0], maxDamage = _a[1];
+    var _a = __read((0, result_1.damageRange)(damage), 2), minDamage = _a[0], maxDamage = _a[1];
     var min = (typeof minDamage === 'number' ? minDamage : minDamage[0] + minDamage[1]) * move.hits;
     var max = (typeof maxDamage === 'number' ? maxDamage : maxDamage[0] + maxDamage[1]) * move.hits;
     var recoil = [0, 0];
@@ -168,11 +168,11 @@ function getKOChance(gen, attacker, defender, move, field, damage, err) {
     if (err === void 0) { err = true; }
     damage = combine(damage);
     if (isNaN(damage[0])) {
-        util_1.error(err, 'damage[0] must be a number.');
+        (0, util_1.error)(err, 'damage[0] must be a number.');
         return { chance: 0, n: 0, text: '' };
     }
     if (damage[damage.length - 1] === 0) {
-        util_1.error(err, 'damage[damage.length - 1] === 0.');
+        (0, util_1.error)(err, 'damage[damage.length - 1] === 0.');
         return { chance: 0, n: 0, text: '' };
     }
     if (move.timesUsed === undefined)
@@ -418,7 +418,7 @@ function getEndOfTurn(gen, attacker, defender, move, field) {
         }
     }
     if (field.hasTerrain('Grassy')) {
-        if (util_2.isGrounded(defender, field)) {
+        if ((0, util_2.isGrounded)(defender, field)) {
             damage += Math.floor(defender.maxHP() / 16);
             texts.push('Grassy Terrain recovery');
         }
@@ -592,7 +592,7 @@ function squashMultihit(gen, d, hits, err) {
                     d[9] + d[10] + d[10] + d[10] + d[10], d[10] + d[10] + d[11] + d[11] + d[11], 5 * d[15],
                 ];
             default:
-                util_1.error(err, "Unexpected # of hits: " + hits);
+                (0, util_1.error)(err, "Unexpected # of hits: " + hits);
                 return d;
         }
     }
@@ -624,13 +624,13 @@ function squashMultihit(gen, d, hits, err) {
                     5 * d[23], 5 * d[25], 5 * d[27], 5 * d[38],
                 ];
             default:
-                util_1.error(err, "Unexpected # of hits: " + hits);
+                (0, util_1.error)(err, "Unexpected # of hits: " + hits);
                 return d;
         }
     }
     else if (d.length === 256) {
         if (hits > 1) {
-            util_1.error(err, "Unexpected # of hits for Parental Bond: " + hits);
+            (0, util_1.error)(err, "Unexpected # of hits for Parental Bond: " + hits);
         }
         var r = [];
         for (var i = 0; i < 16; i++) {
@@ -643,7 +643,7 @@ function squashMultihit(gen, d, hits, err) {
         return r;
     }
     else {
-        util_1.error(err, "Unexpected # of possible damage values: " + d.length);
+        (0, util_1.error)(err, "Unexpected # of possible damage values: " + d.length);
         return d;
     }
 }
@@ -670,6 +670,9 @@ function buildDescription(description, attacker, defender) {
     }
     if (description.isBattery) {
         output += ' Battery boosted ';
+    }
+    if (description.isPowerSpot) {
+        output += ' Power Spot boosted ';
     }
     if (description.isSwitching) {
         output += ' switching boosted ';
@@ -731,6 +734,9 @@ function buildDescription(description, attacker, defender) {
     }
     if (description.isCritical) {
         output += ' on a critical hit';
+    }
+    if (description.isWonderRoom) {
+        output += ' in Wonder Room';
     }
     return output;
 }

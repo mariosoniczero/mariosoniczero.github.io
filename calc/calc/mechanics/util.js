@@ -26,10 +26,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 exports.__esModule = true;
 
@@ -45,7 +49,7 @@ var EV_ITEMS = [
     'Power Weight',
 ];
 function isGrounded(pokemon, field) {
-    return (field.isGravity ||
+    return (field.isGravity || pokemon.hasItem('Iron Ball') ||
         (!pokemon.hasType('Flying') &&
             !pokemon.hasAbility('Levitate') &&
             !pokemon.hasItem('Air Balloon')));
@@ -119,7 +123,7 @@ function getFinalSpeed(gen, pokemon, field, side) {
     if (pokemon.hasItem('Choice Scarf')) {
         mods *= 1.5;
     }
-    else if (pokemon.hasItem.apply(pokemon, __spreadArray(['Iron Ball'], __read(EV_ITEMS)))) {
+    else if (pokemon.hasItem.apply(pokemon, __spreadArray(['Iron Ball'], __read(EV_ITEMS), false))) {
         mods *= 0.5;
     }
     else if (pokemon.hasItem('Quick Powder') && pokemon.named('Ditto')) {
@@ -165,7 +169,7 @@ function getMoveEffectiveness(gen, move, type, isGhostRevealed, isGravity) {
             gen.types.get('flying').effectiveness[type]);
     }
     else {
-        return gen.types.get(util_1.toID(move.type)).effectiveness[type];
+        return gen.types.get((0, util_1.toID)(move.type)).effectiveness[type];
     }
 }
 exports.getMoveEffectiveness = getMoveEffectiveness;
@@ -195,12 +199,20 @@ function checkForecast(pokemon, weather) {
     }
 }
 exports.checkForecast = checkForecast;
-function checkKlutz(pokemon) {
-    if (pokemon.hasAbility('Klutz') && !EV_ITEMS.includes(pokemon.item)) {
+function checkItem(pokemon, magicRoomActive) {
+    if (pokemon.hasAbility('Klutz') && !EV_ITEMS.includes(pokemon.item) ||
+        magicRoomActive) {
         pokemon.item = '';
     }
 }
-exports.checkKlutz = checkKlutz;
+exports.checkItem = checkItem;
+function checkWonderRoom(pokemon, wonderRoomActive) {
+    var _a;
+    if (wonderRoomActive) {
+        _a = __read([pokemon.rawStats.spd, pokemon.rawStats.def], 2), pokemon.rawStats.def = _a[0], pokemon.rawStats.spd = _a[1];
+    }
+}
+exports.checkWonderRoom = checkWonderRoom;
 function checkIntimidate(gen, source, target) {
     var blocked = target.hasAbility('Clear Body', 'White Smoke', 'Hyper Cutter', 'Full Metal Body') ||
         (gen.num === 8 && target.hasAbility('Inner Focus', 'Own Tempo', 'Oblivious', 'Scrappy'));
@@ -213,6 +225,9 @@ function checkIntimidate(gen, source, target) {
         }
         else {
             target.boosts.atk = Math.max(-6, target.boosts.atk - 1);
+        }
+        if (target.hasAbility('Competitive')) {
+            target.boosts.spa = Math.min(6, target.boosts.spa + 2);
         }
     }
 }
@@ -233,9 +248,14 @@ function checkTerrify(gen, source, target) {
     }
 }
 exports.checkTerrify = checkTerrify;
-function checkDownload(source, target) {
+function checkDownload(source, target, wonderRoomActive) {
+    var _a;
     if (source.hasAbility('Download')) {
-        if (target.stats.spd <= target.stats.def) {
+        var def = target.stats.def;
+        var spd = target.stats.spd;
+        if (wonderRoomActive)
+            _a = __read([spd, def], 2), def = _a[0], spd = _a[1];
+        if (spd <= def) {
             source.boosts.spa = Math.min(6, source.boosts.spa + 1);
         }
         else {
@@ -325,7 +345,7 @@ function checkMultihitBoost(gen, attacker, defender, move, field, desc, usedWhit
                 defender.stats.def = getModifiedStat(defender.rawStats.def, defender.boosts.def, gen);
             }
         }
-        defender.boosts.spe += Math.min(defender.boosts.spe + 2, 6);
+        defender.boosts.spe = Math.min(defender.boosts.spe + 2, 6);
         defender.stats.spe = getFinalSpeed(gen, defender, field, field.defenderSide);
         desc.defenderAbility = defender.ability;
     }
@@ -360,12 +380,12 @@ function checkMultihitBoost(gen, attacker, defender, move, field, desc, usedWhit
 exports.checkMultihitBoost = checkMultihitBoost;
 function chainMods(mods) {
     var e_3, _a;
-    var M = 0x1000;
+    var M = 4096;
     try {
         for (var mods_1 = __values(mods), mods_1_1 = mods_1.next(); !mods_1_1.done; mods_1_1 = mods_1.next()) {
             var mod = mods_1_1.value;
-            if (mod !== 0x1000) {
-                M = (M * mod + 0x800) >> 12;
+            if (mod !== 4096) {
+                M = (M * mod + 2048) >> 12;
             }
         }
     }
@@ -385,14 +405,14 @@ function getBaseDamage(level, basePower, attack, defense) {
 exports.getBaseDamage = getBaseDamage;
 function getFinalDamage(baseAmount, i, effectiveness, isBurned, stabMod, finalMod, protect) {
     var damageAmount = Math.floor(OF32(baseAmount * (85 + i)) / 100);
-    if (stabMod !== 0x1000)
-        damageAmount = OF32(damageAmount * stabMod) / 0x1000;
+    if (stabMod !== 4096)
+        damageAmount = OF32(damageAmount * stabMod) / 4096;
     damageAmount = Math.floor(OF32(pokeRound(damageAmount) * effectiveness));
     if (isBurned)
         damageAmount = Math.floor(damageAmount / 2);
     if (protect)
-        damageAmount = pokeRound(OF32(damageAmount * 0x400) / 0x1000);
-    return OF16(pokeRound(Math.max(1, OF32(damageAmount * finalMod) / 0x1000)));
+        damageAmount = pokeRound(OF32(damageAmount * 1024) / 4096);
+    return OF16(pokeRound(Math.max(1, OF32(damageAmount * finalMod) / 4096)));
 }
 exports.getFinalDamage = getFinalDamage;
 function getShellSideArmCategory(source, target) {
@@ -431,7 +451,7 @@ function countBoosts(gen, boosts) {
 }
 exports.countBoosts = countBoosts;
 function getEVDescriptionText(gen, pokemon, stat, natureName) {
-    var nature = gen.natures.get(util_1.toID(natureName));
+    var nature = gen.natures.get((0, util_1.toID)(natureName));
     return (pokemon.evs[stat] +
         (nature.plus === nature.minus ? ''
             : nature.plus === stat ? '+'
@@ -458,11 +478,11 @@ function pokeRound(num) {
 }
 exports.pokeRound = pokeRound;
 function OF16(n) {
-    return n > 0xFFFF ? n % 0x10000 : n;
+    return n > 65535 ? n % 65536 : n;
 }
 exports.OF16 = OF16;
 function OF32(n) {
-    return n > 0xFFFFFFFF ? n % 0x100000000 : n;
+    return n > 4294967295 ? n % 4294967296 : n;
 }
 exports.OF32 = OF32;
 //# sourceMappingURL=util.js.map

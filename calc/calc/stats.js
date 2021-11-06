@@ -110,7 +110,7 @@ exports.Stats = new ((function () {
         else {
             var mods = [undefined, undefined];
             if (nature) {
-                var nat = natures.get(util_1.toID(nature));
+                var nat = natures.get((0, util_1.toID)(nature));
                 mods = [nat === null || nat === void 0 ? void 0 : nat.plus, nat === null || nat === void 0 ? void 0 : nat.minus];
             }
             var n = mods[0] === stat && mods[1] === stat

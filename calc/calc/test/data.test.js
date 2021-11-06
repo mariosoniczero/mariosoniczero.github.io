@@ -317,7 +317,7 @@ describe('Generations', function () {
 describe('Adaptable', function () {
     test('usage', function () {
         var gen = pkmn.Generations.get(5);
-        var result = adaptable_1.calculate(gen, new adaptable_1.Pokemon(gen, 'Gengar', {
+        var result = (0, adaptable_1.calculate)(gen, new adaptable_1.Pokemon(gen, 'Gengar', {
             item: 'Choice Specs',
             nature: 'Timid',
             evs: { spa: 252 },

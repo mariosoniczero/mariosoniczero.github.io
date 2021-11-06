@@ -300,11 +300,14 @@ var SS = SM.concat([
     'Curious Medicine',
     'Dauntless Shield',
     'Determination',
+    'Dragon Style',
     'Dragon\'s Maw',
+    'Fly Trap',
     'Gorilla Tactics',
     'Grim Neigh',
     'Gulp Missile',
     'Heel Tactics',
+    'Hindenburg',
     'Hunger Switch',
     'Ice Face',
     'Ice Scales',
@@ -313,7 +316,9 @@ var SS = SM.concat([
     'Libero',
     'Mimicry',
     'Mirror Armor',
+    'Momentum',
     'Neutralizing Gas',
+    'Opportunistic',
     'Pack Tactics',
     'Pastel Veil',
     'Perish Body',
@@ -321,6 +326,7 @@ var SS = SM.concat([
     'Propeller Tail',
     'Punk Rock',
     'Quick Draw',
+    'Restore Order',
     'Ripen',
     'Sand Spit',
     'Screen Cleaner',
@@ -376,7 +382,7 @@ exports.Abilities = Abilities;
 var Ability = (function () {
     function Ability(name) {
         this.kind = 'Ability';
-        this.id = util_1.toID(name);
+        this.id = (0, util_1.toID)(name);
         this.name = name;
     }
     return Ability;

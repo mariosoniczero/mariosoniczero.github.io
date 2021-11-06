@@ -4,6 +4,8 @@ export declare class Field implements State.Field {
     gameType: GameType;
     weather?: Weather;
     terrain?: Terrain;
+    isMagicRoom: boolean;
+    isWonderRoom: boolean;
     isGravity: boolean;
     isAuraBreak?: boolean;
     isFairyAura?: boolean;
@@ -34,6 +36,7 @@ export declare class Side implements State.Side {
     isFriendGuard: boolean;
     isAuroraVeil: boolean;
     isBattery: boolean;
+    isPowerSpot: boolean;
     isSwitching?: 'out' | 'in';
     constructor(side?: State.Side);
     clone(): Side;

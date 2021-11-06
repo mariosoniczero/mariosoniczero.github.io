@@ -23,6 +23,8 @@ var Field = (function () {
         this.gameType = field.gameType || 'Singles';
         this.terrain = field.terrain;
         this.weather = field.weather;
+        this.isMagicRoom = !!field.isMagicRoom;
+        this.isWonderRoom = !!field.isWonderRoom;
         this.isGravity = !!field.isGravity;
         this.isAuraBreak = field.isAuraBreak || false;
         this.isFairyAura = field.isFairyAura || false;
@@ -54,6 +56,8 @@ var Field = (function () {
             gameType: this.gameType,
             weather: this.weather,
             terrain: this.terrain,
+            isMagicRoom: this.isMagicRoom,
+            isWonderRoom: this.isWonderRoom,
             isGravity: this.isGravity,
             attackerSide: this.attackerSide,
             defenderSide: this.defenderSide,
@@ -85,6 +89,7 @@ var Side = (function () {
         this.isFriendGuard = !!side.isFriendGuard;
         this.isAuroraVeil = !!side.isAuroraVeil;
         this.isBattery = !!side.isBattery;
+        this.isPowerSpot = !!side.isPowerSpot;
         this.isSwitching = side.isSwitching;
     }
     Side.prototype.clone = function () {
