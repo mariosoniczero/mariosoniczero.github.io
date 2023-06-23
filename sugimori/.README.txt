@@ -1,0 +1,56 @@
+This is a folder for official, isolated artwork of Pokemon, characters and items drawn in the artstyle of Ken Sugimori.
+
+This includes:
+- Isolated artwork drawn by Ken Sugimori for the mainline games.
+- Isolated artwork drawn in a general Sugimori-style, but not by Sugimori.
+
+This does not include:
+- Artwork drawn in the Sugimori style as part of Main Series Key Art (these can be found in the Main Series Key Art folder)
+
+--- FAQ ---
+
+[Q] What is .Sources?
+[A] .Sources is a URL link to a spreadsheet that helps us keep track of where all of the Sugimori-style
+    artwork in the archive is sourced from.
+
+[Q] What are the .PSD files, and why do the colors look wrong?
+[A] The .PSD files are original Photoshop files provided to Australian Press by Nintendo in 2004.
+    Colors appear innaccurate in Google Drive as it incorrectly previews them with a CMYK color palette,
+    but look totally fine when opened in Photoshop itself.
+
+[Q] What is Carddass?
+[A] Artwork drawn by Sugimori on Bandai Carddass cards released in 1996 and 1997, exclusively in Japan.
+    https://bulbapedia.bulbagarden.net/wiki/Pocket_Monsters_Carddass_Trading_Cards
+
+[Q] Where does all of the RB and GS Pokemon artwork come from?
+[A] Our scans are sourced from the Pokémon Gold and Silver Pokédex [ポケットモンスター 金 銀 ポケモンずかん] released on March 10th, 2000.
+    They were submitted by ExcaliburZero.
+    The exception to this is the artwork for Eevee, Vaporeon, Jolteon and Flareon, which are original scans of Ken Sugimori's artwork
+    provided by the Eevee Cafe in 2018. https://twitter.com/project_eevee/status/1074127305386139648
+
+
+[Q] Why do some Pokemon from Gold & Silver have multiple versions with slight variations?
+[A] In the run-up to Gold & Silver, some Pokemon had their Sugimori-style art digitally altered, or had their colors tweaked.
+
+- Chikorita has had both a yellow and a green body in GS artwork, categorized as "1999" and "2000+" respectively.
+    [YLW] Sep. 1999 [JP] Pokémon Gold and Silver Flyer ----- https://archives.bulbagarden.net/wiki/File:GS_flyer_back.jpg
+    [YLW] Oct. 1999 [JP] Corocoro Issue 258 ----- https://www.zoidsland.com/1rebyu-/koro99-10b.html
+    [YLW] Dec. 1999 [JP] Pokémon Gold and Silver Official Guidebook
+    [YLW] Dec. 1999 [JP] Pokémon Gold and Silver Official Fanbook
+    [YLW] Dec. 1999 [JP] TCG Premium File Card
+    [GRN] Dec. 1999 [JP] Pokémon Gold and Silver Adventure Clear Guide
+    [YLW] Jan. 2000 [JP] CoroCoro Issue 261 ----- https://archive.org/details/coro-coro-issue-261-pokemon-gold-silver/Pg10.jpg
+    [GRN] Mar. 2000 [JP] Corocoro Pokemon Gold and Silver Character Picture Book
+    [GRN] Mar. 2000 [JP] Pokémon Gold and Silver Pokédex
+    [GRN] Jan. 2001 [US] Pokémon Gold and Silver Official Perfect Guide
+    [YLW] Apr. 2001 [JP] TCG Intro Pack★Neo Cover ----- https://bulbapedia.bulbagarden.net/wiki/Intro_Pack_Neo_(TCG)
+
+- Hoothoot has had both a light brown and a grey-tinted body in GS artwork, categorized as "Brown" and "Grey" respectively.
+    [BRW] Apr. 1999 [JP] Corocoro Issue 253 ----- https://web.archive.org/web/20230418170150/https://www.zoidsland.com/1rebyu-/koro99-5b.html
+    [GRY] Mar. 2000 [JP] Pokémon Gold and Silver Pokédex
+    [BRW] Apr. 2001 [JP] TCG Intro Pack★Neo Card ----- https://bulbapedia.bulbagarden.net/wiki/Hoothoot_(Totodile_Half_Deck_3)
+
+- Espeon & Umbreon have had their artwork digitally altered (presumably by Sugimori himself) at some point before the release of Gold & 
+  Silver, which you can read about below. These are categorized as "Original" and "Digital." Our Original scans come from the EV+Cafe Booklet.
+    https://web.archive.org/web/20230418165905/https://sscactus.wordpress.com/2020/05/16/gs-cg/
+
