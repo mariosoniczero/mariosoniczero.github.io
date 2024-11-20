@@ -1,8 +1,8 @@
-import * as I from '../data/interface';
-import { Pokemon, Move, Result } from '../index';
-import { State } from '../state';
+import type * as I from '../data/interface';
+import { type Result, Pokemon, Move } from '../index';
+import type { State } from '../state';
 import { Field, Side } from '../field';
-declare const calc: (gen: I.GenerationNum) => (attacker: Pokemon, defender: Pokemon, move: Move, field?: Field | undefined) => Result;
+declare const calc: (gen: I.GenerationNum) => (attacker: Pokemon, defender: Pokemon, move: Move, field?: Field) => Result;
 declare const move: (gen: I.GenerationNum) => (name: string, options?: Partial<Omit<State.Move, 'ability' | 'item' | 'species'>> & {
     ability?: string;
     item?: string;
@@ -46,7 +46,7 @@ declare global {
         }
     }
 }
-declare type ResultDiff = Partial<Record<I.GenerationNum, Partial<ResultBreakdown>>>;
+type ResultDiff = Partial<Record<I.GenerationNum, Partial<ResultBreakdown>>>;
 interface ResultBreakdown {
     range: [number, number];
     desc: string;

@@ -16,7 +16,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -53,10 +53,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 exports.__esModule = true;
 
@@ -95,30 +99,33 @@ var Abilities = (function () {
         this.dex = dex;
     }
     Abilities.prototype.get = function (name) {
-        var ability = this.dex.getAbility(name);
+        var ability = this.dex.abilities.get(name);
         if (ability.isNonstandard === 'CAP' && this.dex.gen < 4)
             return undefined;
         return exists(ability, this.dex.gen) ? new Ability(ability) : undefined;
     };
     Abilities.prototype[Symbol.iterator] = function () {
-        var _a, _b, _i, id, a;
-        return __generator(this, function (_c) {
-            switch (_c.label) {
+        var _a, _b, _c, _i, id, a;
+        return __generator(this, function (_d) {
+            switch (_d.label) {
                 case 0:
-                    _a = [];
-                    for (_b in this.dex.data.Abilities)
-                        _a.push(_b);
+                    _a = this.dex.data.Abilities;
+                    _b = [];
+                    for (_c in _a)
+                        _b.push(_c);
                     _i = 0;
-                    _c.label = 1;
+                    _d.label = 1;
                 case 1:
-                    if (!(_i < _a.length)) return [3, 4];
-                    id = _a[_i];
+                    if (!(_i < _b.length)) return [3, 4];
+                    _c = _b[_i];
+                    if (!(_c in _a)) return [3, 3];
+                    id = _c;
                     a = this.get(id);
                     if (!a) return [3, 3];
                     return [4, a];
                 case 2:
-                    _c.sent();
-                    _c.label = 3;
+                    _d.sent();
+                    _d.label = 3;
                 case 3:
                     _i++;
                     return [3, 1];
@@ -143,31 +150,34 @@ var Items = (function () {
     Items.prototype.get = function (name) {
         if (this.dex.gen < 2)
             return undefined;
-        var item = this.dex.getItem(name);
+        var item = this.dex.items.get(name);
         if (this.dex.gen === 3 && item.id === 'enigmaberry') {
-            item = this.dex.forGen(4).getItem('enigmaberry');
+            item = this.dex.forGen(4).items.get('enigmaberry');
         }
         return exists(item, this.dex.gen) ? new Item(item, this.dex.gen) : undefined;
     };
     Items.prototype[Symbol.iterator] = function () {
-        var _a, _b, _i, id, i;
-        return __generator(this, function (_c) {
-            switch (_c.label) {
+        var _a, _b, _c, _i, id, i;
+        return __generator(this, function (_d) {
+            switch (_d.label) {
                 case 0:
-                    _a = [];
-                    for (_b in this.dex.data.Items)
-                        _a.push(_b);
+                    _a = this.dex.data.Items;
+                    _b = [];
+                    for (_c in _a)
+                        _b.push(_c);
                     _i = 0;
-                    _c.label = 1;
+                    _d.label = 1;
                 case 1:
-                    if (!(_i < _a.length)) return [3, 4];
-                    id = _a[_i];
+                    if (!(_i < _b.length)) return [3, 4];
+                    _c = _b[_i];
+                    if (!(_c in _a)) return [3, 3];
+                    id = _c;
                     i = this.get(id);
                     if (!i) return [3, 3];
                     return [4, i];
                 case 2:
-                    _c.sent();
-                    _c.label = 3;
+                    _d.sent();
+                    _d.label = 3;
                 case 3:
                     _i++;
                     return [3, 1];
@@ -196,30 +206,33 @@ var Moves = (function () {
         this.dex = dex;
     }
     Moves.prototype.get = function (name) {
-        var move = this.dex.getMove(name);
+        var move = this.dex.moves.get(name);
         return exists(move, this.dex.gen) ? new Move(move, this.dex) : undefined;
     };
     Moves.prototype[Symbol.iterator] = function () {
-        var _a, _b, _i, id, m;
-        return __generator(this, function (_c) {
-            switch (_c.label) {
+        var _a, _b, _c, _i, id, m;
+        return __generator(this, function (_d) {
+            switch (_d.label) {
                 case 0: return [4, NoMove(this.dex)];
                 case 1:
-                    _c.sent();
-                    _a = [];
-                    for (_b in this.dex.data.Moves)
-                        _a.push(_b);
+                    _d.sent();
+                    _a = this.dex.data.Moves;
+                    _b = [];
+                    for (_c in _a)
+                        _b.push(_c);
                     _i = 0;
-                    _c.label = 2;
+                    _d.label = 2;
                 case 2:
-                    if (!(_i < _a.length)) return [3, 5];
-                    id = _a[_i];
+                    if (!(_i < _b.length)) return [3, 5];
+                    _c = _b[_i];
+                    if (!(_c in _a)) return [3, 4];
+                    id = _c;
                     m = this.get(id);
                     if (!m) return [3, 4];
                     return [4, m];
                 case 3:
-                    _c.sent();
-                    _c.label = 4;
+                    _d.sent();
+                    _d.label = 4;
                 case 4:
                     _i++;
                     return [3, 2];
@@ -237,6 +250,10 @@ var Move = (function () {
         this.name = move.name;
         this.basePower = move.basePower;
         this.type = move.type;
+        this.overrideOffensiveStat = move.overrideOffensiveStat;
+        this.overrideDefensiveStat = move.overrideDefensiveStat;
+        this.overrideOffensivePokemon = move.overrideOffensivePokemon;
+        this.overrideDefensivePokemon = move.overrideDefensivePokemon;
         if (move.category === 'Status' || dex.gen >= 4) {
             this.category = move.category;
         }
@@ -254,6 +271,8 @@ var Move = (function () {
         }
         if (move.multihit)
             this.multihit = move.multihit;
+        if (move.multiaccuracy)
+            this.multiaccuracy = move.multiaccuracy;
         if (move.drain)
             this.drain = move.drain;
         if (move.willCrit)
@@ -283,9 +302,6 @@ var Move = (function () {
         if (dex.gen >= 5) {
             if (move.ignoreDefensive)
                 this.ignoreDefensive = move.ignoreDefensive;
-            if (move.defensiveCategory && move.defensiveCategory !== move.category) {
-                this.defensiveCategory = move.defensiveCategory;
-            }
             if ('secondaries' in move && ((_b = move.secondaries) === null || _b === void 0 ? void 0 : _b.length)) {
                 this.secondaries = true;
             }
@@ -308,6 +324,12 @@ var Move = (function () {
             if (move.maxMove)
                 this.maxMove = { basePower: move.maxMove.basePower };
         }
+        if (dex.gen >= 9) {
+            if (move.flags.wind)
+                this.flags.wind = move.flags.wind;
+            if (move.flags.slicing)
+                this.flags.slicing = move.flags.slicing;
+        }
     }
     return Move;
 }());
@@ -316,35 +338,38 @@ var Species = (function () {
         this.dex = dex;
     }
     Species.prototype.get = function (name) {
-        var species = this.dex.getSpecies(name);
+        var species = this.dex.species.get(name);
         if (this.dex.gen >= 6 && species.id === 'aegislashboth')
             return AegislashBoth(this.dex);
         return exists(species, this.dex.gen) ? new Specie(species, this.dex) : undefined;
     };
     Species.prototype[Symbol.iterator] = function () {
-        var _a, _b, _i, id, s;
-        return __generator(this, function (_c) {
-            switch (_c.label) {
+        var _a, _b, _c, _i, id, s;
+        return __generator(this, function (_d) {
+            switch (_d.label) {
                 case 0:
-                    _a = [];
-                    for (_b in this.dex.data.Species)
-                        _a.push(_b);
+                    _a = this.dex.data.Species;
+                    _b = [];
+                    for (_c in _a)
+                        _b.push(_c);
                     _i = 0;
-                    _c.label = 1;
+                    _d.label = 1;
                 case 1:
-                    if (!(_i < _a.length)) return [3, 6];
-                    id = _a[_i];
+                    if (!(_i < _b.length)) return [3, 6];
+                    _c = _b[_i];
+                    if (!(_c in _a)) return [3, 5];
+                    id = _c;
                     s = this.get(id);
                     if (!s) return [3, 5];
                     if (!(id === 'aegislash')) return [3, 3];
                     return [4, AegislashBoth(this.dex)];
                 case 2:
-                    _c.sent();
-                    _c.label = 3;
+                    _d.sent();
+                    _d.label = 3;
                 case 3: return [4, s];
                 case 4:
-                    _c.sent();
-                    _c.label = 5;
+                    _d.sent();
+                    _d.label = 5;
                 case 5:
                     _i++;
                     return [3, 1];
@@ -376,12 +401,12 @@ var Specie = (function () {
         this.types = species.types;
         this.baseStats = species.baseStats;
         this.weightkg = species.weightkg;
-        var nfe = !!((_a = species.evos) === null || _a === void 0 ? void 0 : _a.some(function (s) { return exists(dex.getSpecies(s), dex.gen); }));
+        var nfe = !!((_a = species.evos) === null || _a === void 0 ? void 0 : _a.some(function (s) { return exists(dex.species.get(s), dex.gen); }));
         if (nfe)
             this.nfe = nfe;
         if (species.gender === 'N' && dex.gen > 1)
             this.gender = species.gender;
-        var formes = (_b = species.otherFormes) === null || _b === void 0 ? void 0 : _b.filter(function (s) { return exists(dex.getSpecies(s), dex.gen); });
+        var formes = (_b = species.otherFormes) === null || _b === void 0 ? void 0 : _b.filter(function (s) { return exists(dex.species.get(s), dex.gen); });
         if (species.id.startsWith('aegislash')) {
             if (species.id === 'aegislashblade') {
                 this.otherFormes = ['Aegislash-Shield', 'Aegislash-Both'];
@@ -407,7 +432,7 @@ var Specie = (function () {
             this.otherFormes = ['Eternatus-Eternamax'];
         }
         else if (formes === null || formes === void 0 ? void 0 : formes.length) {
-            this.otherFormes = __spreadArray([], __read(formes)).sort();
+            this.otherFormes = __spreadArray([], __read(formes), false).sort();
         }
         else if (species.baseSpecies !== this.name) {
             this.baseSpecies = species.baseSpecies;
@@ -415,9 +440,9 @@ var Specie = (function () {
         if (dex.gen === 8 && species.canGigantamax &&
             !(species.id.startsWith('toxtricity') || species.id.startsWith('urshifu'))) {
             var formes_1 = this.otherFormes || [];
-            var gmax = dex.getSpecies(species.name + "-Gmax");
+            var gmax = dex.species.get("".concat(species.name, "-Gmax"));
             if (exists(gmax, dex.gen))
-                this.otherFormes = __spreadArray(__spreadArray([], __read(formes_1)), [gmax.name]).sort();
+                this.otherFormes = __spreadArray(__spreadArray([], __read(formes_1), false), [gmax.name], false).sort();
         }
         if (dex.gen > 2)
             this.abilities = { 0: species.abilities[0] };
@@ -425,8 +450,8 @@ var Specie = (function () {
     return Specie;
 }());
 function AegislashBoth(dex) {
-    var shield = dex.getSpecies('aegislash');
-    var blade = dex.getSpecies('aegislashblade');
+    var shield = dex.species.get('aegislash');
+    var blade = dex.species.get('aegislashblade');
     var baseStats = {
         hp: shield.baseStats.hp,
         atk: blade.baseStats.atk,
@@ -448,13 +473,16 @@ var Types = (function () {
             effectiveness: {}
         };
         this.byID = {};
-        for (var t1 in this.dex.data.Types) {
-            var id = toID(t1);
-            var name_1 = t1;
+        for (var id in this.dex.data.Types) {
+            if (!exists(this.dex.types.get(id), this.dex.gen))
+                continue;
+            var name_1 = id[0].toUpperCase() + id.slice(1);
             var effectiveness = { '???': 1 };
-            for (var t2 in this.dex.data.Types) {
-                var t = t2;
-                effectiveness[t] = DAMAGE_TAKEN[this.dex.data.Types[t].damageTaken[name_1]];
+            for (var t2ID in this.dex.data.Types) {
+                if (!exists(this.dex.types.get(t2ID), this.dex.gen))
+                    continue;
+                var t = t2ID[0].toUpperCase() + t2ID.slice(1);
+                effectiveness[t] = DAMAGE_TAKEN[this.dex.data.Types[t2ID].damageTaken[name_1]];
             }
             unknown.effectiveness[name_1] = 1;
             this.byID[id] = { kind: 'Type', id: id, name: name_1, effectiveness: effectiveness };
@@ -465,22 +493,25 @@ var Types = (function () {
         return this.byID[toID(name)];
     };
     Types.prototype[Symbol.iterator] = function () {
-        var _a, _b, _i, id;
-        return __generator(this, function (_c) {
-            switch (_c.label) {
+        var _a, _b, _c, _i, id;
+        return __generator(this, function (_d) {
+            switch (_d.label) {
                 case 0:
-                    _a = [];
-                    for (_b in this.byID)
-                        _a.push(_b);
+                    _a = this.byID;
+                    _b = [];
+                    for (_c in _a)
+                        _b.push(_c);
                     _i = 0;
-                    _c.label = 1;
+                    _d.label = 1;
                 case 1:
-                    if (!(_i < _a.length)) return [3, 4];
-                    id = _a[_i];
+                    if (!(_i < _b.length)) return [3, 4];
+                    _c = _b[_i];
+                    if (!(_c in _a)) return [3, 3];
+                    id = _c;
                     return [4, this.byID[id]];
                 case 2:
-                    _c.sent();
-                    _c.label = 3;
+                    _d.sent();
+                    _d.label = 3;
                 case 3:
                     _i++;
                     return [3, 1];
@@ -496,28 +527,31 @@ var Natures = (function () {
         this.dex = dex;
     }
     Natures.prototype.get = function (name) {
-        var nature = this.dex.getNature(name);
+        var nature = this.dex.natures.get(name);
         return nature.exists ? new Nature(nature) : undefined;
     };
     Natures.prototype[Symbol.iterator] = function () {
-        var _a, _b, _i, id, n;
-        return __generator(this, function (_c) {
-            switch (_c.label) {
+        var _a, _b, _c, _i, id, n;
+        return __generator(this, function (_d) {
+            switch (_d.label) {
                 case 0:
-                    _a = [];
-                    for (_b in this.dex.data.Natures)
-                        _a.push(_b);
+                    _a = this.dex.data.Natures;
+                    _b = [];
+                    for (_c in _a)
+                        _b.push(_c);
                     _i = 0;
-                    _c.label = 1;
+                    _d.label = 1;
                 case 1:
-                    if (!(_i < _a.length)) return [3, 4];
-                    id = _a[_i];
+                    if (!(_i < _b.length)) return [3, 4];
+                    _c = _b[_i];
+                    if (!(_c in _a)) return [3, 3];
+                    id = _c;
                     n = this.get(id);
                     if (!n) return [3, 3];
                     return [4, n];
                 case 2:
-                    _c.sent();
-                    _c.label = 3;
+                    _d.sent();
+                    _d.label = 3;
                 case 3:
                     _i++;
                     return [3, 1];
@@ -570,16 +604,29 @@ var NATDEX_BANNED = [
     'Pikachu-Libre',
     'Pichu-Spiky-eared',
     'Floette-Eternal',
-    'Magearna-Original',
 ];
 function exists(val, gen) {
     if (!val.exists || val.id === 'noability')
         return false;
     if (gen === 7 && val.isNonstandard === 'LGPE')
         return true;
-    if (gen === 8 && val.isNonstandard === 'Past' && !NATDEX_BANNED.includes(val.name))
-        return true;
-    if (gen === 8 && ['eternatuseternamax', 'zarude', 'zarudedada'].includes(val.id))
+    if (gen >= 8) {
+        if (gen === 8) {
+            if (('isMax' in val && val.isMax) || val.isNonstandard === 'Gigantamax')
+                return true;
+            if (['eternatuseternamax', 'zarude', 'zarudedada'].includes(val.id))
+                return true;
+            if (val.isNonstandard === 'Future')
+                return false;
+        }
+        if (val.isNonstandard === 'Past' && !NATDEX_BANNED.includes(val.name))
+            return true;
+        if (gen > 8 && 'isZ' in val && val.isZ)
+            return false;
+        if (gen > 8 && val.isNonstandard === 'Unobtainable')
+            return true;
+    }
+    if (gen >= 6 && ['floetteeternal'].includes(val.id))
         return true;
     if (val.isNonstandard && !['CAP', 'Unobtainable', 'Gigantamax'].includes(val.isNonstandard)) {
         return false;

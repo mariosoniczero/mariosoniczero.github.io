@@ -42,6 +42,7 @@ function getItemBoostType(item) {
         case 'Odd Incense':
         case 'Twisted Spoon':
             return 'Psychic';
+        case 'Fairy Feather':
         case 'Pixie Plate':
             return 'Fairy';
         case 'Sky Plate':
@@ -369,7 +370,7 @@ var FLING_10 = new Set([
 function getFlingPower(item) {
     if (!item)
         return 0;
-    if (['Iron Ball', 'TR43', 'TR71'].includes(item))
+    if (['Big Nugget', 'Iron Ball', 'TR43', 'TR71'].includes(item))
         return 130;
     if (FLING_120.has(item))
         return 85;
@@ -404,7 +405,7 @@ function getFlingPower(item) {
 exports.getFlingPower = getFlingPower;
 function getNaturalGift(gen, item) {
     var _a;
-    var gift = (_a = gen.items.get(util_1.toID(item))) === null || _a === void 0 ? void 0 : _a.naturalGift;
+    var gift = (_a = gen.items.get((0, util_1.toID)(item))) === null || _a === void 0 ? void 0 : _a.naturalGift;
     return gift ? { t: gift.type, p: gift.basePower } : { t: 'Normal', p: 1 };
 }
 exports.getNaturalGift = getNaturalGift;

@@ -5,7 +5,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -354,7 +354,86 @@ var SS = SM.concat([
     'Wandering Spirit',
     'Weather Rush',
 ]);
-exports.ABILITIES = [[], RBY, GSC, ADV, DPP, BW, XY, SM, SS];
+var SV = SS.concat([
+    'Analyzer',
+    'Anemochory',
+    'Anger Shell',
+    'Arachnophobia',
+    'Armor Tail',
+    'Assassinate',
+    'Beads of Ruin',
+    'Bizzare Blizzard',
+    'Commander',
+    'Costar',
+    'Crammander',
+    'Cud Chew',
+    'Deadly Precision',
+    'Decay',
+    'Divine Inspiration',
+    'Dragonhunter',
+    'Earth Eater',
+    'Electromorphosis',
+    'Elemental Mastery',
+    'Embody Aspect (Cornerstone)',
+    'Embody Aspect (Hearthflame)',
+    'Embody Aspect (Teal)',
+    'Embody Aspect (Wellspring)',
+    'Entrance',
+    'Fearless',
+    'Flicker Fusion',
+    'Frosty Resurgence',
+    'Good as Gold',
+    'Greenhouse',
+    'Guard Dog',
+    'Hadron Engine',
+    'Heavy Artillery',
+    'Hospitality',
+    'Hyperdrill Superseed',
+    'Hyperion',
+    'Lifestream',
+    'Lingering Aroma',
+    'Machibuse',
+    'Magnetic Fists',
+    'Mega Ice Face',
+    'Mind Jail',
+    'Mind\'s Eye',
+    'Mycelium Might',
+    'Opportunist',
+    'Orichalcum Pulse',
+    'Poison Puppeteer',
+    'Perfect Mimicry',
+    'Pristine Armor',
+    'Protosynthesis',
+    'Pure Mindset',
+    'Purifying Salt',
+    'Quark Drive',
+    'Rocky Payload',
+    'Seed Sower',
+    'Sharpness',
+    'Sunken Sky',
+    'Supersweet Syrup',
+    'Supreme Overlord',
+    'Surging Steel',
+    'Sushi Scraps',
+    'Spectral Flames',
+    'Sword of Ruin',
+    'Tablets of Ruin',
+    'Tera Hammer',
+    'Tera Shell',
+    'Tera Shift',
+    'Teraform Zero',
+    'Thermal Exchange',
+    'Torque Tune Gear',
+    'Toxic Chain',
+    'Toxic Debris',
+    'Vessel of Ruin',
+    'Weather Rod',
+    'Well-Baked Body',
+    'Wind Power',
+    'Wind Rider',
+    'Zero to Hero',
+]);
+exports.ABILITIES = [[], RBY, GSC, ADV, DPP, BW, XY, SM, SS, SV];
 var Abilities = (function () {
     function Abilities(gen) {
         this.gen = gen;
@@ -363,22 +442,25 @@ var Abilities = (function () {
         return ABILITIES_BY_ID[this.gen][id];
     };
     Abilities.prototype[Symbol.iterator] = function () {
-        var _a, _b, _i, id;
-        return __generator(this, function (_c) {
-            switch (_c.label) {
+        var _a, _b, _c, _i, id;
+        return __generator(this, function (_d) {
+            switch (_d.label) {
                 case 0:
-                    _a = [];
-                    for (_b in ABILITIES_BY_ID[this.gen])
-                        _a.push(_b);
+                    _a = ABILITIES_BY_ID[this.gen];
+                    _b = [];
+                    for (_c in _a)
+                        _b.push(_c);
                     _i = 0;
-                    _c.label = 1;
+                    _d.label = 1;
                 case 1:
-                    if (!(_i < _a.length)) return [3, 4];
-                    id = _a[_i];
+                    if (!(_i < _b.length)) return [3, 4];
+                    _c = _b[_i];
+                    if (!(_c in _a)) return [3, 3];
+                    id = _c;
                     return [4, this.get(id)];
                 case 2:
-                    _c.sent();
-                    _c.label = 3;
+                    _d.sent();
+                    _d.label = 3;
                 case 3:
                     _i++;
                     return [3, 1];
@@ -392,7 +474,7 @@ exports.Abilities = Abilities;
 var Ability = (function () {
     function Ability(name) {
         this.kind = 'Ability';
-        this.id = util_1.toID(name);
+        this.id = (0, util_1.toID)(name);
         this.name = name;
     }
     return Ability;

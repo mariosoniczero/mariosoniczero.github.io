@@ -29,6 +29,10 @@ var Field = (function () {
         this.isAuraBreak = field.isAuraBreak || false;
         this.isFairyAura = field.isFairyAura || false;
         this.isDarkAura = field.isDarkAura || false;
+        this.isBeadsOfRuin = field.isBeadsOfRuin || false;
+        this.isSwordOfRuin = field.isSwordOfRuin || false;
+        this.isTabletsOfRuin = field.isTabletsOfRuin || false;
+        this.isVesselOfRuin = field.isVesselOfRuin || false;
         this.attackerSide = new Side(field.attackerSide || {});
         this.defenderSide = new Side(field.defenderSide || {});
     }
@@ -63,7 +67,11 @@ var Field = (function () {
             defenderSide: this.defenderSide,
             isAuraBreak: this.isAuraBreak,
             isDarkAura: this.isDarkAura,
-            isFairyAura: this.isFairyAura
+            isFairyAura: this.isFairyAura,
+            isBeadsOfRuin: this.isBeadsOfRuin,
+            isSwordOfRuin: this.isSwordOfRuin,
+            isTabletsOfRuin: this.isTabletsOfRuin,
+            isVesselOfRuin: this.isVesselOfRuin
         });
     };
     return Field;
@@ -86,10 +94,12 @@ var Side = (function () {
         this.isForesight = !!side.isForesight;
         this.isTailwind = !!side.isTailwind;
         this.isHelpingHand = !!side.isHelpingHand;
+        this.isFlowerGift = !!side.isFlowerGift;
         this.isFriendGuard = !!side.isFriendGuard;
         this.isAuroraVeil = !!side.isAuroraVeil;
         this.isBattery = !!side.isBattery;
         this.isPowerSpot = !!side.isPowerSpot;
+        this.isSteelySpirit = !!side.isSteelySpirit;
         this.isSwitching = side.isSwitching;
     }
     Side.prototype.clone = function () {

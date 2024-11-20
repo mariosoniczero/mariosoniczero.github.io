@@ -1,5 +1,5 @@
-import * as I from '../data/interface';
-import * as D from '@pkmn/dex';
+import type * as I from '../data/interface';
+import type * as D from '@pkmn/dex';
 export declare function toID(s: string): I.ID;
 export declare class Generations implements I.Generations {
     private readonly dex;
@@ -72,7 +72,10 @@ declare class Move implements I.Move {
     readonly priority?: number;
     readonly self?: I.SelfOrSecondaryEffect | null;
     readonly ignoreDefensive?: boolean;
-    readonly defensiveCategory?: I.MoveCategory;
+    readonly overrideOffensiveStat?: I.StatIDExceptHP;
+    readonly overrideDefensiveStat?: I.StatIDExceptHP;
+    readonly overrideOffensivePokemon?: 'target' | 'source';
+    readonly overrideDefensivePokemon?: 'target' | 'source';
     readonly breaksProtect?: boolean;
     readonly isZ?: boolean;
     readonly zMove?: {
@@ -83,6 +86,7 @@ declare class Move implements I.Move {
         basePower: number;
     };
     readonly multihit?: number | number[];
+    readonly multiaccuracy?: boolean;
     constructor(move: D.Move, dex: D.ModdedDex);
 }
 declare class Species implements I.Species {
@@ -124,8 +128,8 @@ declare class Nature implements I.Nature {
     readonly kind: 'Nature';
     readonly id: I.ID;
     readonly name: I.NatureName;
-    readonly plus: I.StatName;
-    readonly minus: I.StatName;
+    readonly plus: I.StatID;
+    readonly minus: I.StatID;
     constructor(nature: D.Nature);
 }
 export {};

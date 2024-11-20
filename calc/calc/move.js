@@ -9,11 +9,11 @@ var Move = (function () {
         var _a, _b;
         name = options.name || name;
         this.originalName = name;
-        var data = util_1.extend(true, { name: name }, gen.moves.get(util_1.toID(name)), options.overrides);
+        var data = (0, util_1.extend)(true, { name: name }, gen.moves.get((0, util_1.toID)(name)), options.overrides);
         this.hits = 1;
         if (options.useMax && data.maxMove) {
-            var maxMoveName_1 = getMaxMoveName(data.type, options.species, !!(data.category === 'Status'), options.ability);
-            var maxMove_1 = gen.moves.get(util_1.toID(maxMoveName_1));
+            var maxMoveName_1 = getMaxMoveName(data.type, data.name, options.species, !!(data.category === 'Status'), options.ability);
+            var maxMove_1 = gen.moves.get((0, util_1.toID)(maxMoveName_1));
             var maxPower = function () {
                 if (['G-Max Drum Solo', 'G-Max Fire Ball', 'G-Max Hydrosnipe'].includes(maxMoveName_1)) {
                     return 160;
@@ -23,7 +23,7 @@ var Move = (function () {
                 }
                 return maxMove_1.basePower;
             };
-            data = util_1.extend(true, {}, maxMove_1, {
+            data = (0, util_1.extend)(true, {}, maxMove_1, {
                 name: maxMoveName_1,
                 basePower: maxPower(),
                 category: data.category
@@ -31,8 +31,8 @@ var Move = (function () {
         }
         if (options.useZ && ((_a = data.zMove) === null || _a === void 0 ? void 0 : _a.basePower)) {
             var zMoveName = getZMoveName(data.name, data.type, options.item);
-            var zMove = gen.moves.get(util_1.toID(zMoveName));
-            data = util_1.extend(true, {}, zMove, {
+            var zMove = gen.moves.get((0, util_1.toID)(zMoveName));
+            data = (0, util_1.extend)(true, {}, zMove, {
                 name: zMoveName,
                 basePower: zMove.basePower === 1 ? data.zMove.basePower : zMove.basePower,
                 category: data.category
@@ -40,16 +40,21 @@ var Move = (function () {
         }
         else {
             if (data.multihit) {
-                if (typeof data.multihit === 'number') {
-                    this.hits = data.multihit;
-                }
-                else if (options.hits) {
-                    this.hits = options.hits;
+                if (data.multiaccuracy && typeof data.multihit === 'number') {
+                    this.hits = options.hits || data.multihit;
                 }
                 else {
-                    this.hits = (options.ability === 'Skill Link' || options.item === 'Grip Claw')
-                        ? data.multihit[1]
-                        : data.multihit[0] + 1;
+                    if (typeof data.multihit === 'number') {
+                        this.hits = data.multihit;
+                    }
+                    else if (options.hits) {
+                        this.hits = options.hits;
+                    }
+                    else {
+                        this.hits = (options.ability === 'Skill Link')
+                            ? data.multihit[1]
+                            : data.multihit[0] + 1;
+                    }
                 }
             }
             this.timesUsedWithMetronome = options.timesUsedWithMetronome;
@@ -81,6 +86,7 @@ var Move = (function () {
         this.struggleRecoil = !!data.struggleRecoil;
         this.isCrit = !!options.isCrit || !!data.willCrit ||
             gen.num === 1 && ['crabhammer', 'razorleaf', 'slash', 'karate chop'].includes(data.id);
+        this.isStellarFirstUse = !!options.isStellarFirstUse;
         this.drain = data.drain;
         this.flags = data.flags;
         this.priority = data.priority || 0;
@@ -92,14 +98,10 @@ var Move = (function () {
         this.breaksProtect = !!data.breaksProtect;
         this.isZ = !!data.isZ;
         this.isMax = !!data.isMax;
+        this.multiaccuracy = !!data.multiaccuracy;
         if (!this.bp) {
             if (['return', 'frustration', 'pikapapow', 'veeveevolley'].includes(data.id)) {
                 this.bp = 102;
-            }
-            else if (data.id === 'naturepower') {
-                this.bp = 80;
-                if (gen.num >= 5)
-                    this.secondaries = true;
             }
         }
     }
@@ -125,6 +127,7 @@ var Move = (function () {
             useZ: this.useZ,
             useMax: this.useMax,
             isCrit: this.isCrit,
+            isStellarFirstUse: this.isStellarFirstUse,
             hits: this.hits,
             timesUsed: this.timesUsed,
             timesUsedWithMetronome: this.timesUsedWithMetronome,
@@ -197,7 +200,7 @@ var ZMOVES_TYPING = {
     Steel: 'Corkscrew Crash',
     Water: 'Hydro Vortex'
 };
-function getMaxMoveName(moveType, pokemonSpecies, isStatus, pokemonAbility) {
+function getMaxMoveName(moveType, moveName, pokemonSpecies, isStatus, pokemonAbility) {
     if (isStatus)
         return 'Max Guard';
     if (pokemonAbility === 'Normalize')
@@ -217,14 +220,16 @@ function getMaxMoveName(moveType, pokemonSpecies, isStatus, pokemonAbility) {
             return 'G-Max Gold Rush';
         if (pokemonSpecies === 'Snorlax-Gmax')
             return 'G-Max Replenish';
-        if (pokemonAbility === 'Pixilate')
-            return 'Max Starfall';
-        if (pokemonAbility === 'Aerilate')
-            return 'Max Airstream';
-        if (pokemonAbility === 'Refrigerate')
-            return 'Max Hailstorm';
-        if (pokemonAbility === 'Galvanize')
-            return 'Max Lightning';
+        if (!(moveName === 'Weather Ball' || moveName === 'Terrain Pulse')) {
+            if (pokemonAbility === 'Pixilate')
+                return 'Max Starfall';
+            if (pokemonAbility === 'Aerilate')
+                return 'Max Airstream';
+            if (pokemonAbility === 'Refrigerate')
+                return 'Max Hailstorm';
+            if (pokemonAbility === 'Galvanize')
+                return 'Max Lightning';
+        }
     }
     if (moveType === 'Fairy') {
         if (pokemonSpecies === 'Alcremie-Gmax')
