@@ -362,7 +362,7 @@ var SV = SS.concat([
     'Armor Tail',
     'Assassinate',
     'Beads of Ruin',
-    'Bizzare Blizzard',
+    'Bizarre Blizzard',
     'Commander',
     'Costar',
     'Crammander',

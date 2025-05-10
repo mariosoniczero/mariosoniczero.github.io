@@ -357,7 +357,7 @@ function autosetWeather(ability, i) {
 		$("#sand").prop("checked", true);
 		break;
 	case "Snow Warning":
-	case "Bizzare Blizzard":
+	case "Bizarre Blizzard":
 		if (gen >= 9) {
 			lastAutoWeather[i] = "Snow";
 			$("#snow").prop("checked", true);
@@ -422,7 +422,7 @@ function autosetTerrain(ability, i) {
 		$("#misty").prop("checked", true);
 		break;
 	case "Psychic Surge":
-	case "Bizzare Blizzard":
+	case "Bizarre Blizzard":
 		lastAutoTerrain[i] = "Psychic";
 		$("#psychic").prop("checked", true);
 		break;

@@ -9266,13 +9266,13 @@ delete SS['Pikachu-Starter'];
 delete SS['Eevee-Starter'];
 var PLA_PATCH = {
     Arcanine: { otherFormes: ['Arcanine-Hisui', 'Arcanine-Mega'] },
-    Avalugg: { otherFormes: ['Avalugg-Hisui'] },
+    Avalugg: { otherFormes: ['Avalugg-Hisui', 'Avalugg-Mega'] },
     Basculin: { otherFormes: ['Basculin-Blue-Striped', 'Basculin-White-Striped'] },
     Braviary: { otherFormes: ['Braviary-Hisui'] },
-    Decidueye: { otherFormes: ['Decidueye-Hisui'] },
+    Decidueye: { otherFormes: ['Decidueye-Hisui', 'Decidueye-Mega'] },
     Dialga: { otherFormes: ['Dialga-Origin'] },
     Electrode: { otherFormes: ['Electrode-Hisui'] },
-    Goodra: { otherFormes: ['Goodra-Hisui'] },
+    Goodra: { otherFormes: ['Goodra-Hisui', 'Goodra-Mega'] },
     Growlithe: { otherFormes: ['Growlithe-Hisui'] },
     Lilligant: { otherFormes: ['Lilligant-Hisui'] },
     Palkia: { otherFormes: ['Palkia-Origin'] },
@@ -9281,10 +9281,11 @@ var PLA_PATCH = {
     Sliggoo: { otherFormes: ['Sliggoo-Hisui'] },
     Sneasel: { otherFormes: ['Sneasel-Hisui'] },
     Stantler: { nfe: true },
-    Typhlosion: { otherFormes: ['Typhlosion-Hisui'] },
+    Typhlosion: { otherFormes: ['Typhlosion-Hisui', 'Typhlosion-Mega'] },
     Ursaring: { nfe: true },
     Voltorb: { otherFormes: ['Voltorb-Hisui'] },
     Zorua: { otherFormes: ['Zorua-Hisui'] },
+    Zoroark: { otherFormes: ['Zoroark-Hisui', 'Zoroark-Mega'] },
     'Arcanine-Hisui': {
         types: ['Fire', 'Rock'],
         bs: { hp: 95, at: 115, df: 80, sa: 95, sd: 80, sp: 90 },
@@ -9528,7 +9529,7 @@ var SV_PATCH = {
     Eelektross: { otherFormes: ['Eelektross-Mega'] },
     Ferrothorn: { otherFormes: ['Ferrothorn-Mega'] },
     Magnezone: { otherFormes: ['Magnezone-Mega'] },
-    Raichu: { otherFormes: ['Raichu-Mega'] },
+    Raichu: { otherFormes: ['Raichu-Alola', 'Raichu-Mega'] },
     Talonflame: { otherFormes: ['Talonflame-Mega'] },
     Tropius: { otherFormes: ['Tropius-Mega'] },
     Ababo: {
@@ -10835,11 +10836,11 @@ var SV_PATCH = {
         abilities: { 0: 'Analyzer' },
         baseSpecies: 'Magnezone'
     },
-    'Mr.Rime-Mega': {
+    'Mr. Rime-Mega': {
         types: ['Ice', 'Psychic'],
         bs: { hp: 80, at: 85, df: 105, sa: 135, sd: 135, sp: 80 },
         weightkg: 58.2,
-        abilities: { 0: 'Bizzare Blizzard' },
+        abilities: { 0: 'Bizarre Blizzard' },
         baseSpecies: 'Mr. Rime'
     },
     'Raichu-Mega': {
