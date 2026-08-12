@@ -526,79 +526,79 @@
 				</a><a class="filemtime" href="index.html@sort=mtime">Last Modified</a>
 			</li>
 			<li>
-				<a class="row" href="afd">
+				<a class="row" href="afd.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">afd
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-07-07 18:30:02</small>
+					</em><small class="filemtime">2026-07-14 16:34:00</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="afd-back">
+				<a class="row" href="afd-back.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">afd-back
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-07-07 18:30:02</small>
+					</em><small class="filemtime">2026-07-14 16:36:17</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="afd-back-shiny">
+				<a class="row" href="afd-back-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">afd-back-shiny
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-06-22 04:30:43</small>
+					</em><small class="filemtime">2026-07-14 16:36:48</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="afd-shiny">
+				<a class="row" href="afd-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">afd-shiny
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-06-22 04:30:55</small>
+					</em><small class="filemtime">2026-07-14 16:40:14</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="ani">
+				<a class="row" href="ani.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">ani
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-06-27 06:43:05</small>
+					</em><small class="filemtime">2026-07-31 16:02:12</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="ani-back">
+				<a class="row" href="ani-back.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">ani-back
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-06-27 06:43:50</small>
+					</em><small class="filemtime">2026-07-31 16:02:12</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="ani-back-shiny">
+				<a class="row" href="ani-back-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">ani-back-shiny
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-06-27 06:44:03</small>
+					</em><small class="filemtime">2026-07-31 16:02:13</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="ani-shiny">
+				<a class="row" href="ani-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">ani-shiny
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-06-27 06:44:12</small>
+					</em><small class="filemtime">2026-07-31 16:02:13</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="bwicons">
+				<a class="row" href="bwicons.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">bwicons
 					</code><em class="filesize">
-					</em><small class="filemtime">2023-05-07 20:44:14</small>
+					</em><small class="filemtime">2026-07-14 15:46:05</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="categories">
+				<a class="row" href="categories.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">categories
 					</code><em class="filesize">
@@ -606,23 +606,23 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="dex">
+				<a class="row" href="dex.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">dex
 					</code><em class="filesize">
-					</em><small class="filemtime">2023-09-17 19:48:44</small>
+					</em><small class="filemtime">2026-07-14 19:48:24</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="dex-shiny">
+				<a class="row" href="dex-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">dex-shiny
 					</code><em class="filesize">
-					</em><small class="filemtime">2023-09-15 21:19:09</small>
+					</em><small class="filemtime">2026-07-14 19:48:24</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="digimon">
+				<a class="row" href="digimon.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">digimon
 					</code><em class="filesize">
@@ -630,7 +630,7 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen1">
+				<a class="row" href="gen1.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen1
 					</code><em class="filesize">
@@ -638,7 +638,7 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen1-back">
+				<a class="row" href="gen1-back.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen1-back
 					</code><em class="filesize">
@@ -646,7 +646,7 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen1rb">
+				<a class="row" href="gen1rb.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen1rb
 					</code><em class="filesize">
@@ -654,7 +654,7 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen1rg">
+				<a class="row" href="gen1rg.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen1rg
 					</code><em class="filesize">
@@ -662,7 +662,7 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen1rgb-back">
+				<a class="row" href="gen1rgb-back.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen1rgb-back
 					</code><em class="filesize">
@@ -670,39 +670,39 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen2">
+				<a class="row" href="gen2.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen2
 					</code><em class="filesize">
-					</em><small class="filemtime">2023-05-07 20:44:13</small>
+					</em><small class="filemtime">2026-07-14 15:02:08</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen2-back">
+				<a class="row" href="gen2-back.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen2-back
 					</code><em class="filesize">
-					</em><small class="filemtime">2023-05-07 20:44:13</small>
+					</em><small class="filemtime">2026-07-14 15:02:10</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen2-back-shiny">
+				<a class="row" href="gen2-back-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen2-back-shiny
 					</code><em class="filesize">
-					</em><small class="filemtime">2023-05-07 20:44:13</small>
+					</em><small class="filemtime">2026-07-14 15:02:12</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen2-shiny">
+				<a class="row" href="gen2-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen2-shiny
 					</code><em class="filesize">
-					</em><small class="filemtime">2023-05-07 20:44:13</small>
+					</em><small class="filemtime">2026-07-14 15:02:13</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen2g">
+				<a class="row" href="gen2g.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen2g
 					</code><em class="filesize">
@@ -710,7 +710,7 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen2s">
+				<a class="row" href="gen2s.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen2s
 					</code><em class="filesize">
@@ -718,15 +718,15 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen3">
+				<a class="row" href="gen3.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen3
 					</code><em class="filesize">
-					</em><small class="filemtime">2023-05-07 20:44:13</small>
+					</em><small class="filemtime">2026-07-14 15:02:15</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen3-2">
+				<a class="row" href="gen3-2.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen3-2
 					</code><em class="filesize">
@@ -734,31 +734,31 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen3-back">
+				<a class="row" href="gen3-back.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen3-back
 					</code><em class="filesize">
-					</em><small class="filemtime">2023-05-07 20:44:14</small>
+					</em><small class="filemtime">2026-07-14 15:02:16</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen3-back-shiny">
+				<a class="row" href="gen3-back-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen3-back-shiny
 					</code><em class="filesize">
-					</em><small class="filemtime">2023-05-07 20:44:13</small>
+					</em><small class="filemtime">2026-07-14 15:02:18</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen3-shiny">
+				<a class="row" href="gen3-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen3-shiny
 					</code><em class="filesize">
-					</em><small class="filemtime">2023-05-07 20:44:13</small>
+					</em><small class="filemtime">2026-07-14 15:02:20</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen3frlg">
+				<a class="row" href="gen3frlg.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen3frlg
 					</code><em class="filesize">
@@ -766,7 +766,7 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen3rs">
+				<a class="row" href="gen3rs.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen3rs
 					</code><em class="filesize">
@@ -774,7 +774,7 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen3rs-shiny">
+				<a class="row" href="gen3rs-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen3rs-shiny
 					</code><em class="filesize">
@@ -782,111 +782,111 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen4">
+				<a class="row" href="gen4.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen4
 					</code><em class="filesize">
-					</em><small class="filemtime">2023-05-07 20:44:14</small>
+					</em><small class="filemtime">2026-07-14 19:48:24</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen4-back">
+				<a class="row" href="gen4-back.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen4-back
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-06-27 06:45:44</small>
+					</em><small class="filemtime">2026-07-14 19:48:24</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen4-back-shiny">
+				<a class="row" href="gen4-back-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen4-back-shiny
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-06-27 06:45:58</small>
+					</em><small class="filemtime">2026-07-14 19:48:24</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen4-shiny">
+				<a class="row" href="gen4-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen4-shiny
 					</code><em class="filesize">
-					</em><small class="filemtime">2023-05-07 20:44:14</small>
+					</em><small class="filemtime">2026-07-14 19:48:24</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen4dp">
+				<a class="row" href="gen4dp.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen4dp
 					</code><em class="filesize">
-					</em><small class="filemtime">2023-05-07 20:44:13</small>
+					</em><small class="filemtime">2026-07-14 19:48:24</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen4dp-2">
+				<a class="row" href="gen4dp-2.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen4dp-2
 					</code><em class="filesize">
-					</em><small class="filemtime">2023-05-07 20:44:14</small>
+					</em><small class="filemtime">2026-07-14 19:48:24</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen4dp-2-shiny">
+				<a class="row" href="gen4dp-2-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen4dp-2-shiny
 					</code><em class="filesize">
-					</em><small class="filemtime">2023-05-07 20:44:14</small>
+					</em><small class="filemtime">2026-07-14 19:48:24</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen4dp-shiny">
+				<a class="row" href="gen4dp-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen4dp-shiny
 					</code><em class="filesize">
-					</em><small class="filemtime">2023-05-07 20:44:13</small>
+					</em><small class="filemtime">2026-07-14 19:48:24</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen5">
+				<a class="row" href="gen5.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen5
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-06-22 15:55:24</small>
+					</em><small class="filemtime">2026-07-14 19:53:11</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen5-back">
+				<a class="row" href="gen5-back.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen5-back
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-06-22 15:55:26</small>
+					</em><small class="filemtime">2026-07-14 19:59:15</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen5-back-shiny">
+				<a class="row" href="gen5-back-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen5-back-shiny
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-06-22 15:55:28</small>
+					</em><small class="filemtime">2026-07-14 19:48:24</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen5-shiny">
+				<a class="row" href="gen5-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen5-shiny
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-06-22 15:55:30</small>
+					</em><small class="filemtime">2026-07-14 19:52:34</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen5ani">
+				<a class="row" href="gen5ani.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen5ani
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-07-03 20:17:57</small>
+					</em><small class="filemtime">2026-07-14 15:03:26</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen5ani-back">
+				<a class="row" href="gen5ani-back.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen5ani-back
 					</code><em class="filesize">
@@ -894,31 +894,31 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen5ani-back-shiny">
+				<a class="row" href="gen5ani-back-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen5ani-back-shiny
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-07-03 20:18:21</small>
+					</em><small class="filemtime">2026-07-14 15:34:26</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen5ani-shiny">
+				<a class="row" href="gen5ani-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen5ani-shiny
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-07-03 20:18:36</small>
+					</em><small class="filemtime">2026-07-14 15:03:26</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen5icons">
+				<a class="row" href="gen5icons.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen5icons
 					</code><em class="filesize">
-					</em><small class="filemtime">2023-05-07 20:44:13</small>
+					</em><small class="filemtime">2026-07-14 15:32:35</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen6">
+				<a class="row" href="gen6.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen6
 					</code><em class="filesize">
@@ -926,7 +926,7 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen6-back">
+				<a class="row" href="gen6-back.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen6-back
 					</code><em class="filesize">
@@ -934,7 +934,7 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="gen6bgs">
+				<a class="row" href="gen6bgs.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">gen6bgs
 					</code><em class="filesize">
@@ -942,7 +942,7 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="home">
+				<a class="row" href="home.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">home
 					</code><em class="filesize">
@@ -950,31 +950,31 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="home-centered">
+				<a class="row" href="home-centered.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">home-centered
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-06-22 20:05:56</small>
+					</em><small class="filemtime">2026-07-14 15:02:39</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="home-centered-shiny">
+				<a class="row" href="home-centered-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">home-centered-shiny
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-06-22 20:07:30</small>
+					</em><small class="filemtime">2026-07-14 15:02:39</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="home-shiny">
+				<a class="row" href="home-shiny.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">home-shiny
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-06-22 20:08:54</small>
+					</em><small class="filemtime">2026-07-14 15:02:39</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="itemicons">
+				<a class="row" href="itemicons.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">itemicons
 					</code><em class="filesize">
@@ -982,7 +982,7 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="misc">
+				<a class="row" href="misc.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">misc
 					</code><em class="filesize">
@@ -990,7 +990,7 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="substitutes">
+				<a class="row" href="substitutes.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">substitutes
 					</code><em class="filesize">
@@ -998,11 +998,11 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="trainers">
+				<a class="row" href="trainers.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">trainers
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-07-07 18:30:02</small>
+					</em><small class="filemtime">2026-07-27 23:40:58</small>
 				</a>
 			</li>
 			<li>
@@ -1010,11 +1010,11 @@
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">trainers-custom
 					</code><em class="filesize">
-					</em><small class="filemtime">2026-07-07 18:30:02</small>
+					</em><small class="filemtime">2026-08-10 00:47:13</small>
 				</a>
 			</li>
 			<li>
-				<a class="row" href="typeicons">
+				<a class="row" href="typeicons.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">typeicons
 					</code><em class="filesize">
@@ -1022,19 +1022,11 @@
 				</a>
 			</li>
 			<li>
-				<a class="row" href="types">
+				<a class="row" href="types.1">
 					<i class="icon fa fa-folder-open">
 					</i><code class="filename">types
 					</code><em class="filesize">
 					</em><small class="filemtime">2026-06-21 19:10:15</small>
-				</a>
-			</li>
-			<li>
-				<a class="row" href="abomasnow.png">
-					<i class="icon fa fa-picture-o">
-					</i><code class="filename">abomasnow.png
-					</code><em class="filesize">26.02 KiB
-					</em><small class="filemtime">2026-06-22 20:05:55</small>
 				</a>
 			</li>
 			<li>

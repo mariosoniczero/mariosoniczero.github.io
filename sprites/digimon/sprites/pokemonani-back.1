@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+	<meta charset="UTF-8" />
+
+	<title>/sprites/digimon/sprites/pokemonani-back/ - Showdown!</title>
+
+	<meta name="viewport" content="width=device-width" />
+	<link rel="stylesheet" href="http://play.pokemonshowdown.com/dirindex/font-awesome.min.css" />
+
+	<style>
+		/*********************************************************
+		 * Layout
+		 *********************************************************/
+
+		html, body {
+			margin: 0;
+			padding: 0;
+			min-height: 100%;
+		}
+
+		html {
+			color: white;
+			font-family: Verdana,Helvetica,sans-serif;
+			font-size: 11pt;
+			background: #f0f0f0;
+			color: #333333;
+		}
+		body {
+			background: linear-gradient(to bottom, rgba(77, 93, 140, 0.6), rgba(77, 93, 140, 0.2) 80px, transparent 160px, transparent);
+		}
+
+		header {
+			margin: 0;
+			padding: 2px;
+			/* background: rgba(255, 255, 255, .2);
+			border-bottom: 1px solid rgba(255, 255, 255, .6); */
+			text-align: center;
+			height: 60px;
+		}
+		.nav-wrapper {
+			width: 700px;
+			margin: 0 auto;
+			position: relative;
+		}
+		.nav {
+			padding: 0;
+		}
+		.nav-wrapper .nav {
+			padding-left: 140px;
+			padding-top: 5px;
+		}
+		.nav li {
+			float: left;
+			list-style-type: none;
+		}
+		.nav img {
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		.nav a, .nav a:visited {
+			color: white;
+			background: #3a4f88;
+			background: linear-gradient(to bottom, #4c63a3, #273661);
+			box-shadow: 0.5px 1px 2px rgba(255, 255, 255, 0.45), inset 0.5px 1px 1px rgba(255, 255, 255, 0.5);
+			border: 1px solid #222c4a;
+			text-shadow: black 0px -1px 0;
+			padding: 8px 15px;
+			font-weight: bold;
+			text-decoration: none;
+			border-radius: 0;
+			margin-left: -1px;
+			font-size: 11pt;
+		}
+		.dark .nav a, .dark .nav a:visited {
+			/* make sure other styling doesn't override */
+			color: white;
+			background: #3a4f88;
+			background: linear-gradient(to bottom, #4c63a3, #273661);
+			border: 1px solid #222c4a;
+			box-shadow: 0.5px 1px 2px rgba(255, 255, 255, 0.45), inset 0.5px 1px 1px rgba(255, 255, 255, 0.5);
+		}
+		.nav a:hover, .dark .nav a:hover {
+			background: linear-gradient(to bottom, #5a77c7, #2f447f);
+			border: 1px solid #222c4a;
+		}
+		.nav a:active, .dark .nav a:active {
+			background: linear-gradient(to bottom, #273661, #4c63a3);
+			box-shadow: 0.5px 1px 2px rgba(255, 255, 255, 0.45), inset 0.5px 1px -1px rgba(255, 255, 255, 0.5);
+		}
+		.nav a.cur, .nav a.cur:hover, .nav a.cur:active,
+		.dark .nav a.cur, .dark .nav a.cur:hover, .dark .nav a.cur:active {
+			color: #CCCCCC;
+			background: rgba(79, 109, 148, 0.7);
+			box-shadow: 0.5px 1px 2px rgba(255, 255, 255, 0.45);
+			border: 1px solid #222c4a;
+		}
+		.nav a.nav-first {
+			margin-left: 10px;
+			border-top-left-radius: 8px;
+			border-bottom-left-radius: 8px;
+		}
+		.nav a.nav-last {
+			border-top-right-radius: 8px;
+			border-bottom-right-radius: 8px;
+		}
+		.nav a.greenbutton {
+			background: linear-gradient(to bottom, #4ca363, #276136);
+		}
+		.nav a.greenbutton:hover {
+			background: linear-gradient(to bottom, #5ac777, #2f7f44);
+		}
+		.nav a.greenbutton:active {
+			background: linear-gradient(to bottom, #276136, #4ca363);
+			box-shadow: 0 1px 2px rgba(255, 255, 255, 0.45), inset 0.5px 1px -1px rgba(255, 255, 255, 0.5);
+		}
+		.nav a.purplebutton {
+			background: linear-gradient(to bottom,hsl(267, 36.40%, 46.90%),hsl(267, 42.60%, 26.70%));
+		}
+		.nav a.purplebutton:hover {
+			background: linear-gradient(to bottom,hsl(267, 49.30%, 56.70%),hsl(267, 46.00%, 34.10%));
+		}
+		.nav a.purplebutton:active {
+			background: linear-gradient(to bottom,hsl(267, 42.60%, 26.70%),hsl(267, 36.40%, 46.90%));
+			box-shadow: 0 1px 2px rgba(255, 255, 255, 0.45), inset 0.5px 1px -1px rgba(255, 255, 255, 0.5);
+		}
+
+		@media (max-width:700px) {
+			.nav-wrapper {
+				width: auto;
+				display: inline-block;
+			}
+			.nav-wrapper .nav {
+				padding-left: 135px;
+			}
+			.nav a {
+				font-weight: normal;
+				padding: 8px 7px;
+			}
+			.nav img {
+				top: 10px;
+			}
+		}
+
+		@media (max-width:554px) {
+			header {
+				height: 100px;
+			}
+			.nav-wrapper .nav {
+				padding-left: 0;
+				padding-top: 50px;
+			}
+			.nav img {
+				top: 10px;
+			}
+			.nav a {
+				padding: 8px 12px;
+			}
+			.nav a.nav-first {
+				margin-left: 0;
+			}
+			.nav a.greenbutton {
+				position: absolute;
+				top: 10px;
+				right: 0;
+			}
+		}
+		@media (max-width:419px) {
+			.nav a {
+				padding: 8px 7px;
+			}
+		}
+		@media (max-width:359px) {
+			.nav-wrapper {
+				padding-left: 5px;
+			}
+			.nav a {
+				padding: 8px 4px;
+			}
+		}
+
+		footer {
+			clear: both;
+			text-align: center;
+			color: #888888;
+			padding: 10px 0 10px 0;
+		}
+		footer p {
+			margin: 10px 0;
+		}
+		footer a {
+			color: #AAAAAA;
+		}
+		footer a:hover {
+			color: #6688AA;
+		}
+		footer a.cur, footer a.cur:hover {
+			color: #888888;
+			font-weight: bold;
+			text-decoration: none;
+		}
+
+		/*********************************************************
+		 * Main
+		 *********************************************************/
+		.button {
+			color: white;
+			background: #3a4f88;
+			background: linear-gradient(to bottom, #4c63a3, #273661);
+			box-shadow: 0.5px 1px 2px rgba(255, 255, 255, 0.45), inset 0.5px 1px 1px rgba(255, 255, 255, 0.5);
+			border: 1px solid #222c4a;
+			padding: 3px 10px;
+			text-shadow: black 0px -1px 0;
+			border-radius: 10px;
+			text-decoration: none;
+			display: inline-block;
+			font-family: Verdana,Helvetica,sans-serif;
+			font-size: 11pt;
+			cursor: pointer;
+		}
+		.button:hover {
+			text-decoration: none;
+		}
+		main {
+			margin: 0 auto;
+			padding: 0 15px 15px 15px;
+			max-width: 800px;
+			overflow-wrap: break-word;
+		}
+		a {
+			color: #0073aa;
+		}
+		a:visited {
+			color: #8000aa;
+		}
+		h1 {
+			font-size: 20px;
+			margin-bottom: 20px;
+		}
+		.parentlink {
+			padding: 0 0 12px 0;
+		}
+		.parentlink a {
+			text-decoration: none;
+			display: block;
+			border: 1px solid transparent;
+			padding: 4px 8px 4px 40px;
+			border-radius: 4px;
+		}
+		.parentlink a:hover {
+			background: #e7ebee;
+			border-color: #5f8a9e;
+		}
+		.parentlink i, .parentlink em {
+			vertical-align: middle;
+		}
+		@media (prefers-color-scheme: dark) {
+			html {
+				background: #000;
+				color: #ddd;
+				color-scheme: dark;
+			}
+			a {
+				color:rgb(99, 174, 209);
+			}
+			a:visited {
+				color:rgb(177, 123, 195);
+			}
+			.parentlink a:hover {
+				background: #181818;
+				border-color: #444;
+			}
+		}
+
+		/*********************************************************
+		 * Dirlist
+		 *********************************************************/
+		h1 a {
+			font-weight: normal;
+			text-decoration: none;
+		}
+		h1 a:hover {
+			text-decoration: underline;
+		}
+
+		.dirlist {
+			font-size: 14px;
+			list-style-type: none;
+			padding: 0;
+		}
+		.header {
+			padding: 0 7px 0 39px;
+			border-bottom: 1px solid #888888;
+			background: #f0f0f0;
+		}
+		.parentlink {
+			padding: 0 0 12px 0;
+		}
+
+		.header a, .header a:visited {
+			text-decoration: none;
+			padding: 5px 0;
+			color: inherit;
+		}
+		.header a:hover {
+			text-decoration: none;
+			background: #dddddd;
+		}
+		a.row {
+			text-decoration: none;
+			display: block;
+			border: 1px solid transparent;
+			padding: 4px 8px 4px 40px;
+			border-radius: 4px;
+		}
+		a.row:hover {
+			background:#e7ebee;
+			border-color:#5f8a9e;
+		}
+		a.row * {
+			vertical-align: middle;
+		}
+
+		.icon {
+			display: inline-block;
+			width: 32px;
+			margin-left: -32px;
+			font-size: 20px;
+			text-align: center;
+			color: #777;
+		}
+		.icon.fa-arrow-circle-o-up, .icon.fa-folder-open {
+			color: #3798c5;
+			--fa-secondary-opacity: 0.55;
+		}
+		.icon.fa-image, .icon.fa-picture-o, .icon.fa-film, .icon.fa-video, .icon.fa-video-camera, .icon.fa-volume, .icon.fa-volume-up {
+			color: rgb(139, 115, 82);
+			--fa-secondary-opacity: 0.4;
+		}
+		.icon.icon-js {
+			color: rgb(160, 153, 89);
+		}
+		.icon.icon-ts, .icon.icon-md {
+			color: rgb(83, 112, 149);
+		}
+		.icon.icon-html {
+			color: rgb(166, 125, 67);
+		}
+		.icon.icon-php, .icon.icon-css {
+			color: rgb(125, 83, 149);
+		}
+		.icon.fa-file-pdf, .icon.fa-file-pdf-o, .icon.fa-font-case {
+			color: rgb(149, 83, 83);
+		}
+		.icon.fa-file-archive, .icon.fa-file-archive-o {
+			color:rgb(116, 149, 163);
+		}
+		.filename {
+			display: inline-block;
+			width: 50%;
+			min-width: 260px;
+			font-family: monospace;
+			font-size: 10pt;
+		}
+		.parentlink .filename {
+			font-family: inherit;
+			font-style: italic;
+		}
+		.filesize {
+			display: inline-block;
+			width: 20%;
+			min-width: 80px;
+			color: #666666;
+		}
+		.filemtime {
+			display: inline-block;
+			color: #666666;
+			font-size: 0.9em;
+			min-width: 150px;
+		}
+		.header .icon, .header .filename, .header .filesize, .header .filemtime {
+			font-style: normal;
+			font-family: inherit;
+			font-size: inherit;
+			color: inherit;
+		}
+		@media (prefers-color-scheme: dark) {
+			.header {
+				background: #000;
+			}
+			.header a:hover {
+				background: #333;
+			}
+			.icon {
+				color: #888;
+			}
+			a.row:hover {
+				background: #181818;
+				border-color: #444;
+			}
+			.filesize, .filemtime {
+				color: #888;
+			}
+		}
+
+		/*********************************************************
+		 * Icons
+		 *********************************************************/
+
+		.dirlist-icons {
+			font-size: 0;
+		}
+		.dirlist-icons li {
+			display: inline-block;
+			vertical-align: top;
+			width: 133px;
+			font-size: 10pt;
+		}
+		.dirlist-icons li.header {
+			display: block;
+			width: auto;
+			height: auto;
+			margin-bottom: 2px;
+		}
+		.dirlist-icons .row, .dirlist-icons a.row:hover {
+			text-align: center;
+			padding: 0;
+			text-decoration: none;
+		}
+		.dirlist-icons .row .filesize, .dirlist-icons .row .filemtime {
+			display: none;
+		}
+		.dirlist-icons .row .icon, .dirlist-icons a.row:hover .icon {
+			display: block;
+			font-size: 60px;
+			margin: 0;
+			width: auto;
+			text-decoration: none;
+		}
+		.dirlist-icons .row .filename {
+			display: block;
+			min-width: auto;
+			width: auto;
+			font-size: 9pt;
+		}
+
+		/*********************************************************
+		 * Spriteindex
+		 *********************************************************/
+
+		figure {
+			width: 96px;
+			display: inline-block;
+			vertical-align: top;
+			text-align: center;
+			margin: 0.5em 10px;
+			overflow-wrap: break-word;
+		}
+		figure img {
+			image-rendering: pixelated;
+		}
+		figure figcaption {
+			font-size: 12px;
+			text-align: center;
+		}
+		a {
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+	</style>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-26211653-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-26211653-1');
+	</script>
+	<!-- End Google Analytics -->
+</head><body>
+
+	<header>
+		<div class="nav-wrapper"><ul class="nav">
+			<li><a class="button nav-first" href="http://pokemonshowdown.com/"><img src="http://play.pokemonshowdown.com/pokemonshowdownbeta.png" srcset="http://play.pokemonshowdown.com/pokemonshowdownbeta.png 1x, http://play.pokemonshowdown.com/pokemonshowdownbeta@2x.png 2x" alt="Pok&eacute;mon Showdown" width="146" height="44" /> Home</a></li>
+			<li><a class="button" href="http://pokemonshowdown.com/dex/">Pok&eacute;dex</a></li>
+			<li><a class="button" href="http://replay.pokemonshowdown.com/">Replay</a></li>
+			<li><a class="button purplebutton" href="http://smogon.com/dex/" target="_blank">Strategy</a></li>
+			<li><a class="button nav-last purplebutton" href="http://smogon.com/forums/" target="_blank">Forum</a></li>
+			<li><a class="button greenbutton nav-first nav-last" href="http://play.pokemonshowdown.com/">Play</a></li>
+		</ul></div>
+	</header>
+
+	<main>
+		<h1>
+			Index of
+			<a href="http://play.pokemonshowdown.com/">play.pokemonshowdown.com</a><wbr />/<a href="../../index.html">sprites</a><wbr />/<a href="../../digimon.1">digimon</a><wbr />/<a href="../sprites.1">sprites</a><wbr />/pokemonani-back/
+		</h1>
+
+		<p class="parentlink">
+			<a class="row" href="../sprites.1">
+				<i class="icon fa fa-arrow-circle-o-up">
+				</i><em>(Parent directory)
+				</em>
+			</a>
+		</p>
+	<div>
+		View:
+		<ul class="nav" style="display:inline-block;vertical-align:middle;margin:0 10px 0 0">
+			<li><a class="button nav-first" href="pokemonani-back/index.html@view=sprites">Sprites</a></li>
+			<li><a class="button nav-last cur" href="pokemonani-back/index.html@view=dir">Directory</a></li>
+		</ul>
+	</div>
+
+		<ul class="dirlist">
+			<li class="header">
+				<a class="icon" href="pokemonani-back/index.html@view=dir&amp;sort=type">&nbsp;
+				</a><a class="filename" href="pokemonani-back/index.html@view=dir&amp;sort=name">Name
+				</a><a class="filesize" href="pokemonani-back/index.html@view=dir&amp;sort=size">Size
+				</a><a class="filemtime" href="pokemonani-back/index.html@view=dir&amp;sort=mtime">Last Modified</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/Rattata-alola.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">Rattata-alola.gif
+					</code><em class="filesize">10.27 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/abra.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">abra.gif
+					</code><em class="filesize">13.47 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/aerodactyl-mega.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">aerodactyl-mega.gif
+					</code><em class="filesize">16.95 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/aerodactyl.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">aerodactyl.gif
+					</code><em class="filesize">15.09 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/alakazam-mega.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">alakazam-mega.gif
+					</code><em class="filesize">15.01 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/alakazam.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">alakazam.gif
+					</code><em class="filesize">14.3 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/arbok.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">arbok.gif
+					</code><em class="filesize">8.31 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/arcanine.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">arcanine.gif
+					</code><em class="filesize">18.3 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/articuno.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">articuno.gif
+					</code><em class="filesize">15.68 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/beedrill-mega.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">beedrill-mega.gif
+					</code><em class="filesize">4.69 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/beedrill.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">beedrill.gif
+					</code><em class="filesize">4.53 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/bellsprout.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">bellsprout.gif
+					</code><em class="filesize">7.41 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/blastoise-mega.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">blastoise-mega.gif
+					</code><em class="filesize">10.63 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/blastoise.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">blastoise.gif
+					</code><em class="filesize">10.88 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/bulbasaur.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">bulbasaur.gif
+					</code><em class="filesize">12.73 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/butterfree.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">butterfree.gif
+					</code><em class="filesize">4.48 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/caterpie.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">caterpie.gif
+					</code><em class="filesize">9.88 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/chansey.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">chansey.gif
+					</code><em class="filesize">11.8 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/charizard-megax.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">charizard-megax.gif
+					</code><em class="filesize">15 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/charizard-megay.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">charizard-megay.gif
+					</code><em class="filesize">14.43 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/charizard.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">charizard.gif
+					</code><em class="filesize">14.48 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/charmander.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">charmander.gif
+					</code><em class="filesize">13.58 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/charmeleon.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">charmeleon.gif
+					</code><em class="filesize">14.58 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/clefable.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">clefable.gif
+					</code><em class="filesize">12.76 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/clefairy.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">clefairy.gif
+					</code><em class="filesize">12.18 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/cloyster.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">cloyster.gif
+					</code><em class="filesize">14.98 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/cubone.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">cubone.gif
+					</code><em class="filesize">13.91 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/dewgong.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">dewgong.gif
+					</code><em class="filesize">19.9 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/diglet-alola.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">diglet-alola.gif
+					</code><em class="filesize">10.08 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/diglett.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">diglett.gif
+					</code><em class="filesize">9.24 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/ditto.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">ditto.gif
+					</code><em class="filesize">12.6 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/dodrio.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">dodrio.gif
+					</code><em class="filesize">11.63 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/doduo.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">doduo.gif
+					</code><em class="filesize">10.21 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/dragonair.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">dragonair.gif
+					</code><em class="filesize">14.5 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/dragonite.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">dragonite.gif
+					</code><em class="filesize">14.57 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/dratini.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">dratini.gif
+					</code><em class="filesize">12.24 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/drowzee.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">drowzee.gif
+					</code><em class="filesize">12.71 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/dugtrio-alola.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">dugtrio-alola.gif
+					</code><em class="filesize">9.67 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/dugtrio.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">dugtrio.gif
+					</code><em class="filesize">8.17 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/eevee-starter.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">eevee-starter.gif
+					</code><em class="filesize">15.19 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/eevee.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">eevee.gif
+					</code><em class="filesize">14.2 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/ekans.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">ekans.gif
+					</code><em class="filesize">16.23 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/electabuzz.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">electabuzz.gif
+					</code><em class="filesize">16.64 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/electrode.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">electrode.gif
+					</code><em class="filesize">6.26 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/exeggcute.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">exeggcute.gif
+					</code><em class="filesize">7.39 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/exeggutor-alola.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">exeggutor-alola.gif
+					</code><em class="filesize">13.94 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/exeggutor.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">exeggutor.gif
+					</code><em class="filesize">14.21 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/farfetchd.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">farfetchd.gif
+					</code><em class="filesize">19.92 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/fearow.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">fearow.gif
+					</code><em class="filesize">16 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/flareon.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">flareon.gif
+					</code><em class="filesize">15.66 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/gastly.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">gastly.gif
+					</code><em class="filesize">10.17 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/gengar-mega.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">gengar-mega.gif
+					</code><em class="filesize">14.44 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/gengar.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">gengar.gif
+					</code><em class="filesize">12.69 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/geodude-alola.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">geodude-alola.gif
+					</code><em class="filesize">12.75 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/geodude.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">geodude.gif
+					</code><em class="filesize">10.99 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/gloom.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">gloom.gif
+					</code><em class="filesize">11.49 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/golbat.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">golbat.gif
+					</code><em class="filesize">8.3 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/goldeen.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">goldeen.gif
+					</code><em class="filesize">15.6 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/golduck.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">golduck.gif
+					</code><em class="filesize">8.72 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/golem-alola.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">golem-alola.gif
+					</code><em class="filesize">22.43 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/golem.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">golem.gif
+					</code><em class="filesize">20.13 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/graveler-alola.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">graveler-alola.gif
+					</code><em class="filesize">14.54 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/graveler.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">graveler.gif
+					</code><em class="filesize">12.62 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/grimer-alola.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">grimer-alola.gif
+					</code><em class="filesize">23.8 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/grimer.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">grimer.gif
+					</code><em class="filesize">23.11 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/growlithe.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">growlithe.gif
+					</code><em class="filesize">14.94 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/gyarados-mega.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">gyarados-mega.gif
+					</code><em class="filesize">15.41 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/gyarados.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">gyarados.gif
+					</code><em class="filesize">13.64 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/haunter.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">haunter.gif
+					</code><em class="filesize">12.81 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/hitmonchan.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">hitmonchan.gif
+					</code><em class="filesize">22.21 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/hitmonlee.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">hitmonlee.gif
+					</code><em class="filesize">13.29 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/horsea.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">horsea.gif
+					</code><em class="filesize">11.33 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/hypno.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">hypno.gif
+					</code><em class="filesize">13.47 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/ivysaur.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">ivysaur.gif
+					</code><em class="filesize">12.66 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/jigglypuff.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">jigglypuff.gif
+					</code><em class="filesize">11.06 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/jolteon.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">jolteon.gif
+					</code><em class="filesize">14.81 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/jynx.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">jynx.gif
+					</code><em class="filesize">17.65 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/kabuto.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">kabuto.gif
+					</code><em class="filesize">10.72 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/kabutops.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">kabutops.gif
+					</code><em class="filesize">14.12 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/kadabra.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">kadabra.gif
+					</code><em class="filesize">15.62 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/kakuna.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">kakuna.gif
+					</code><em class="filesize">3.37 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/kangaskhan-mega.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">kangaskhan-mega.gif
+					</code><em class="filesize">14.63 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/kangaskhan.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">kangaskhan.gif
+					</code><em class="filesize">15.88 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/kingler.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">kingler.gif
+					</code><em class="filesize">8.56 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/koffing.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">koffing.gif
+					</code><em class="filesize">11.16 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/krabby.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">krabby.gif
+					</code><em class="filesize">7.9 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/lapras.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">lapras.gif
+					</code><em class="filesize">12.73 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/lickitung.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">lickitung.gif
+					</code><em class="filesize">9.19 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/machamp.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">machamp.gif
+					</code><em class="filesize">15.25 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/machoke.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">machoke.gif
+					</code><em class="filesize">13.06 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/machop.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">machop.gif
+					</code><em class="filesize">12.51 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/magikarp.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">magikarp.gif
+					</code><em class="filesize">14.87 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/magmar.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">magmar.gif
+					</code><em class="filesize">15.89 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/magnemite.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">magnemite.gif
+					</code><em class="filesize">7.16 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/magneton.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">magneton.gif
+					</code><em class="filesize">7.67 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/mankey.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">mankey.gif
+					</code><em class="filesize">13.18 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/marowak-alola.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">marowak-alola.gif
+					</code><em class="filesize">15.27 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/marowak.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">marowak.gif
+					</code><em class="filesize">14.81 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/mega-venusaur.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">mega-venusaur.gif
+					</code><em class="filesize">15.53 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/melmetal.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">melmetal.gif
+					</code><em class="filesize">12.67 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/meltan.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">meltan.gif
+					</code><em class="filesize">11.05 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/meowth-alola.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">meowth-alola.gif
+					</code><em class="filesize">15.09 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/meowth.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">meowth.gif
+					</code><em class="filesize">15.5 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/metapod.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">metapod.gif
+					</code><em class="filesize">3.56 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/mew.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">mew.gif
+					</code><em class="filesize">20.54 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/mewtwo-megax.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">mewtwo-megax.gif
+					</code><em class="filesize">25.34 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/mewtwo-megay.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">mewtwo-megay.gif
+					</code><em class="filesize">21.94 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/mewtwo.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">mewtwo.gif
+					</code><em class="filesize">23.15 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/moltres.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">moltres.gif
+					</code><em class="filesize">16.81 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/mrmime.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">mrmime.gif
+					</code><em class="filesize">23.88 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/muk-alola.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">muk-alola.gif
+					</code><em class="filesize">26.97 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/muk.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">muk.gif
+					</code><em class="filesize">23.38 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/nidoking.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">nidoking.gif
+					</code><em class="filesize">14.67 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/nidoqueen.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">nidoqueen.gif
+					</code><em class="filesize">14.56 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/nidoranf.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">nidoranf.gif
+					</code><em class="filesize">11.39 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/nidoranm.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">nidoranm.gif
+					</code><em class="filesize">11.44 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/nidorina.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">nidorina.gif
+					</code><em class="filesize">12.04 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/nidorino.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">nidorino.gif
+					</code><em class="filesize">12.17 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/ninetales-alola.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">ninetales-alola.gif
+					</code><em class="filesize">12.73 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/ninetales.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">ninetales.gif
+					</code><em class="filesize">12.85 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/oddish.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">oddish.gif
+					</code><em class="filesize">10.82 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/omanyte.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">omanyte.gif
+					</code><em class="filesize">14.59 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/omastar.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">omastar.gif
+					</code><em class="filesize">14.07 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/onix.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">onix.gif
+					</code><em class="filesize">11.3 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/paras.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">paras.gif
+					</code><em class="filesize">11.71 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/parasect.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">parasect.gif
+					</code><em class="filesize">9.37 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/persian-alola.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">persian-alola.gif
+					</code><em class="filesize">17.17 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/persian.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">persian.gif
+					</code><em class="filesize">17.22 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/pidgeot-mega.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">pidgeot-mega.gif
+					</code><em class="filesize">16.65 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/pidgeot.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">pidgeot.gif
+					</code><em class="filesize">15.25 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/pidgeotto.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">pidgeotto.gif
+					</code><em class="filesize">14.98 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/pidgey.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">pidgey.gif
+					</code><em class="filesize">14.47 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/pikachu-starter.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">pikachu-starter.gif
+					</code><em class="filesize">8.27 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/pikachu.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">pikachu.gif
+					</code><em class="filesize">7.42 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/pinsir-mega.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">pinsir-mega.gif
+					</code><em class="filesize">23.11 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/pinsir.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">pinsir.gif
+					</code><em class="filesize">19.66 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/poliwag.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">poliwag.gif
+					</code><em class="filesize">8.4 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/poliwhirl.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">poliwhirl.gif
+					</code><em class="filesize">8.08 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/poliwrath.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">poliwrath.gif
+					</code><em class="filesize">8.61 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/ponyta.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">ponyta.gif
+					</code><em class="filesize">12.05 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/porygon.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">porygon.gif
+					</code><em class="filesize">12.86 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/primeape.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">primeape.gif
+					</code><em class="filesize">12.95 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/psyduck.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">psyduck.gif
+					</code><em class="filesize">7.48 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/raichu-alola.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">raichu-alola.gif
+					</code><em class="filesize">9.94 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/raichu.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">raichu.gif
+					</code><em class="filesize">9.1 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/rapidash.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">rapidash.gif
+					</code><em class="filesize">13.44 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/raticate-alola.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">raticate-alola.gif
+					</code><em class="filesize">10.27 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/raticate.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">raticate.gif
+					</code><em class="filesize">10.35 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/rattata.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">rattata.gif
+					</code><em class="filesize">10.14 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/rhydon.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">rhydon.gif
+					</code><em class="filesize">14.18 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/rhyhorn.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">rhyhorn.gif
+					</code><em class="filesize">7.8 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/sandshrew-alola.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">sandshrew-alola.gif
+					</code><em class="filesize">9.83 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/sandshrew.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">sandshrew.gif
+					</code><em class="filesize">9.71 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/sandslash-alola.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">sandslash-alola.gif
+					</code><em class="filesize">9.2 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/sandslash.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">sandslash.gif
+					</code><em class="filesize">9.05 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/scyther.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">scyther.gif
+					</code><em class="filesize">13.84 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/seadra.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">seadra.gif
+					</code><em class="filesize">12 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/seaking.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">seaking.gif
+					</code><em class="filesize">15.23 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/seel.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">seel.gif
+					</code><em class="filesize">21.39 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/shellder.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">shellder.gif
+					</code><em class="filesize">12.91 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/slowbro-mega.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">slowbro-mega.gif
+					</code><em class="filesize">9.4 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/slowbro.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">slowbro.gif
+					</code><em class="filesize">10.4 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/slowpoke.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">slowpoke.gif
+					</code><em class="filesize">12.43 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/snorlax.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">snorlax.gif
+					</code><em class="filesize">11.8 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/spearow.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">spearow.gif
+					</code><em class="filesize">14.58 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/squirtle.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">squirtle.gif
+					</code><em class="filesize">9.09 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/starmie.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">starmie.gif
+					</code><em class="filesize">8.92 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/staryu.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">staryu.gif
+					</code><em class="filesize">8.16 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/tangela.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">tangela.gif
+					</code><em class="filesize">12.34 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/tauros.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">tauros.gif
+					</code><em class="filesize">12.84 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/tentacool.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">tentacool.gif
+					</code><em class="filesize">9.52 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/tentacruel.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">tentacruel.gif
+					</code><em class="filesize">9.67 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/vaporeon.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">vaporeon.gif
+					</code><em class="filesize">17.54 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/venomoth.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">venomoth.gif
+					</code><em class="filesize">9.59 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/venonat.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">venonat.gif
+					</code><em class="filesize">12.99 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/venusaur.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">venusaur.gif
+					</code><em class="filesize">14.73 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/victreebel.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">victreebel.gif
+					</code><em class="filesize">12.65 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/vileplume.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">vileplume.gif
+					</code><em class="filesize">12.2 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/voltorb.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">voltorb.gif
+					</code><em class="filesize">5.08 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/vulpix-alola.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">vulpix-alola.gif
+					</code><em class="filesize">10.86 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/vulpix.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">vulpix.gif
+					</code><em class="filesize">10.86 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/warturtle.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">warturtle.gif
+					</code><em class="filesize">10.11 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/weedle.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">weedle.gif
+					</code><em class="filesize">8.68 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/weepinbell.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">weepinbell.gif
+					</code><em class="filesize">12.01 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/weezing.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">weezing.gif
+					</code><em class="filesize">14.11 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/wigglytuff.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">wigglytuff.gif
+					</code><em class="filesize">13.64 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/zapdos.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">zapdos.gif
+					</code><em class="filesize">14 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+			<li>
+				<a class="row" href="pokemonani-back/zubat.gif">
+					<i class="icon fa fa-film">
+					</i><code class="filename">zubat.gif
+					</code><em class="filesize">9.08 KiB
+					</em><small class="filemtime">2023-05-07 20:44:14</small>
+				</a>
+			</li>
+		</ul>
+
+	</main>
+
+</body>

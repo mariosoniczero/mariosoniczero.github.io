@@ -508,7 +508,7 @@
 			</a>
 		</p>
 	<h1 style="font-size: 12pt;">April Fool's front sprites</h1>
-	<p>These are the front sprites. You can also <a href="../afd-back">view the back sprites</a>.</p>
+	<p>These are the front sprites. You can also <a href="../afd-back.1">view the back sprites</a>.</p>
 	<p>&raquo; <a href="http://www.pokemonshowdown.com/files/pokemon-showdown-afd-2026.zip"><strong><i class="fa fa-file-archive-o"></i> pokemon-showdown-afd-2026.zip</strong></a></p>
 	<div>
 		View:
@@ -631,6 +631,10 @@
 	<img loading="lazy" src="alcremie-caramel.png" alt="alcremie-caramel.png" title="alcremie-caramel.png" />
 	<figcaption><a href="alcremie-caramel.png">alcremie-caramel</a></figcaption>
 </figure>
+<figure id="alcremie-caramelswirl.png">
+	<img loading="lazy" src="alcremie-caramelswirl.png" alt="alcremie-caramelswirl.png" title="alcremie-caramelswirl.png" />
+	<figcaption><a href="alcremie-caramelswirl.png">alcremie-caramelswirl</a></figcaption>
+</figure>
 <figure id="alcremie-gmax-old.png">
 	<img loading="lazy" src="alcremie-gmax-old.png" alt="alcremie-gmax-old.png" title="alcremie-gmax-old.png" />
 	<figcaption><a href="alcremie-gmax-old.png">alcremie-gmax-old</a></figcaption>
@@ -647,6 +651,10 @@
 	<img loading="lazy" src="alcremie-lemon.png" alt="alcremie-lemon.png" title="alcremie-lemon.png" />
 	<figcaption><a href="alcremie-lemon.png">alcremie-lemon</a></figcaption>
 </figure>
+<figure id="alcremie-lemoncream.png">
+	<img loading="lazy" src="alcremie-lemoncream.png" alt="alcremie-lemoncream.png" title="alcremie-lemoncream.png" />
+	<figcaption><a href="alcremie-lemoncream.png">alcremie-lemoncream</a></figcaption>
+</figure>
 <figure id="alcremie-matcha-old.png">
 	<img loading="lazy" src="alcremie-matcha-old.png" alt="alcremie-matcha-old.png" title="alcremie-matcha-old.png" />
 	<figcaption><a href="alcremie-matcha-old.png">alcremie-matcha-old</a></figcaption>
@@ -655,6 +663,10 @@
 	<img loading="lazy" src="alcremie-matcha.png" alt="alcremie-matcha.png" title="alcremie-matcha.png" />
 	<figcaption><a href="alcremie-matcha.png">alcremie-matcha</a></figcaption>
 </figure>
+<figure id="alcremie-matchacream.png">
+	<img loading="lazy" src="alcremie-matchacream.png" alt="alcremie-matchacream.png" title="alcremie-matchacream.png" />
+	<figcaption><a href="alcremie-matchacream.png">alcremie-matchacream</a></figcaption>
+</figure>
 <figure id="alcremie-mint-old.png">
 	<img loading="lazy" src="alcremie-mint-old.png" alt="alcremie-mint-old.png" title="alcremie-mint-old.png" />
 	<figcaption><a href="alcremie-mint-old.png">alcremie-mint-old</a></figcaption>
@@ -662,6 +674,10 @@
 <figure id="alcremie-mint.png">
 	<img loading="lazy" src="alcremie-mint.png" alt="alcremie-mint.png" title="alcremie-mint.png" />
 	<figcaption><a href="alcremie-mint.png">alcremie-mint</a></figcaption>
+</figure>
+<figure id="alcremie-mintcream.png">
+	<img loading="lazy" src="alcremie-mintcream.png" alt="alcremie-mintcream.png" title="alcremie-mintcream.png" />
+	<figcaption><a href="alcremie-mintcream.png">alcremie-mintcream</a></figcaption>
 </figure>
 <figure id="alcremie-old.png">
 	<img loading="lazy" src="alcremie-old.png" alt="alcremie-old.png" title="alcremie-old.png" />
@@ -674,6 +690,10 @@
 <figure id="alcremie-rainbow.png">
 	<img loading="lazy" src="alcremie-rainbow.png" alt="alcremie-rainbow.png" title="alcremie-rainbow.png" />
 	<figcaption><a href="alcremie-rainbow.png">alcremie-rainbow</a></figcaption>
+</figure>
+<figure id="alcremie-rainbowswirl.png">
+	<img loading="lazy" src="alcremie-rainbowswirl.png" alt="alcremie-rainbowswirl.png" title="alcremie-rainbowswirl.png" />
+	<figcaption><a href="alcremie-rainbowswirl.png">alcremie-rainbowswirl</a></figcaption>
 </figure>
 <figure id="alcremie-rubycream-old.png">
 	<img loading="lazy" src="alcremie-rubycream-old.png" alt="alcremie-rubycream-old.png" title="alcremie-rubycream-old.png" />
@@ -698,6 +718,10 @@
 <figure id="alcremie-salted.png">
 	<img loading="lazy" src="alcremie-salted.png" alt="alcremie-salted.png" title="alcremie-salted.png" />
 	<figcaption><a href="alcremie-salted.png">alcremie-salted</a></figcaption>
+</figure>
+<figure id="alcremie-saltedcream.png">
+	<img loading="lazy" src="alcremie-saltedcream.png" alt="alcremie-saltedcream.png" title="alcremie-saltedcream.png" />
+	<figcaption><a href="alcremie-saltedcream.png">alcremie-saltedcream</a></figcaption>
 </figure>
 <figure id="alcremie.png">
 	<img loading="lazy" src="alcremie.png" alt="alcremie.png" title="alcremie.png" />
@@ -1355,6 +1379,10 @@
 	<img loading="lazy" src="butterfree.png" alt="butterfree.png" title="butterfree.png" />
 	<figcaption><a href="butterfree.png">butterfree</a></figcaption>
 </figure>
+<figure id="buzzwole-old.png">
+	<img loading="lazy" src="buzzwole-old.png" alt="buzzwole-old.png" title="buzzwole-old.png" />
+	<figcaption><a href="buzzwole-old.png">buzzwole-old</a></figcaption>
+</figure>
 <figure id="buzzwole.png">
 	<img loading="lazy" src="buzzwole.png" alt="buzzwole.png" title="buzzwole.png" />
 	<figcaption><a href="buzzwole.png">buzzwole</a></figcaption>
@@ -1442,6 +1470,10 @@
 <figure id="castform-old.png">
 	<img loading="lazy" src="castform-old.png" alt="castform-old.png" title="castform-old.png" />
 	<figcaption><a href="castform-old.png">castform-old</a></figcaption>
+</figure>
+<figure id="castform-old2.png">
+	<img loading="lazy" src="castform-old2.png" alt="castform-old2.png" title="castform-old2.png" />
+	<figcaption><a href="castform-old2.png">castform-old2</a></figcaption>
 </figure>
 <figure id="castform-rainy-old.png">
 	<img loading="lazy" src="castform-rainy-old.png" alt="castform-rainy-old.png" title="castform-rainy-old.png" />
@@ -1691,6 +1723,10 @@
 	<img loading="lazy" src="claydol-old.png" alt="claydol-old.png" title="claydol-old.png" />
 	<figcaption><a href="claydol-old.png">claydol-old</a></figcaption>
 </figure>
+<figure id="claydol-old2.png">
+	<img loading="lazy" src="claydol-old2.png" alt="claydol-old2.png" title="claydol-old2.png" />
+	<figcaption><a href="claydol-old2.png">claydol-old2</a></figcaption>
+</figure>
 <figure id="claydol.png">
 	<img loading="lazy" src="claydol.png" alt="claydol.png" title="claydol.png" />
 	<figcaption><a href="claydol.png">claydol</a></figcaption>
@@ -1906,6 +1942,10 @@
 <figure id="crucibelle-mega.png">
 	<img loading="lazy" src="crucibelle-mega.png" alt="crucibelle-mega.png" title="crucibelle-mega.png" />
 	<figcaption><a href="crucibelle-mega.png">crucibelle-mega</a></figcaption>
+</figure>
+<figure id="crucibelle-old.png">
+	<img loading="lazy" src="crucibelle-old.png" alt="crucibelle-old.png" title="crucibelle-old.png" />
+	<figcaption><a href="crucibelle-old.png">crucibelle-old</a></figcaption>
 </figure>
 <figure id="crucibelle.png">
 	<img loading="lazy" src="crucibelle.png" alt="crucibelle.png" title="crucibelle.png" />
@@ -4027,10 +4067,6 @@
 	<img loading="lazy" src="kyogre-old.png" alt="kyogre-old.png" title="kyogre-old.png" />
 	<figcaption><a href="kyogre-old.png">kyogre-old</a></figcaption>
 </figure>
-<figure id="kyogre-primal-old.png">
-	<img loading="lazy" src="kyogre-primal-old.png" alt="kyogre-primal-old.png" title="kyogre-primal-old.png" />
-	<figcaption><a href="kyogre-primal-old.png">kyogre-primal-old</a></figcaption>
-</figure>
 <figure id="kyogre-primal.png">
 	<img loading="lazy" src="kyogre-primal.png" alt="kyogre-primal.png" title="kyogre-primal.png" />
 	<figcaption><a href="kyogre-primal.png">kyogre-primal</a></figcaption>
@@ -4282,6 +4318,10 @@
 <figure id="lumineon.png">
 	<img loading="lazy" src="lumineon.png" alt="lumineon.png" title="lumineon.png" />
 	<figcaption><a href="lumineon.png">lumineon</a></figcaption>
+</figure>
+<figure id="lunala-old.png">
+	<img loading="lazy" src="lunala-old.png" alt="lunala-old.png" title="lunala-old.png" />
+	<figcaption><a href="lunala-old.png">lunala-old</a></figcaption>
 </figure>
 <figure id="lunala.png">
 	<img loading="lazy" src="lunala.png" alt="lunala.png" title="lunala.png" />
@@ -4814,10 +4854,6 @@
 <figure id="mismagius.png">
 	<img loading="lazy" src="mismagius.png" alt="mismagius.png" title="mismagius.png" />
 	<figcaption><a href="mismagius.png">mismagius</a></figcaption>
-</figure>
-<figure id="missingno-old.png">
-	<img loading="lazy" src="missingno-old.png" alt="missingno-old.png" title="missingno-old.png" />
-	<figcaption><a href="missingno-old.png">missingno-old</a></figcaption>
 </figure>
 <figure id="missingno.png">
 	<img loading="lazy" src="missingno.png" alt="missingno.png" title="missingno.png" />
@@ -5411,6 +5447,10 @@
 	<img loading="lazy" src="pignite.png" alt="pignite.png" title="pignite.png" />
 	<figcaption><a href="pignite.png">pignite</a></figcaption>
 </figure>
+<figure id="pikachu-alola-old.png">
+	<img loading="lazy" src="pikachu-alola-old.png" alt="pikachu-alola-old.png" title="pikachu-alola-old.png" />
+	<figcaption><a href="pikachu-alola-old.png">pikachu-alola-old</a></figcaption>
+</figure>
 <figure id="pikachu-alola.png">
 	<img loading="lazy" src="pikachu-alola.png" alt="pikachu-alola.png" title="pikachu-alola.png" />
 	<figcaption><a href="pikachu-alola.png">pikachu-alola</a></figcaption>
@@ -5427,9 +5467,17 @@
 	<img loading="lazy" src="pikachu-gmax.png" alt="pikachu-gmax.png" title="pikachu-gmax.png" />
 	<figcaption><a href="pikachu-gmax.png">pikachu-gmax</a></figcaption>
 </figure>
+<figure id="pikachu-hoenn-old.png">
+	<img loading="lazy" src="pikachu-hoenn-old.png" alt="pikachu-hoenn-old.png" title="pikachu-hoenn-old.png" />
+	<figcaption><a href="pikachu-hoenn-old.png">pikachu-hoenn-old</a></figcaption>
+</figure>
 <figure id="pikachu-hoenn.png">
 	<img loading="lazy" src="pikachu-hoenn.png" alt="pikachu-hoenn.png" title="pikachu-hoenn.png" />
 	<figcaption><a href="pikachu-hoenn.png">pikachu-hoenn</a></figcaption>
+</figure>
+<figure id="pikachu-kalos-old.png">
+	<img loading="lazy" src="pikachu-kalos-old.png" alt="pikachu-kalos-old.png" title="pikachu-kalos-old.png" />
+	<figcaption><a href="pikachu-kalos-old.png">pikachu-kalos-old</a></figcaption>
 </figure>
 <figure id="pikachu-kalos.png">
 	<img loading="lazy" src="pikachu-kalos.png" alt="pikachu-kalos.png" title="pikachu-kalos.png" />
@@ -5438,6 +5486,10 @@
 <figure id="pikachu-libre.png">
 	<img loading="lazy" src="pikachu-libre.png" alt="pikachu-libre.png" title="pikachu-libre.png" />
 	<figcaption><a href="pikachu-libre.png">pikachu-libre</a></figcaption>
+</figure>
+<figure id="pikachu-original-old.png">
+	<img loading="lazy" src="pikachu-original-old.png" alt="pikachu-original-old.png" title="pikachu-original-old.png" />
+	<figcaption><a href="pikachu-original-old.png">pikachu-original-old</a></figcaption>
 </figure>
 <figure id="pikachu-original.png">
 	<img loading="lazy" src="pikachu-original.png" alt="pikachu-original.png" title="pikachu-original.png" />
@@ -5459,6 +5511,10 @@
 	<img loading="lazy" src="pikachu-rockstar.png" alt="pikachu-rockstar.png" title="pikachu-rockstar.png" />
 	<figcaption><a href="pikachu-rockstar.png">pikachu-rockstar</a></figcaption>
 </figure>
+<figure id="pikachu-sinnoh-old.png">
+	<img loading="lazy" src="pikachu-sinnoh-old.png" alt="pikachu-sinnoh-old.png" title="pikachu-sinnoh-old.png" />
+	<figcaption><a href="pikachu-sinnoh-old.png">pikachu-sinnoh-old</a></figcaption>
+</figure>
 <figure id="pikachu-sinnoh.png">
 	<img loading="lazy" src="pikachu-sinnoh.png" alt="pikachu-sinnoh.png" title="pikachu-sinnoh.png" />
 	<figcaption><a href="pikachu-sinnoh.png">pikachu-sinnoh</a></figcaption>
@@ -5466,6 +5522,10 @@
 <figure id="pikachu-starter.png">
 	<img loading="lazy" src="pikachu-starter.png" alt="pikachu-starter.png" title="pikachu-starter.png" />
 	<figcaption><a href="pikachu-starter.png">pikachu-starter</a></figcaption>
+</figure>
+<figure id="pikachu-unova-old.png">
+	<img loading="lazy" src="pikachu-unova-old.png" alt="pikachu-unova-old.png" title="pikachu-unova-old.png" />
+	<figcaption><a href="pikachu-unova-old.png">pikachu-unova-old</a></figcaption>
 </figure>
 <figure id="pikachu-unova.png">
 	<img loading="lazy" src="pikachu-unova.png" alt="pikachu-unova.png" title="pikachu-unova.png" />
@@ -6119,6 +6179,10 @@
 	<img loading="lazy" src="sableye-mega-old.png" alt="sableye-mega-old.png" title="sableye-mega-old.png" />
 	<figcaption><a href="sableye-mega-old.png">sableye-mega-old</a></figcaption>
 </figure>
+<figure id="sableye-mega-old2.png">
+	<img loading="lazy" src="sableye-mega-old2.png" alt="sableye-mega-old2.png" title="sableye-mega-old2.png" />
+	<figcaption><a href="sableye-mega-old2.png">sableye-mega-old2</a></figcaption>
+</figure>
 <figure id="sableye-mega.png">
 	<img loading="lazy" src="sableye-mega.png" alt="sableye-mega.png" title="sableye-mega.png" />
 	<figcaption><a href="sableye-mega.png">sableye-mega</a></figcaption>
@@ -6603,10 +6667,6 @@
 	<img loading="lazy" src="sinistea.png" alt="sinistea.png" title="sinistea.png" />
 	<figcaption><a href="sinistea.png">sinistea</a></figcaption>
 </figure>
-<figure id="sirfechtd.png">
-	<img loading="lazy" src="sirfechtd.png" alt="sirfechtd.png" title="sirfechtd.png" />
-	<figcaption><a href="sirfechtd.png">sirfechtd</a></figcaption>
-</figure>
 <figure id="sirfetchd.png">
 	<img loading="lazy" src="sirfetchd.png" alt="sirfetchd.png" title="sirfetchd.png" />
 	<figcaption><a href="sirfetchd.png">sirfetchd</a></figcaption>
@@ -6810,6 +6870,10 @@
 <figure id="sobble.png">
 	<img loading="lazy" src="sobble.png" alt="sobble.png" title="sobble.png" />
 	<figcaption><a href="sobble.png">sobble</a></figcaption>
+</figure>
+<figure id="solgaleo-old.png">
+	<img loading="lazy" src="solgaleo-old.png" alt="solgaleo-old.png" title="solgaleo-old.png" />
+	<figcaption><a href="solgaleo-old.png">solgaleo-old</a></figcaption>
 </figure>
 <figure id="solgaleo.png">
 	<img loading="lazy" src="solgaleo.png" alt="solgaleo.png" title="solgaleo.png" />
