@@ -38,6 +38,8 @@ function calculateDPP(gen, attacker, defender, move, field) {
     (0, util_1.checkForecast)(defender, field.weather);
     (0, util_1.checkItem)(attacker);
     (0, util_1.checkItem)(defender);
+    (0, util_1.checkRawStatChanges)(attacker, field.attackerSide.isPowerTrick);
+    (0, util_1.checkRawStatChanges)(defender, field.defenderSide.isPowerTrick);
     (0, util_1.checkIntimidate)(gen, attacker, defender);
     (0, util_1.checkIntimidate)(gen, defender, attacker);
     (0, util_1.checkDownload)(attacker, defender);
@@ -194,6 +196,17 @@ function calculateDPP(gen, attacker, defender, move, field) {
         filterMod = 0.75;
         desc.defenderAbility = defender.ability;
     }
+    var metronomeMod = 1;
+    if (attacker.hasItem('Metronome') && move.timesUsedWithMetronome >= 1) {
+        var timesUsedWithMetronome = Math.floor(move.timesUsedWithMetronome);
+        if (timesUsedWithMetronome <= 9) {
+            metronomeMod = 1 + 0.1 * timesUsedWithMetronome;
+        }
+        else {
+            metronomeMod = 2;
+        }
+        desc.attackerItem = attacker.item;
+    }
     var ebeltMod = 1;
     if (attacker.hasItem('Expert Belt') && typeEffectiveness > 1) {
         ebeltMod = 1.2;
@@ -218,12 +231,13 @@ function calculateDPP(gen, attacker, defender, move, field) {
         damage[i] = Math.floor(damage[i] * type2Effectiveness);
         damage[i] = Math.floor(damage[i] * filterMod);
         damage[i] = Math.floor(damage[i] * ebeltMod);
+        damage[i] = Math.floor(damage[i] * metronomeMod);
         damage[i] = Math.floor(damage[i] * tintedMod);
         damage[i] = Math.floor(damage[i] * berryMod);
         damage[i] = Math.max(1, damage[i]);
     }
     result.damage = damage;
-    if ((move.dropsStats && move.timesUsed > 1) || move.hits > 1) {
+    if (move.timesUsed > 1 || move.hits > 1) {
         var origDefBoost = desc.defenseBoost;
         var origAtkBoost = desc.attackBoost;
         var numAttacks = 1;
@@ -235,7 +249,8 @@ function calculateDPP(gen, attacker, defender, move, field) {
             numAttacks = move.hits;
         }
         var usedItems = [false, false];
-        var _loop_1 = function (times) {
+        var damageMatrix = [damage];
+        for (var times = 1; times < numAttacks; times++) {
             usedItems = (0, util_1.checkMultihitBoost)(gen, attacker, defender, move, field, desc, usedItems[0], usedItems[1]);
             var newBasePower = calculateBasePowerDPP(gen, attacker, defender, move, field, desc);
             newBasePower = calculateBPModsDPP(attacker, defender, move, field, desc, newBasePower);
@@ -246,24 +261,23 @@ function calculateDPP(gen, attacker, defender, move, field) {
                 desc.isBurned = true;
             }
             baseDamage_1 = calculateFinalModsDPP(baseDamage_1, attacker, move, field, desc, isCritical);
-            var damageMultiplier = 0;
-            result.damage = result.damage.map(function (affectedAmount) {
+            var damageArray = [];
+            for (var i = 0; i < 16; i++) {
                 var newFinalDamage = 0;
-                newFinalDamage = Math.floor((baseDamage_1 * (85 + damageMultiplier)) / 100);
+                newFinalDamage = Math.floor((baseDamage_1 * (85 + i)) / 100);
                 newFinalDamage = Math.floor(newFinalDamage * stabMod);
                 newFinalDamage = Math.floor(newFinalDamage * type1Effectiveness);
                 newFinalDamage = Math.floor(newFinalDamage * type2Effectiveness);
                 newFinalDamage = Math.floor(newFinalDamage * filterMod);
                 newFinalDamage = Math.floor(newFinalDamage * ebeltMod);
+                newFinalDamage = Math.floor(newFinalDamage * metronomeMod);
                 newFinalDamage = Math.floor(newFinalDamage * tintedMod);
                 newFinalDamage = Math.max(1, newFinalDamage);
-                damageMultiplier++;
-                return affectedAmount + newFinalDamage;
-            });
-        };
-        for (var times = 1; times < numAttacks; times++) {
-            _loop_1(times);
+                damageArray[i] = newFinalDamage;
+            }
+            damageMatrix[times] = damageArray;
         }
+        result.damage = damageMatrix;
         desc.defenseBoost = origDefBoost;
         desc.attackBoost = origAtkBoost;
     }
@@ -299,7 +313,7 @@ function calculateBasePowerDPP(gen, attacker, defender, move, field, desc, hit) 
             desc.moveBP = basePower;
             break;
         case 'Fling':
-            basePower = (0, items_1.getFlingPower)(attacker.item);
+            basePower = (0, items_1.getFlingPower)(attacker.item, gen.num);
             desc.moveBP = basePower;
             desc.attackerItem = attacker.item;
             break;
@@ -321,6 +335,13 @@ function calculateBasePowerDPP(gen, attacker, defender, move, field, desc, hit) 
             break;
         case 'Punishment':
             basePower = Math.min(200, 60 + 20 * (0, util_1.countBoosts)(gen, defender.boosts));
+            desc.moveBP = basePower;
+            break;
+        case 'Pursuit':
+            var switching = field.defenderSide.isSwitching === 'out';
+            basePower = move.bp * (switching ? 2 : 1);
+            if (switching)
+                desc.isSwitching = 'out';
             desc.moveBP = basePower;
             break;
         case 'Wake-Up Slap':
@@ -359,6 +380,14 @@ function calculateBPModsDPP(attacker, defender, move, field, desc, basePower) {
         basePower = Math.floor(basePower * 1.5);
         desc.isHelpingHand = true;
     }
+    if (field.attackerSide.isCharge && move.hasType('Electric')) {
+        basePower = Math.floor(basePower * 2);
+        desc.isCharge = true;
+    }
+    if (attacker.hasAbility('Technician') && basePower <= 60) {
+        basePower = Math.floor(basePower * 1.5);
+        desc.attackerAbility = attacker.ability;
+    }
     var isPhysical = move.category === 'Physical';
     if ((attacker.hasItem('Muscle Band') && isPhysical) ||
         (attacker.hasItem('Wise Glasses') && !isPhysical)) {
@@ -374,7 +403,8 @@ function calculateBPModsDPP(attacker, defender, move, field, desc, basePower) {
             move.hasType('Water', 'Dragon')) ||
         (attacker.hasItem('Griseous Orb') &&
             attacker.named('Giratina-Origin') &&
-            move.hasType('Ghost', 'Dragon'))) {
+            move.hasType('Ghost', 'Dragon')) ||
+        (move.named('Struggle') && (0, items_1.getItemBoostType)(attacker.item) === 'Normal')) {
         basePower = Math.floor(basePower * 1.2);
         desc.attackerItem = attacker.item;
     }
@@ -387,8 +417,7 @@ function calculateBPModsDPP(attacker, defender, move, field, desc, basePower) {
         ((attacker.hasAbility('Overgrow') && move.hasType('Grass')) ||
             (attacker.hasAbility('Blaze') && move.hasType('Fire')) ||
             (attacker.hasAbility('Torrent') && move.hasType('Water')) ||
-            (attacker.hasAbility('Swarm') && move.hasType('Bug')))) ||
-        (attacker.hasAbility('Technician') && basePower <= 60)) {
+            (attacker.hasAbility('Swarm') && move.hasType('Bug'))))) {
         basePower = Math.floor(basePower * 1.5);
         desc.attackerAbility = attacker.ability;
     }
@@ -401,6 +430,17 @@ function calculateBPModsDPP(attacker, defender, move, field, desc, basePower) {
         basePower = Math.floor(basePower * 1.25);
         desc.defenderAbility = defender.ability;
     }
+    if (attacker.hasAbility('Rivalry') && ![attacker.gender, defender.gender].includes('N')) {
+        if (attacker.gender === defender.gender) {
+            basePower = Math.floor(basePower * 1.25);
+            desc.rivalry = 'buffed';
+        }
+        else {
+            basePower = Math.floor(basePower * 0.75);
+            desc.rivalry = 'nerfed';
+        }
+        desc.attackerAbility = attacker.ability;
+    }
     return basePower;
 }
 exports.calculateBPModsDPP = calculateBPModsDPP;
@@ -408,24 +448,23 @@ function calculateAttackDPP(gen, attacker, defender, move, field, desc, isCritic
     if (isCritical === void 0) { isCritical = false; }
     var isPhysical = move.category === 'Physical';
     var attackStat = isPhysical ? 'atk' : 'spa';
-    desc.attackEVs = (0, util_1.getStatDescriptionText)(gen, attacker, attackStat, attacker.nature);
-    var attack;
-    var attackBoost = attacker.boosts[attackStat];
-    var rawAttack = attacker.rawStats[attackStat];
-    if (attackBoost === 0 || (isCritical && attackBoost < 0)) {
-        attack = rawAttack;
+    desc.attackEVs =
+        (0, util_1.getStatDescriptionText)(gen, attacker, attackStat, field.attackerSide.isPowerTrick);
+    if (field.attackerSide.isPowerTrick && isPhysical) {
+        desc.isPowerTrickAttacker = true;
     }
-    else if (defender.hasAbility('Unaware')) {
-        attack = rawAttack;
+    var attack = attacker.rawStats[attackStat];
+    var attackBoost = attacker.boosts[attackStat];
+    if (defender.hasAbility('Unaware')) {
         desc.defenderAbility = defender.ability;
     }
     else if (attacker.hasAbility('Simple')) {
-        attack = getSimpleModifiedStat(rawAttack, attackBoost);
+        attack = getSimpleModifiedStat(attack, attackBoost);
         desc.attackerAbility = attacker.ability;
         desc.attackBoost = attackBoost;
     }
-    else {
-        attack = (0, util_1.getModifiedStat)(rawAttack, attackBoost);
+    else if (attackBoost > 0 || (!isCritical && attackBoost < 0)) {
+        attack = (0, util_1.getModifiedStat)(attack, attackBoost);
         desc.attackBoost = attackBoost;
     }
     if (isPhysical && attacker.hasAbility('Pure Power', 'Huge Power')) {
@@ -472,24 +511,23 @@ function calculateDefenseDPP(gen, attacker, defender, move, field, desc, isCriti
     if (isCritical === void 0) { isCritical = false; }
     var isPhysical = move.category === 'Physical';
     var defenseStat = isPhysical ? 'def' : 'spd';
-    desc.defenseEVs = (0, util_1.getStatDescriptionText)(gen, defender, defenseStat, defender.nature);
-    var defense;
-    var defenseBoost = defender.boosts[defenseStat];
-    var rawDefense = defender.rawStats[defenseStat];
-    if (defenseBoost === 0 || (isCritical && defenseBoost > 0)) {
-        defense = rawDefense;
+    desc.defenseEVs =
+        (0, util_1.getStatDescriptionText)(gen, defender, defenseStat, field.defenderSide.isPowerTrick);
+    var defense = defender.rawStats[defenseStat];
+    if (field.defenderSide.isPowerTrick && isPhysical) {
+        desc.isPowerTrickDefender = true;
     }
-    else if (attacker.hasAbility('Unaware')) {
-        defense = rawDefense;
+    var defenseBoost = defender.boosts[defenseStat];
+    if (attacker.hasAbility('Unaware')) {
         desc.attackerAbility = attacker.ability;
     }
     else if (defender.hasAbility('Simple')) {
-        defense = getSimpleModifiedStat(rawDefense, defenseBoost);
+        defense = getSimpleModifiedStat(defense, defenseBoost);
         desc.defenderAbility = defender.ability;
         desc.defenseBoost = defenseBoost;
     }
-    else {
-        defense = (0, util_1.getModifiedStat)(rawDefense, defenseBoost);
+    else if (defenseBoost < 0 || (!isCritical && defenseBoost > 0)) {
+        defense = (0, util_1.getModifiedStat)(defense, defenseBoost);
         desc.defenseBoost = defenseBoost;
     }
     if (defender.hasAbility('Marvel Scale') && defender.status && isPhysical) {
@@ -575,15 +613,6 @@ function calculateFinalModsDPP(baseDamage, attacker, move, field, desc, isCritic
     if (attacker.hasItem('Life Orb')) {
         baseDamage = Math.floor(baseDamage * 1.3);
         desc.attackerItem = attacker.item;
-    }
-    if (move.named('Pursuit') && field.defenderSide.isSwitching === 'out') {
-        if (attacker.hasAbility('Technician')) {
-            baseDamage = Math.floor(baseDamage * 1);
-        }
-        else {
-            baseDamage = Math.floor(baseDamage * 2);
-            desc.isSwitching = 'out';
-        }
     }
     return baseDamage;
 }

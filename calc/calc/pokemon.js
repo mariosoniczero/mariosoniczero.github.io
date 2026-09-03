@@ -36,27 +36,23 @@ var Pokemon = (function () {
         this.gen = gen;
         this.name = options.name || name;
         this.types = this.species.types;
-        this.weightkg = this.species.weightkg;
-        this.level = options.level || 100;
+        this.level = gen.num === 0 ? 50 : options.level || 100;
         this.gender = options.gender || this.species.gender || 'M';
         this.ability = options.ability || ((_b = this.species.abilities) === null || _b === void 0 ? void 0 : _b[0]) || undefined;
         this.abilityOn = !!options.abilityOn;
-        this.isDynamaxed = !!options.isDynamaxed;
+        this.isDynamaxed = options.isDynamaxed;
         this.dynamaxLevel = this.isDynamaxed
             ? (options.dynamaxLevel === undefined ? 10 : options.dynamaxLevel) : undefined;
-        this.isSaltCure = !!options.isSaltCure;
+        this.weightkg = this.isDynamaxed ? 0 : this.species.weightkg;
         this.alliesFainted = options.alliesFainted;
         this.boostedStat = options.boostedStat;
         this.teraType = options.teraType;
         this.item = options.item;
         this.nature = options.nature || 'Serious';
-        this.ivs = Pokemon.withDefault(gen, options.ivs, 31);
-        this.evs = Pokemon.withDefault(gen, options.evs, gen.num >= 3 ? 0 : 252);
+        this.ivs = Pokemon.withDefault(gen, gen.num === 0 ? {} : options.ivs, 31);
+        this.evs = Pokemon.withDefault(gen, options.evs, gen.num === 0 || gen.num >= 3 ? 0 : 252);
         this.boosts = Pokemon.withDefault(gen, options.boosts, 0, false);
-        if (this.weightkg === 0 && !this.isDynamaxed && this.species.baseSpecies) {
-            this.weightkg = gen.species.get((0, util_1.toID)(this.species.baseSpecies)).weightkg;
-        }
-        if (gen.num < 3) {
+        if (gen.num > 0 && gen.num < 3) {
             this.ivs.hp = stats_1.Stats.DVToIV(stats_1.Stats.getHPDV({
                 atk: this.ivs.atk,
                 def: this.ivs.def,
@@ -131,8 +127,10 @@ var Pokemon = (function () {
         try {
             for (var types_1 = __values(types), types_1_1 = types_1.next(); !types_1_1.done; types_1_1 = types_1.next()) {
                 var type = types_1_1.value;
-                if (this.teraType ? this.teraType === type : this.types.includes(type))
+                if (this.teraType && this.teraType !== 'Stellar'
+                    ? this.teraType === type : this.types.includes(type)) {
                     return true;
+                }
             }
         }
         catch (e_2_1) { e_2 = { error: e_2_1 }; }
@@ -180,7 +178,6 @@ var Pokemon = (function () {
             abilityOn: this.abilityOn,
             isDynamaxed: this.isDynamaxed,
             dynamaxLevel: this.dynamaxLevel,
-            isSaltCure: this.isSaltCure,
             alliesFainted: this.alliesFainted,
             boostedStat: this.boostedStat,
             item: this.item,
@@ -224,12 +221,12 @@ var Pokemon = (function () {
         var cur = {};
         if (current) {
             (0, util_1.assignWithout)(cur, current, SPC);
-            if (current.spc) {
+            if (current.spc !== undefined) {
                 cur.spa = current.spc;
                 cur.spd = current.spc;
             }
-            if (match && gen.num <= 2 && current.spa !== current.spd) {
-                throw new Error('Special Attack and Special Defense must match before Gen 3');
+            if (match && gen.num > 0 && gen.num <= 2 && current.spa !== current.spd) {
+                throw new Error('Special Attack and Special Defense must match in Gen 1 and Gen 2');
             }
         }
         return __assign({ hp: val, atk: val, def: val, spa: val, spd: val, spe: val }, cur);

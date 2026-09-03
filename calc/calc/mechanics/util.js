@@ -51,12 +51,12 @@ var EV_ITEMS = [
 function isGrounded(pokemon, field) {
     return (field.isGravity || pokemon.hasItem('Iron Ball') ||
         (!pokemon.hasType('Flying') &&
-            !pokemon.hasAbility('Levitate') &&
+            !pokemon.hasAbility('Levitate', 'Eelevate') &&
             !pokemon.hasItem('Air Balloon')));
 }
 exports.isGrounded = isGrounded;
 function getModifiedStat(stat, mod, gen) {
-    if (gen && gen.num < 3) {
+    if (gen && (gen.num === 1 || gen.num === 2)) {
         if (mod >= 0) {
             var pastGenBoostTable = [1, 1.5, 2, 2.5, 3, 3.5, 4];
             stat = Math.floor(stat * pastGenBoostTable[mod]);
@@ -153,18 +153,20 @@ function getFinalSpeed(gen, pokemon, field, side) {
     else if (isQPActive(pokemon, field) && getQPBoostedStat(pokemon, gen) === 'spe') {
         speedMods.push(6144);
     }
-    if (pokemon.hasItem('Choice Scarf')) {
-        speedMods.push(6144);
-    }
-    else if (pokemon.hasItem.apply(pokemon, __spreadArray(['Iron Ball'], __read(EV_ITEMS), false))) {
-        speedMods.push(2048);
-    }
-    else if (pokemon.hasItem('Quick Powder') && pokemon.named('Ditto')) {
-        speedMods.push(8192);
+    if (!(pokemon.hasAbility('Unburden') && pokemon.abilityOn)) {
+        if (pokemon.hasItem('Choice Scarf')) {
+            speedMods.push(6144);
+        }
+        else if (pokemon.hasItem.apply(pokemon, __spreadArray(['Iron Ball'], __read(EV_ITEMS), false))) {
+            speedMods.push(2048);
+        }
+        else if (pokemon.hasItem('Quick Powder') && pokemon.named('Ditto')) {
+            speedMods.push(8192);
+        }
     }
     speed = OF32(pokeRound((speed * chainMods(speedMods, 410, 131172)) / 4096));
     if (pokemon.hasStatus('par') && !pokemon.hasAbility('Quick Feet')) {
-        speed = Math.floor(OF32(speed * (gen.num < 7 ? 25 : 50)) / 100);
+        speed = Math.floor(OF32(speed * (gen.num >= 7 || gen.num === 0 ? 50 : 25)) / 100);
     }
     speed = Math.min(gen.num <= 2 ? 999 : 10000, speed);
     return Math.max(0, speed);
@@ -180,6 +182,9 @@ function getMoveEffectiveness(gen, move, type, isGhostRevealed, isGravity, isRin
     else if (move.named('Freeze-Dry') && type === 'Water') {
         return 2;
     }
+    else if (move.named('Nihil Light') && type === 'Fairy') {
+        return 1;
+    }
     else {
         var effectiveness = gen.types.get((0, util_1.toID)(move.type)).effectiveness[type];
         if (effectiveness === 0 && isRingTarget) {
@@ -192,6 +197,34 @@ function getMoveEffectiveness(gen, move, type, isGhostRevealed, isGravity, isRin
     }
 }
 exports.getMoveEffectiveness = getMoveEffectiveness;
+function getMoveEffectiveness2(gen, move, type, isGhostRevealed, isGravity, isRingTarget, isDivinity) {
+    if (isGhostRevealed && type === 'Ghost' && move.hasType('Normal', 'Fighting')) {
+        return 1;
+    }
+    else if (isGravity && type === 'Flying' && move.hasType('Ground')) {
+        return 1;
+    }
+    else if (isDivinity && type === 'Dark' && move.hasType('Psychic')) {
+        return 2;
+    }
+    else if (move.named('Freeze-Dry') && type === 'Water') {
+        return 2;
+    }
+    else if (move.named('Nihil Light') && type === 'Fairy') {
+        return 1;
+    }
+    else {
+        var effectiveness = gen.types.get((0, util_1.toID)(move.type)).effectiveness[type];
+        if (effectiveness === 0 && isRingTarget) {
+            effectiveness = 1;
+        }
+        if (move.named('Flying Press')) {
+            effectiveness *= gen.types.get('flying').effectiveness[type];
+        }
+        return effectiveness;
+    }
+}
+exports.getMoveEffectiveness2 = getMoveEffectiveness2;
 function checkAirLock(pokemon, field) {
     if (pokemon.hasAbility('Air Lock', 'Cloud Nine')) {
         field.weather = undefined;
@@ -236,16 +269,20 @@ function checkItem(pokemon, magicRoomActive) {
     }
 }
 exports.checkItem = checkItem;
-function checkWonderRoom(pokemon, wonderRoomActive) {
-    var _a;
+function checkRawStatChanges(pokemon, powerTrickActive, wonderRoomActive) {
+    var _a, _b;
+    if (powerTrickActive) {
+        _a = __read([pokemon.rawStats.def, pokemon.rawStats.atk], 2), pokemon.rawStats.atk = _a[0], pokemon.rawStats.def = _a[1];
+    }
     if (wonderRoomActive) {
-        _a = __read([pokemon.rawStats.spd, pokemon.rawStats.def], 2), pokemon.rawStats.def = _a[0], pokemon.rawStats.spd = _a[1];
+        _b = __read([pokemon.rawStats.spd, pokemon.rawStats.def], 2), pokemon.rawStats.def = _b[0], pokemon.rawStats.spd = _b[1];
     }
 }
-exports.checkWonderRoom = checkWonderRoom;
+exports.checkRawStatChanges = checkRawStatChanges;
 function checkIntimidate(gen, source, target) {
     var blocked = target.hasAbility('Clear Body', 'White Smoke', 'Hyper Cutter', 'Full Metal Body') ||
-        (gen.num >= 8 && target.hasAbility('Inner Focus', 'Own Tempo', 'Oblivious', 'Scrappy')) ||
+        ((gen.num >= 8 || gen.num === 0) &&
+            target.hasAbility('Inner Focus', 'Own Tempo', 'Oblivious', 'Scrappy')) ||
         target.hasItem('Clear Amulet');
     if (source.hasAbility('Intimidate') && source.abilityOn && !blocked) {
         if (target.hasAbility('Contrary', 'Defiant', 'Guard Dog')) {
@@ -299,13 +336,19 @@ function checkDownload(source, target, wonderRoomActive) {
 }
 exports.checkDownload = checkDownload;
 function checkIntrepidSword(source, gen) {
-    if (source.hasAbility('Intrepid Sword') && gen.num > 7) {
+    if (source.hasAbility('Intrepid Sword') && (gen.num === 8 || source.abilityOn)) {
         source.boosts.atk = Math.min(6, source.boosts.atk + 1);
     }
 }
 exports.checkIntrepidSword = checkIntrepidSword;
+function checkBushido(source) {
+    if (source.hasAbility('Bushido') && source.abilityOn) {
+        source.boosts.atk = Math.min(6, source.boosts.atk + 1);
+    }
+}
+exports.checkBushido = checkBushido;
 function checkDauntlessShield(source, gen) {
-    if (source.hasAbility('Dauntless Shield') && gen.num > 7) {
+    if (source.hasAbility('Dauntless Shield') && (gen.num === 8 || source.abilityOn)) {
         source.boosts.def = Math.min(6, source.boosts.def + 1);
     }
 }
@@ -570,9 +613,13 @@ function getFinalDamage(baseAmount, i, effectiveness, isBurned, stabMod, finalMo
     return OF16(pokeRound(Math.max(1, OF32(damageAmount * finalMod) / 4096)));
 }
 exports.getFinalDamage = getFinalDamage;
-function getShellSideArmCategory(source, target) {
+function getShellSideArmCategory(source, target, wonderRoomActive) {
     var physicalDamage = source.stats.atk / target.stats.def;
     var specialDamage = source.stats.spa / target.stats.spd;
+    if (wonderRoomActive) {
+        physicalDamage = source.stats.atk / target.stats.spd;
+        specialDamage = source.stats.spa / target.stats.def;
+    }
     return physicalDamage > specialDamage ? 'Physical' : 'Special';
 }
 exports.getShellSideArmCategory = getShellSideArmCategory;
@@ -653,14 +700,34 @@ function countBoosts(gen, boosts) {
     return sum;
 }
 exports.countBoosts = countBoosts;
-function getStatDescriptionText(gen, pokemon, stat, natureName) {
-    var nature = gen.natures.get((0, util_1.toID)(natureName));
+function getStatDescriptionText(gen, pokemon, stat, powerTrickActive, wonderRoomActive) {
+    var initialStat = stat;
+    if (wonderRoomActive) {
+        if (stat === 'def') {
+            stat = 'spd';
+        }
+        else if (stat === 'spd') {
+            stat = 'def';
+        }
+    }
+    if (powerTrickActive) {
+        if (stat === 'atk') {
+            stat = 'def';
+        }
+        else if (stat === 'def') {
+            stat = 'atk';
+        }
+    }
+    var nature = gen.natures.get((0, util_1.toID)(pokemon.nature));
     var desc = pokemon.evs[stat] +
         (stat === 'hp' || nature.plus === nature.minus ? ''
             : nature.plus === stat ? '+'
                 : nature.minus === stat ? '-'
                     : '') + ' ' +
-        stats_1.Stats.displayStat(stat);
+        stats_1.Stats.displayStat(initialStat);
+    if (stat !== initialStat) {
+        desc = desc + ' (' + stats_1.Stats.displayStat(stat) + ')';
+    }
     var iv = pokemon.ivs[stat];
     if (iv !== 31)
         desc += " ".concat(iv, " IVs");

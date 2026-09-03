@@ -5,9 +5,8 @@ export declare namespace State {
         level?: number;
         ability?: I.AbilityName;
         abilityOn?: boolean;
-        isDynamaxed?: boolean;
+        isDynamaxed?: boolean | 'gmax';
         dynamaxLevel?: number;
-        isSaltCure?: boolean;
         alliesFainted?: number;
         boostedStat?: I.StatIDExceptHP | 'auto';
         item?: I.ItemName;
@@ -26,7 +25,7 @@ export declare namespace State {
     interface Move {
         name: I.MoveName;
         useZ?: boolean;
-        useMax?: boolean;
+        useMax?: boolean | 'gmax';
         isCrit?: boolean;
         isStellarFirstUse?: boolean;
         hits?: number;
@@ -63,10 +62,14 @@ export declare namespace State {
         isLightScreen?: boolean;
         isProtected?: boolean;
         isSeeded?: boolean;
+        isNightmared?: boolean;
+        isSaltCured?: boolean;
         isForesight?: boolean;
+        isCharge?: boolean;
         isTailwind?: boolean;
         isHelpingHand?: boolean;
         isFlowerGift?: boolean;
+        isPowerTrick?: boolean;
         isFriendGuard?: boolean;
         isAuroraVeil?: boolean;
         isBattery?: boolean;

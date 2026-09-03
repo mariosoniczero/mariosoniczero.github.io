@@ -27,6 +27,8 @@ export interface RawDesc {
     isAuroraVeil?: boolean;
     isFlowerGiftAttacker?: boolean;
     isFlowerGiftDefender?: boolean;
+    isPowerTrickAttacker?: boolean;
+    isPowerTrickDefender?: boolean;
     isSteelySpiritAttacker?: boolean;
     isFriendGuard?: boolean;
     isHelpingHand?: boolean;
@@ -37,6 +39,7 @@ export interface RawDesc {
     isReflect?: boolean;
     isBattery?: boolean;
     isPowerSpot?: boolean;
+    isCharge?: boolean;
     isWonderRoom?: boolean;
     isSwitching?: 'out' | 'in';
     moveBP?: number;
@@ -46,7 +49,7 @@ export interface RawDesc {
     rivalry?: 'buffed' | 'nerfed';
     terrain?: Terrain;
     weather?: Weather;
-    isDefenderDynamaxed?: boolean;
+    isDefenderDynamaxed?: boolean | 'gmax';
 }
 export declare function display(gen: Generation, attacker: Pokemon, defender: Pokemon, move: Move, field: Field, damage: Damage, rawDesc: RawDesc, notation?: string, err?: boolean): string;
 export declare function displayMove(gen: Generation, attacker: Pokemon, defender: Pokemon, move: Move, damage: Damage, notation?: string): string;
@@ -58,7 +61,7 @@ export declare function getRecoil(gen: Generation, attacker: Pokemon, defender: 
     recoil: number | [number, number];
     text: string;
 };
-export declare function getKOChance(gen: Generation, attacker: Pokemon, defender: Pokemon, move: Move, field: Field, damage: Damage, err?: boolean): {
+export declare function getKOChance(gen: Generation, attacker: Pokemon, defender: Pokemon, move: Move, field: Field, damageObj: Damage, err?: boolean): {
     chance: number | undefined;
     n: number;
     text: string;

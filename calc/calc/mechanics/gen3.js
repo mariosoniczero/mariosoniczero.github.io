@@ -54,8 +54,8 @@ function calculateADV(gen, attacker, defender, move, field) {
     }
     if (move.name === 'Pain Split') {
         var average = Math.floor((attacker.curHP() + defender.curHP()) / 2);
-        var damage = Math.max(0, defender.curHP() - average);
-        result.damage = damage;
+        var damage_1 = Math.max(0, defender.curHP() - average);
+        result.damage = damage_1;
         return result;
     }
     if (move.named('Weather Ball')) {
@@ -139,12 +139,14 @@ function calculateADV(gen, attacker, defender, move, field) {
     var lv = attacker.level;
     var baseDamage = Math.floor(Math.floor((Math.floor((2 * lv) / 5 + 2) * at * bp) / df) / 50);
     baseDamage = calculateFinalModsADV(baseDamage, attacker, move, field, desc, isCritical);
-    baseDamage = Math.floor(baseDamage * typeEffectiveness);
-    result.damage = [];
+    baseDamage = Math.floor(baseDamage * type1Effectiveness);
+    baseDamage = Math.floor(baseDamage * type2Effectiveness);
+    var damage = [];
     for (var i = 85; i <= 100; i++) {
-        result.damage[i - 85] = Math.max(1, Math.floor((baseDamage * i) / 100));
+        damage[i - 85] = Math.max(1, Math.floor((baseDamage * i) / 100));
     }
-    if ((move.dropsStats && move.timesUsed > 1) || move.hits > 1) {
+    result.damage = damage;
+    if (move.timesUsed > 1 || move.hits > 1) {
         var origDefBoost = desc.defenseBoost;
         var origAtkBoost = desc.attackBoost;
         var numAttacks = 1;
@@ -156,24 +158,24 @@ function calculateADV(gen, attacker, defender, move, field) {
             numAttacks = move.hits;
         }
         var usedItems = [false, false];
-        var _loop_1 = function (times) {
+        var damageMatrix = [damage];
+        for (var times = 1; times < numAttacks; times++) {
             usedItems = (0, util_1.checkMultihitBoost)(gen, attacker, defender, move, field, desc, usedItems[0], usedItems[1]);
             var newAt = calculateAttackADV(gen, attacker, defender, move, desc, isCritical);
             var newBp = calculateBasePowerADV(attacker, defender, move, desc);
             newBp = calculateBPModsADV(attacker, move, desc, newBp);
             var newBaseDmg = Math.floor(Math.floor((Math.floor((2 * lv) / 5 + 2) * newAt * newBp) / df) / 50);
             newBaseDmg = calculateFinalModsADV(newBaseDmg, attacker, move, field, desc, isCritical);
-            newBaseDmg = Math.floor(newBaseDmg * typeEffectiveness);
-            var damageMultiplier = 85;
-            result.damage = result.damage.map(function (affectedAmount) {
-                var newFinalDamage = Math.max(1, Math.floor((newBaseDmg * damageMultiplier) / 100));
-                damageMultiplier++;
-                return affectedAmount + newFinalDamage;
-            });
-        };
-        for (var times = 1; times < numAttacks; times++) {
-            _loop_1(times);
+            newBaseDmg = Math.floor(newBaseDmg * type1Effectiveness);
+            newBaseDmg = Math.floor(newBaseDmg * type2Effectiveness);
+            var damage_2 = [];
+            for (var i = 85; i <= 100; i++) {
+                var newFinalDamage = Math.max(1, Math.floor((newBaseDmg * i) / 100));
+                damage_2[i - 85] = newFinalDamage;
+            }
+            damageMatrix[times] = damage_2;
         }
+        result.damage = damageMatrix;
         desc.defenseBoost = origDefBoost;
         desc.attackBoost = origAtkBoost;
     }
@@ -237,13 +239,14 @@ function calculateAttackADV(gen, attacker, defender, move, desc, isCritical) {
     if (isCritical === void 0) { isCritical = false; }
     var isPhysical = move.category === 'Physical';
     var attackStat = isPhysical ? 'atk' : 'spa';
-    desc.attackEVs = (0, util_1.getStatDescriptionText)(gen, attacker, attackStat, attacker.nature);
+    desc.attackEVs = (0, util_1.getStatDescriptionText)(gen, attacker, attackStat);
     var at = attacker.rawStats[attackStat];
     if (isPhysical && attacker.hasAbility('Huge Power', 'Pure Power')) {
         at *= 2;
         desc.attackerAbility = attacker.ability;
     }
-    if (!attacker.hasItem('Sea Incense') && move.hasType((0, items_1.getItemBoostType)(attacker.item))) {
+    if (!attacker.hasItem('Sea Incense') && (move.hasType((0, items_1.getItemBoostType)(attacker.item))) ||
+        (move.named('Struggle') && (0, items_1.getItemBoostType)(attacker.item) === 'Normal')) {
         at = Math.floor(at * 1.1);
         desc.attackerItem = attacker.item;
     }
@@ -284,7 +287,7 @@ function calculateDefenseADV(gen, defender, move, desc, isCritical) {
     if (isCritical === void 0) { isCritical = false; }
     var isPhysical = move.category === 'Physical';
     var defenseStat = isPhysical ? 'def' : 'spd';
-    desc.defenseEVs = (0, util_1.getStatDescriptionText)(gen, defender, defenseStat, defender.nature);
+    desc.defenseEVs = (0, util_1.getStatDescriptionText)(gen, defender, defenseStat);
     var df = defender.rawStats[defenseStat];
     if (!isPhysical && defender.hasItem('Soul Dew') && defender.named('Latios', 'Latias')) {
         df = Math.floor(df * 1.5);
@@ -328,10 +331,6 @@ function calculateFinalModsADV(baseDamage, attacker, move, field, desc, isCritic
             desc.isLightScreen = true;
         }
     }
-    if (move.named('Pursuit') && field.defenderSide.isSwitching === 'out') {
-        baseDamage = Math.floor(baseDamage * 2);
-        desc.isSwitching = 'out';
-    }
     if (field.gameType !== 'Singles' && move.target === 'allAdjacentFoes') {
         baseDamage = Math.floor(baseDamage / 2);
     }
@@ -355,9 +354,17 @@ function calculateFinalModsADV(baseDamage, attacker, move, field, desc, isCritic
         baseDamage *= 2;
         desc.isCritical = true;
     }
+    if (move.named('Pursuit') && field.defenderSide.isSwitching === 'out') {
+        baseDamage = Math.floor(baseDamage * 2);
+        desc.isSwitching = 'out';
+    }
     if (move.named('Weather Ball') && field.weather) {
         baseDamage *= 2;
         desc.moveBP = move.bp * 2;
+    }
+    if (field.attackerSide.isCharge && move.hasType('Electric')) {
+        baseDamage *= 2;
+        desc.isCharge = true;
     }
     if (field.attackerSide.isHelpingHand) {
         baseDamage = Math.floor(baseDamage * 1.5);
